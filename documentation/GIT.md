@@ -1,0 +1,2 @@
+# GIT
+GIT is a programme to work on projects while giving the opportunity to work alone or with others on them. In order to have the newest version you have to 'pull' it. This only works if someone has 'pushed' another version. By 'fetching' you will always be up-to-date if there was made a change.
