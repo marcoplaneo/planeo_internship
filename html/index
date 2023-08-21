@@ -1,8 +1,12 @@
 <html>
   <head>
-    My first html file
+    <title>
+      My first html file
+    </title>  
   </head>
   <body>
-    This is my first time doing this.
+    <p>
+      This is my first time doing this.
+    </p>
   </body>
 </html>
