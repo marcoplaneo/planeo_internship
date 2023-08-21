@@ -1,8 +1,12 @@
 <html>
   <head>
-    Imprint
+    <title>
+      Imprint
+    </title>
   </head>
   <body>
-    This website is designed by Marco.
+    <p>
+      This website is designed by Marco.
+    </p>
   </body>
 </html>
