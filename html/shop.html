@@ -6,6 +6,18 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+<label for="settings">Settings:</label>
+<select id="settings" onchange="page(this.value)">
+    <option value="shop">Shop</option>
+    <option value="index">Homepage</option>
+    <option value="profile">Profile</option>
+    <option value="help">Help</option>
+</select>
+<script>
+    function page(value){
+        window.location.assign(`${value}.html`)
+    }
+</script>
 <h1 align="center">Shop</h1>
 <p align="center">Unfortunately, we are currently out of stock!</p>
 <p align="center">Click <a href="index.html">here</a> to return to the homepage.</p>
