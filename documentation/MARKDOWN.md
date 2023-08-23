@@ -3,7 +3,7 @@ MARKDOWN is a 'lightweight markup language' meaning it is used to create formatt
 ## This is a subheading
 ### But it can get smaller, too
 It is also possible to have a **bold**, _cursive_ or ~~strikethrough~~ text.\
-<img src="/home/marco/Documents/Planeo_Hauptlogo.png"/></img>\
+<img src="/home/marco/dev/planeo_internship/images/logo.jpg"/></img>\
 [Planeo](https://www.planeo.de/) is the company I will learn in. When clicking on the blue planeo, you will get to its homepage.\
 If you want to make a link for a topic that comes later in your file, or you refer to a topic that you already wrote on earlier you can do that by linking the topic for example [Markdown](#markdown).
 ---
