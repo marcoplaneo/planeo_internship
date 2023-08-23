@@ -12,7 +12,8 @@ You can add tables to give a clearer structure:\
 | :------- | :----- |
 | Monkey   | 5/5    |
 | Duck     | 4/5    |
-| Mosquito | 1/5    |\
+| Mosquito | 1/5    |
+
 It is also possible to make a block:
 ```
 These can be used to list something as for example a sequence:
