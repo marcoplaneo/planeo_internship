@@ -36,6 +36,7 @@
 * alias: nickname for command(s) created by user
 ## .bashrc
 * bashrc: create new user specific commands
+* PS1: what will show up before typing
 
-package: can be software; there are thousands of packages
+package: can be software; there are thousands of packages\
 root directory: every directory is in here
