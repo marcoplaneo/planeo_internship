@@ -41,6 +41,10 @@ td#aside{
     vertical-align: top;
 }
 
+tr#footer{
+    text-align: center;
+}
+
 tr{
     height: 10px;
 }
