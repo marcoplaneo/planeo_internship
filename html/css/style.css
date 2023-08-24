@@ -44,3 +44,7 @@ tr{
 img{
     border-radius: 50%;
 }
+
+.others{
+    border: 5px dotted lightskyblue;
+}
