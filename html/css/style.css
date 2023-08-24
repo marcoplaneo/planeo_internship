@@ -2,6 +2,7 @@ h1{
     color: midnightblue;
     background-color: lightblue;
     font-size: 75px;
+    text-align: center;
 }
 
 h2{
@@ -16,10 +17,23 @@ h3{
 
 p{
     color: midnightblue;
+    text-align: center;
 }
 
 table{
     border-collapse: collapse;
+    width: 1900px;
+}
+
+td{
+    align-content: center;
+    background-color: #f5f5dc;
+    width: 500px;
+    vertical-align: top;
+}
+
+tr{
+    height: 10px;
 }
 
 img{
