@@ -1,3 +1,4 @@
+/*heading formats*/
 h1{
     color: midnightblue;
     background-color: lightblue;
@@ -16,11 +17,13 @@ h3{
     font-size: 25px;
 }
 
+/*paragraph format*/
 p{
     color: midnightblue;
     text-align: center;
 }
 
+/*table formats*/
 table{
     border-collapse: collapse;
     width: 1900px;
@@ -41,14 +44,17 @@ tr{
     height: 10px;
 }
 
+/*image format*/
 img{
     border-radius: 50%;
 }
 
+/*highlight in website*/
 .others{
     border: 5px dotted lightskyblue;
 }
 
+/*sticky part*/
 div.sticky{
     position: sticky;
     top:0;
