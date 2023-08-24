@@ -7,13 +7,15 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 <body>
-<label for="settings">Settings:</label>
-<select id="settings" onchange="page(this.value)">
-    <option value="index">Homepage</option>
-    <option value="shop">Shop</option>
-    <option value="profile">Profile</option>
-    <option value="help">Help</option>
-</select>
+<div class="sticky">
+    <label for="settings">Settings:</label>
+    <select id="settings" onchange="page(this.value)">
+        <option value="index">Homepage</option>
+        <option value="shop">Shop</option>
+        <option value="profile">Profile</option>
+        <option value="help">Help</option>
+    </select>
+</div>
 <script>
     function page(value){
         window.location.assign(`${value}.html`)

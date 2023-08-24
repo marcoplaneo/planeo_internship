@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Help</title>
     <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 <body>
+<div class="sticky">
 <label for="settings">Settings:</label>
 <select id="settings" onchange="page(this.value)">
     <option value="help">Help</option>
@@ -13,6 +15,7 @@
     <option value="shop">Shop</option>
     <option value="profile">Profile</option>
 </select>
+</div>
 <script>
     function page(value){
         window.location.assign(`${value}.html`)
@@ -23,7 +26,7 @@
 </h1>
 <p>
     This is an easy-to-use website. You don't need any help.
-    Click <a href="index.html">here</a> to go back to the homepage.
+    Click <a href="index.html"><q>here</q></a> to go back to the homepage.
 </p>
 </body>
 </html>

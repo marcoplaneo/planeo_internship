@@ -48,3 +48,8 @@ img{
 .others{
     border: 5px dotted lightskyblue;
 }
+
+div.sticky{
+    position: sticky;
+    top:0;
+}
