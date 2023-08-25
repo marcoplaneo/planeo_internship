@@ -49,6 +49,13 @@
         <br><br>
     </label>
     <button type="submit" class="button" name="Feedback">Send Feedback</button>
-
+    <br><br>
+    <button onclick="darkMode()">Darkmode</button>
+    <script>
+        function darkMode() {
+            let element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>

@@ -8,14 +8,10 @@
 </head>
 <body>
     <a href="profile.html"><img src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg" alt="Gollum" style="width:50px;height:50px"></a>
+    <!--website heading-->
+    <h1>Shop</h1>
     <table>
         <tbody>
-        <!--website heading-->
-        <tr id="heading">
-            <td colspan="4">
-                <h1>Shop</h1>
-            </td>
-        </tr>
         <!--navigation-->
         <tr id="navigation">
             <td colspan="3">
@@ -73,5 +69,12 @@
         </tr>
         </tbody>
     </table>
+    <button onclick="darkMode()">Darkmode</button>
+    <script>
+        function darkMode() {
+            let element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>
