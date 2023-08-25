@@ -7,32 +7,44 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 <body>
-<!--drop down menu-->
-    <div class="sticky">
-        <label for="settings">Settings:</label>
-        <select id="settings" onchange="page(this.value)">
-            <option value="profile">Profile</option>
-            <option value="index">Homepage</option>
-            <option value="shop">Shop</option>
-            <option value="help">Help</option>
-            <option value="imprint">Imprint</option>
-        </select>
-    </div>
-    <script>
-        function page(value){
-            window.location.assign(`${value}.html`)
-        }
-    </script>
 <!--heading-->
     <h1>
         Profile
     </h1>
+    <table>
+        <tr>
+            <td colspan="3">
+                <div class="navbar">
+                    <a href="index.html">Home</a>
+                    <a href="shop.html">Shop</a>
+                    <div class="help">
+                        <button class="dropbtn">Help
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="help-content">
+                            <a href="help.html">Help</a>
+                            <a href="imprint.html">Imprint</a>
+                            <a href="feedback.html">Feedback</a>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <form>
+                    <label>
+                        <input type="text" name="search" placeholder="Search here!">
+                    </label>
+                    <button type="submit">Search!</button>
+                </form>
+            </td>
+        </tr>
+    </table>
 <!--main part of subsite-->
     <p>
         Your profile picture:
     </p>
     <p>
-        <img src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg" alt="Gandalf" style="width:105px;height:105px">
+        <img src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg" alt="Gollum" style="width:105px;height:105px">
     </p>
     <p>
         Changing it is not possible.
