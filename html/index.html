@@ -1,80 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Homepage</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-</head>
-<body>
-    <a href="profile.html"><img src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg" alt="Gollum" style="width:50px;height:50px"></a>
-    <!--website heading-->
-    <h1>Shop</h1>
-    <table>
-        <tbody>
+    <head>
+        <meta charset="UTF-8">
+        <title>Homepage</title>
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    </head>
+    <body>
+        <a id="profilepic" href="profile.html"><img src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg" alt="Gollum" style="width: 75px; height: 75px"></a>
+        <!--website heading-->
+        <h1>Shop</h1>
         <!--navigation-->
-        <tr id="navigation">
-            <td colspan="3">
-                <div class="navbar">
-                    <a href="index.html">Home</a>
-                    <a href="shop.html">Shop</a>
-                    <div class="help">
-                        <button class="dropbtn">Help
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="help-content">
-                            <a href="help.html">Help</a>
-                            <a href="imprint.html">Imprint</a>
-                            <a href="feedback.html">Feedback</a>
-                        </div>
-                    </div>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <div class="help">
+                <button class="dropbtn">Help
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="help-content">
+                    <a href="help.html">Help</a>
+                    <a href="imprint.html">Imprint</a>
+                    <a href="feedback.html">Feedback</a>
                 </div>
-            </td>
-            <td>
-                <form>
-                    <label>
-                        <input type="text" name="search" placeholder="Search here!">
-                    </label>
-                    <button type="submit" class="button">Search!</button>
-                </form>
-            </td>
-        </tr>
-        <tr id="spacer"></tr>
+            </div>
+        </div>
+        <div class="searchbar">
+            <form>
+                <label>
+                    <input type="text" name="search" placeholder="Search here!">
+                </label>
+                <button type="submit" class="button">Search!</button>
+            </form>
+        </div>
         <!--main part of the website-->
-        <tr id="core">
-            <td colspan="3">
-                <h2>General information</h2>
-                <br>On this website you can shop what you like.
-                <h3>Its use?</h3>
-                <br>You can find anything here, from clothes to houses. Everything you could want, we have it.
-            </td>
-            <!--right side of the website-->
-            <td id="aside" colspan="1">
-                <div class="others">
-                    <h2>Other good shops</h2>
-                    <ul>
-                        <li>
-                            <a href="https://www.planeo.de">planeo</a>
-                        </li>
-                    </ul>
-                </div>
-            </td>
-        </tr>
-        <tr id="spacer2"></tr>
+        <div class="core">
+            <h2>General information</h2>
+            <br>On this website you can shop what you like.
+            <h3>Its use?</h3>
+            <br>You can find anything here, from clothes to houses. Everything you could want, we have it.
+        </div>
+        <!--right side of the website-->
+        <div class="others">
+            <h2>Other good shops</h2>
+            <ul>
+                <li>
+                    <a href="https://www.planeo.de">planeo</a>
+                </li>
+            </ul>
+        </div>
         <!--footer-->
-        <tr id="footer">
-            <td colspan="5">
-                I do not have any rights for any element used for this website. If an element happens to be owned by you, please don't tell anyone. | <a href="imprint.html">Imprint</a> | Give us <a href="feedback.html">Feedback</a>!
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <button onclick="darkMode()">Darkmode</button>
-    <script>
-        function darkMode() {
-            let element = document.body;
-            element.classList.toggle("dark-mode");
-        }
-    </script>
-</body>
+        <div class="footer">
+            I do not have any rights for any element used for this website. If an element happens to be owned by you, please don't tell anyone. | <a href="imprint.html">Imprint</a> | Give us <a href="feedback.html">Feedback</a>!
+        </div>
+        <div class="dm">
+            <button onclick="darkMode()">Darkmode</button>
+            <script>
+                function darkMode() {
+                    let element = document.body;
+                    element.classList.toggle("dark-mode");
+                }
+            </script>
+        </div>
+    </body>
 </html>
