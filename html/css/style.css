@@ -34,6 +34,14 @@ h3{
     text-align: center;
 }
 
+h4{
+    color: midnightblue;
+    background-color: dodgerblue;
+    font-size: 75px;
+    text-align: center;
+    margin: 0;
+}
+
 /*paragraph format*/
 p{
     color: black;
@@ -156,6 +164,7 @@ div.sticky{
 
 .core {
     width: 50%;
+    margin-left: 5px;
 }
 
 .footer {
@@ -165,9 +174,12 @@ div.sticky{
 }
 
 .dm {
-    margin-top: -125px;
+    margin-top: -150px;
+    margin-left: 5px;
 }
 
 .main {
     margin-top: -50px;
+    margin-bottom: 0;
+    margin-left: 5px;
 }
