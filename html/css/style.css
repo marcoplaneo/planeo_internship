@@ -130,3 +130,18 @@ div.sticky{
 .help:hover .help-content {
     display: block;
 }
+
+.button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: black;
+    cursor: pointer;
+}
