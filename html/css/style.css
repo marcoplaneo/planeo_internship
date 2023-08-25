@@ -64,3 +64,69 @@ div.sticky{
     position: sticky;
     top:0;
 }
+
+.navbar {
+    overflow: hidden;
+    background-color: beige;
+    width: 100%;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    width: 25%;
+}
+
+.help {
+    float: left;
+    overflow: hidden;
+    width: 25%;
+    text-align: center;
+}
+
+.help .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    margin: 0;
+    width: 100%;
+}
+
+.navbar a:hover, .help:hover .dropbtn {
+    background-color: #ddd;
+}
+
+.help-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 25%;
+}
+
+.help-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    width: 94%;
+}
+
+.help-content a:hover {
+    background-color: #ddd;
+}
+
+.help:hover .help-content {
+    display: block;
+}
