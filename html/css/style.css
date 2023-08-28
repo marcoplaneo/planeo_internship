@@ -80,13 +80,13 @@ div.sticky{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    width: 25%;
+    width: 12%;
 }
 
 .help {
     float: left;
     overflow: hidden;
-    width: 25%;
+    width: 15%;
     text-align: center;
 }
 
@@ -112,7 +112,7 @@ div.sticky{
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
-    width: 25%;
+    width: 15%;
 }
 
 .help-content a {
@@ -122,7 +122,7 @@ div.sticky{
     text-decoration: none;
     display: block;
     text-align: left;
-    width: 94%;
+    width: 90%;
 }
 
 .help-content a:hover {
@@ -154,9 +154,10 @@ div.sticky{
 }
 
 .searchbar {
-    margin-left: 1550px;
+    margin-right: 15px;
     margin-top: -90px;
     margin-bottom: 100px;
+    text-align: right;
 }
 
 .core {
