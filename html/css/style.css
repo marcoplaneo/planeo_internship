@@ -54,7 +54,7 @@ img{
 .others{
     width: 48%;
     border: 5px dotted darkblue;
-    margin-top: -105%;
+    margin-top: -115%;
     margin-left: 51%;
     margin-bottom: 97%;
 }
@@ -193,15 +193,17 @@ div.sticky{
     overflow: hidden;
     width: 15%;
     text-align: center;
+    margin-left: 1600px;
+    margin-top: -200px;
 }
 
 .lang .dropbtn {
     font-size: 16px;
     border: none;
     outline: none;
-    color: white;
+    color: black;
     padding: 14px 16px;
-    background-color: inherit;
+    background-color: #f9f9f9;
     margin: 0;
     width: 100%;
 }
