@@ -1,11 +1,10 @@
 body, html {
-
     margin: 0;
     padding: 0;
     background-color: white;
     color: black;
     font-size: 25px;
-    height: 100%;
+    max-height: 160%;
 }
 
 .dark-mode {
@@ -53,11 +52,11 @@ img{
 
 /*highlight in website*/
 .others{
-    width: 50%;
+    width: 48%;
     border: 5px dotted darkblue;
-    margin-top: -308px;
-    margin-left: 49%;
-    margin-bottom: 150px;
+    margin-top: -106%;
+    margin-left: 51%;
+    margin-bottom: 97%;
 }
 
 /*sticky part*/
@@ -180,4 +179,9 @@ div.sticky{
     margin-top: -50px;
     margin-bottom: 0;
     margin-left: 5px;
+}
+
+#feedback, #name {
+    border: 1px solid;
+    box-shadow: 8px 8px 16px 0 rgba(0,0,0,0.2);
 }
