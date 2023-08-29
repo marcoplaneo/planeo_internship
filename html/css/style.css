@@ -127,7 +127,7 @@ div.sticky{
     width: 100%;
 }
 
-.navbar a:hover, .help:hover .dropbtn {
+.navbar a:hover, .help:hover, .tools:hover .dropbtn {
     background-color: lightskyblue;
 }
 
