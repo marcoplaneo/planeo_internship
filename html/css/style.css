@@ -58,6 +58,21 @@ img{
     margin-left: 39%;
 }
 
+figure {
+    float: left;
+    width: 27%;
+    text-align: center;
+    color: grey;
+}
+
+#founderpic, #co-founderpic, #marketingpic{
+    border: 5px solid dodgerblue;
+}
+
+#co-founderpic {
+    margin-top: 300px;
+}
+
 /*highlight in website*/
 .others{
     width: 48%;
