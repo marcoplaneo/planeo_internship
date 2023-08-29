@@ -172,14 +172,14 @@ div.sticky{
     align-self: center;
     margin-top: auto;
     background-color: darkgray;
-    padding: 8px 150px 25px;
+    padding: 0 100px 10px;
     bottom: 0;
     position: fixed;
 }
 
 .dm {
-    margin-top: -50px;
-    margin-left: -125px;
+    margin-top: -55px;
+    margin-left: -80px;
 }
 
 .main {
