@@ -6,11 +6,26 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
 </head>
 <body>
 <a id="profilepic" href="profile.html"><img
         src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
         alt="Gollum" style="width:75px;height:75px"></a>
+<div class="dm">
+    <button id="darkmode" class="button" onclick="darkMode()">
+            <span class="material-symbols-outlined">
+                radio_button_partial
+            </span>
+    </button>
+    <script>
+        function darkMode() {
+            let element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
+</div>
 <h1>Feedback</h1>
 <div class="navbar">
     <a href="index.html">Home</a>
@@ -43,6 +58,18 @@
         <button type="submit" class="button">Search!</button>
     </form>
 </div>
+<div class="lang">
+    <button id="language" class="dropbtn">
+        <span class="material-symbols-outlined">
+            language
+        </span>
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="lang-content">
+        <a onclick="changeLanguage('en')">English</a>
+        <a onclick="changeLanguage('de')">German</a>
+    </div>
+</div>
 <div class="main">
     <label>
         Name
@@ -73,15 +100,6 @@
         const dt = new Date();
         document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
     </script>
-    <div class="dm">
-        <button class="button" onclick="darkMode()">Darkmode</button>
-        <script>
-            function darkMode() {
-                let element = document.body;
-                element.classList.toggle("dark-mode");
-            }
-        </script>
-    </div>
 </div>
 </body>
 </html>

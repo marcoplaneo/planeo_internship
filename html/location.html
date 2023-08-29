@@ -6,11 +6,26 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
 </head>
 <body>
 <a id="profilepic" href="profile.html"><img
         src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
         alt="Gollum" style="width: 75px; height: 75px"></a>
+<div class="dm">
+    <button id="darkmode" class="button" onclick="darkMode()">
+            <span class="material-symbols-outlined">
+                radio_button_partial
+            </span>
+    </button>
+    <script>
+        function darkMode() {
+            let element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
+</div>
 <!--website heading-->
 <h1>Location</h1>
 <!--navigation-->
@@ -47,7 +62,10 @@
 </div>
 <!--language switch button-->
 <div class="lang">
-    <button class="dropbtn">Language
+    <button id="language" class="dropbtn">
+        <span class="material-symbols-outlined">
+            language
+        </span>
         <i class="fa fa-caret-down"></i>
     </button>
     <div class="lang-content">
@@ -56,7 +74,10 @@
     </div>
 </div>
 <p>You can find us here:</p>
-<iframe id="planeo_location" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3103.7761128757934!2d8.76038!3d52.0270666!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ba40257cf6964f%3A0x8f9753b910aa9300!2sMax-Planck-Stra%C3%9Fe%20116%2C%2032107%20Bad%20Salzuflen!5e1!3m2!1sen!2sde!4v1693311488917!5m2!1sen!2sde" width="1000" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe id="planeo_location"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3103.7761128757934!2d8.76038!3d52.0270666!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ba40257cf6964f%3A0x8f9753b910aa9300!2sMax-Planck-Stra%C3%9Fe%20116%2C%2032107%20Bad%20Salzuflen!5e1!3m2!1sen!2sde!4v1693311488917!5m2!1sen!2sde"
+        width="1000" height="550" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
 <br><br><br><br><br>
 <div class="footer">
     <p>I do not have any rights for any element used for this website. If an element happens to be owned by you, please
@@ -69,63 +90,54 @@
         const dt = new Date();
         document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
     </script>
-    <div class="dm">
-        <button class="button" onclick="darkMode()">Darkmode</button>
-        <script>
-            function darkMode() {
-                let element = document.body;
-                element.classList.toggle("dark-mode");
-            }
-        </script>
-        <script>
-            function changeLanguage(lang) {
-                location.hash = lang;
-                location.reload();
-            }
+    <script>
+        function changeLanguage(lang) {
+            location.hash = lang;
+            location.reload();
+        }
 
-            const language = {
-                en: {
-                    information: "General information",
-                    website: "On this website you can shop what you like.",
-                    using: "Its use?",
-                    findings: "You can find anything here, from clothes to houses. Everything you could want, we have it.",
-                    other: "Other good shops"
-                },
-                de: {
-                    information: "Generelle Informationen",
-                    website: "Auf dieser Webseite können Sie shoppen, was Sie möchten.",
-                    using: "Der Nutzen?",
-                    findings: "Sie können hier alles finden, von Klamotten bis hin zu Häusern. Alles was Sie haben wollen, haben wir.",
-                    other: "Andere gute Shops"
-                }
-            };
-            if (window.location.hash) {
-                if (window.location.hash === "#en") {
-                    info.textContent =
-                        language.en.information;
-                    mainpart.textContent =
-                        language.en.website;
-                    usages.textContent =
-                        language.en.using;
-                    finding.textContent =
-                        language.en.findings;
-                    other.textContent =
-                        language.en.other;
-                } else if (window.location.hash === "#de") {
-                    info.textContent =
-                        language.de.information;
-                    mainpart.textContent =
-                        language.de.website;
-                    usages.textContent =
-                        language.de.using;
-                    finding.textContent =
-                        language.de.findings;
-                    other.textContent =
-                        language.de.other;
-                }
+        const language = {
+            en: {
+                information: "General information",
+                website: "On this website you can shop what you like.",
+                using: "Its use?",
+                findings: "You can find anything here, from clothes to houses. Everything you could want, we have it.",
+                other: "Other good shops"
+            },
+            de: {
+                information: "Generelle Informationen",
+                website: "Auf dieser Webseite können Sie shoppen, was Sie möchten.",
+                using: "Der Nutzen?",
+                findings: "Sie können hier alles finden, von Klamotten bis hin zu Häusern. Alles was Sie haben wollen, haben wir.",
+                other: "Andere gute Shops"
             }
-        </script>
-    </div>
+        };
+        if (window.location.hash) {
+            if (window.location.hash === "#en") {
+                info.textContent =
+                    language.en.information;
+                mainpart.textContent =
+                    language.en.website;
+                usages.textContent =
+                    language.en.using;
+                finding.textContent =
+                    language.en.findings;
+                other.textContent =
+                    language.en.other;
+            } else if (window.location.hash === "#de") {
+                info.textContent =
+                    language.de.information;
+                mainpart.textContent =
+                    language.de.website;
+                usages.textContent =
+                    language.de.using;
+                finding.textContent =
+                    language.de.findings;
+                other.textContent =
+                    language.de.other;
+            }
+        }
+    </script>
 </div>
 </body>
 </html>
