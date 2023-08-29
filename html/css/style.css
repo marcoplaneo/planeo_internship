@@ -60,7 +60,7 @@ img{
 
 figure {
     float: left;
-    width: 27%;
+    width: 29%;
     text-align: center;
     color: grey;
 }
@@ -74,12 +74,29 @@ figure {
 }
 
 /*highlight in website*/
-.others{
+.opening {
     width: 48%;
-    border: 5px dotted darkblue;
-    margin-top: -153%;
-    margin-left: 51%;
-    margin-bottom: 130%;
+    margin-top: -150%;
+    margin-left: 52%;
+    margin-bottom: 110%;
+}
+
+table, th, td {
+    border-collapse: collapse;
+}
+
+table {
+    width: 70%;
+}
+
+th, td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: dodgerblue;
 }
 
 /*sticky part*/
