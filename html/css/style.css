@@ -5,6 +5,7 @@ body, html {
     color: black;
     font-size: 25px;
     max-height: 160%;
+    font-family: 'Inter', sans-serif;
 }
 
 .dark-mode {
@@ -54,7 +55,7 @@ img{
 .others{
     width: 48%;
     border: 5px dotted darkblue;
-    margin-top: -115%;
+    margin-top: -138%;
     margin-left: 51%;
     margin-bottom: 97%;
 }
@@ -145,7 +146,7 @@ div.sticky{
 }
 
 .button:hover {
-    background-color: gray;
+    background-color: grey;
     cursor: pointer;
 }
 
