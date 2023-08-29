@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Feedback</title>
-        <link href="css/style.css" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <a id="profilepic" href="profile.html"><img src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg" alt="Gollum" style="width:75px;height:75px"></a>
-        <h1>Feedback</h1>
-        <div class="navbar">
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <div class="help">
-                <button class="dropbtn">Help
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="help-content">
-                    <a href="help.html">Help</a>
-                    <a href="imprint.html">Imprint</a>
-                    <a href="feedback.html">Feedback</a>
-                </div>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+<a id="profilepic" href="profile.html"><img
+        src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
+        alt="Gollum" style="width:75px;height:75px"></a>
+<h1>Feedback</h1>
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <div class="help">
+        <button class="dropbtn">Help
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="help-content">
+            <a href="help.html">Help</a>
+            <a href="imprint.html">Imprint</a>
+            <a href="feedback.html">Feedback</a>
         </div>
-        <div class="searchbar">
-            <form>
-                <label>
-                    <input type="text" name="search" placeholder="Search here!">
-                </label>
-                <button type="submit" class="button">Search!</button>
-            </form>
-        </div>
-        <div class="main">
-            <label>
-                Name
-                <br>
-                <input type="text" id="name" name="Name" placeholder="Name">
-                <br><br>
-                Feedback
-                <br>
-                <textarea id="feedback" name="Feedback" rows="20" cols="100" placeholder="Your Feedback!"></textarea>
-            </label>
-            <br><br>
-            <button type="submit" class="button" name="Feedback">Send Feedback</button>
-        </div>
-        <!--footer-->
-        <div class="footer">
-            I do not have any rights for any element used for this website. If an element happens to be owned by you, please don't tell anyone. | <a href="imprint.html">Imprint</a> | Give us <a href="feedback.html">Feedback</a>!
-        </div>
-        <div class="dm">
-            <button class="button" onclick="darkMode()">Darkmode</button>
-            <script>
-                function darkMode() {
-                    let element = document.body;
-                    element.classList.toggle("dark-mode");
-                }
-            </script>
-        </div>
-    </body>
+    </div>
+</div>
+<div class="searchbar">
+    <form>
+        <label>
+            <input type="text" name="search" placeholder="Search here!">
+        </label>
+        <button type="submit" class="button">Search!</button>
+    </form>
+</div>
+<div class="main">
+    <label>
+        Name
+        <br>
+        <input type="text" id="name" name="Name" placeholder="Name">
+        <br><br>
+        Feedback
+        <br>
+        <textarea id="feedback" name="Feedback" rows="20" cols="100" placeholder="Your Feedback!"></textarea>
+    </label>
+    <br><br>
+    <button type="submit" class="button" name="Feedback">Send Feedback</button>
+</div>
+<br><br><br><br><br><br><br><br><br>
+<!--footer-->
+<div class="footer">
+    I do not have any rights for any element used for this website. If an element happens to be owned by you, please
+    don't tell anyone. | <a href="imprint.html">Imprint</a> | Give us <a href="feedback.html">Feedback</a>!
+    <div class="dm">
+        <button class="button" onclick="darkMode()">Darkmode</button>
+        <script>
+            function darkMode() {
+                let element = document.body;
+                element.classList.toggle("dark-mode");
+            }
+        </script>
+    </div>
+</div>
+</body>
 </html>

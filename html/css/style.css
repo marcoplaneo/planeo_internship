@@ -168,14 +168,16 @@ div.sticky{
 
 .footer {
     align-self: center;
-    padding: 8%;
     margin-top: auto;
+    background-color: darkgray;
+    padding: 8px 150px 25px;
+    bottom: 0;
+    position: fixed;
 }
 
 .dm {
-    margin-top: -150px;
-    margin-left: 5px;
-    padding-bottom: 380px;
+    margin-top: -50px;
+    margin-left: -125px;
 }
 
 .main {
