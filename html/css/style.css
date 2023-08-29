@@ -54,8 +54,7 @@ img{
 }
 
 #planeo_location {
-    border-radius: 0;
-    margin-left: 39%;
+    margin-left: 25%;
 }
 
 figure {
@@ -73,7 +72,7 @@ figure {
     margin-top: 300px;
 }
 
-/*highlight in website*/
+/*opening times table*/
 .opening {
     width: 48%;
     margin-top: -150%;

@@ -220,15 +220,13 @@
                     information: "General information",
                     website: "On this website you can shop what you like.",
                     using: "Its use?",
-                    findings: "You can find anything here, from clothes to houses. Everything you could want, we have it.",
-                    other: "Other good shops"
+                    findings: "You can find anything here, from clothes to houses. Everything you could want, we have it."
                 },
                 de: {
                     information: "Generelle Informationen",
                     website: "Auf dieser Webseite können Sie shoppen, was Sie möchten.",
                     using: "Der Nutzen?",
-                    findings: "Sie können hier alles finden, von Klamotten bis hin zu Häusern. Alles was Sie haben wollen, haben wir.",
-                    other: "Andere gute Shops"
+                    findings: "Sie können hier alles finden, von Klamotten bis hin zu Häusern. Alles was Sie haben wollen, haben wir."
                 }
             };
             if (window.location.hash) {
@@ -241,8 +239,6 @@
                         language.en.using;
                     finding.textContent =
                         language.en.findings;
-                    other.textContent =
-                        language.en.other;
                 } else if (window.location.hash === "#de") {
                     info.textContent =
                         language.de.information;
@@ -252,8 +248,6 @@
                         language.de.using;
                     finding.textContent =
                         language.de.findings;
-                    other.textContent =
-                        language.de.other;
                 }
             }
         </script>
