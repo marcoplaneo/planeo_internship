@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Location</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+<a id="profilepic" href="profile.html"><img
+        src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
+        alt="Gollum" style="width: 75px; height: 75px"></a>
+<!--website heading-->
+<h1>Location</h1>
+<!--navigation-->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="location.html">Location</a>
+    <div class="tools">
+        <button class="dropbtn">Tools
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="tools-content">
+            <a href="shop.html">Tools</a>
+        </div>
+    </div>
+    <div class="help">
+        <button class="dropbtn">Help
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="help-content">
+            <a href="help.html">Help</a>
+            <a href="imprint.html">Imprint</a>
+            <a href="feedback.html">Feedback</a>
+        </div>
+    </div>
+</div>
+<div class="searchbar">
+    <form>
+        <label>
+            <input type="text" name="search" placeholder="Search here!">
+        </label>
+        <button type="submit" class="button">Search!</button>
+    </form>
+</div>
+<!--language switch button-->
+<div class="lang">
+    <button class="dropbtn">Language
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="lang-content">
+        <a onclick="changeLanguage('en')">English</a>
+        <a onclick="changeLanguage('de')">German</a>
+    </div>
+</div>
+<p>You can find us here:</p>
+<a id="location"
+   href="https://www.google.com/maps/place/Max-Planck-Stra%C3%9Fe+116,+32107+Bad+Salzuflen/@52.0270666,8.76038,693m/data=!3m1!1e3!4m6!3m5!1s0x47ba40257cf6964f:0x8f9753b910aa9300!8m2!3d52.0270666!4d8.7629549!16s%2Fg%2F11crtqjbmv!5m1!1e4?entry=ttu"
+   target="_blank"><img id="planeo_location"
+                        src="/images/planeo_location.png"
+                        alt="planeo location"></a>
+<p>Max-Planck-Straße 116, 32107 Bad Salzuflen</p>
+<div class="footer">
+    <p>I do not have any rights for any element used for this website. If an element happens to be owned by you, please
+        don't tell anyone. | <a id="imprints" href="imprint.html">Imprint</a> | Give us <a
+                href="feedback.html">Feedback</a>!
+        <span id="datetime"></span></p>
+    <script>
+        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const day = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        const dt = new Date();
+        document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
+    </script>
+    <div class="dm">
+        <button class="button" onclick="darkMode()">Darkmode</button>
+        <script>
+            function darkMode() {
+                let element = document.body;
+                element.classList.toggle("dark-mode");
+            }
+        </script>
+        <script>
+            function changeLanguage(lang) {
+                location.hash = lang;
+                location.reload();
+            }
+
+            const language = {
+                en: {
+                    information: "General information",
+                    website: "On this website you can shop what you like.",
+                    using: "Its use?",
+                    findings: "You can find anything here, from clothes to houses. Everything you could want, we have it.",
+                    other: "Other good shops"
+                },
+                de: {
+                    information: "Generelle Informationen",
+                    website: "Auf dieser Webseite können Sie shoppen, was Sie möchten.",
+                    using: "Der Nutzen?",
+                    findings: "Sie können hier alles finden, von Klamotten bis hin zu Häusern. Alles was Sie haben wollen, haben wir.",
+                    other: "Andere gute Shops"
+                }
+            };
+            if (window.location.hash) {
+                if (window.location.hash === "#en") {
+                    info.textContent =
+                        language.en.information;
+                    mainpart.textContent =
+                        language.en.website;
+                    usages.textContent =
+                        language.en.using;
+                    finding.textContent =
+                        language.en.findings;
+                    other.textContent =
+                        language.en.other;
+                } else if (window.location.hash === "#de") {
+                    info.textContent =
+                        language.de.information;
+                    mainpart.textContent =
+                        language.de.website;
+                    usages.textContent =
+                        language.de.using;
+                    finding.textContent =
+                        language.de.findings;
+                    other.textContent =
+                        language.de.other;
+                }
+            }
+        </script>
+    </div>
+</div>
+</body>
+</html>

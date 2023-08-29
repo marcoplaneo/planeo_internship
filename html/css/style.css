@@ -53,6 +53,11 @@ img{
     border-radius: 50%;
 }
 
+#planeo_location {
+    border-radius: 0;
+    margin-left: 39%;
+}
+
 /*highlight in website*/
 .others{
     width: 48%;
