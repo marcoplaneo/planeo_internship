@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Team</title>
+    <title>Contact</title>
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
@@ -28,9 +28,8 @@
         }
     </script>
 </div>
-<!--website heading-->
-<h1>Our Team</h1>
-<!--navigation-->
+<h1>Contact</h1>
+<!--navigation bar-->
 <div class="navbar">
     <a href="index.html">Home</a>
     <a href="location.html">Location</a>
@@ -68,30 +67,36 @@
         <a onclick="changeLanguage('de')">German</a>
     </div>
 </div>
-<p>This is our team:</p>
-<a id="founder">
-    <figure><img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3OPVtAbDEJp5X0yankYYgkV3FQ1RB1sQaNA&usqp=CAU"
-            alt="Drachenlord" id="founderpic" style="width: 150px; height: 150px">
-        <figcaption id="Drachenlord">Drachenlord, our founder</figcaption>
-    </figure>
-</a>
-<a id="co-founder">
-    <figure><img
-            src="https://i1.sndcdn.com/avatars-000737921116-60lmtb-t500x500.jpg"
-            alt="Stroppo" id="co-founderpic" style="width: 150px; height: 150px">
-        <figcaption id="Stroppo">Stroppo, our co-founder</figcaption>
-    </figure>
-</a>
-<a id="marketing">
-    <figure>
-        <img
-                src="https://pbs.twimg.com/media/EKdUaGdWwAAxNIl.jpg"
-                alt="Knossi" id="marketingpic" style="width: 150px; height: 150px">
-        <figcaption id="Knossi">Knossi, our marketing head</figcaption>
-    </figure>
-</a>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<p>
+    If you have any questions regarding the website you can just write me an e-mail or call me.
+</p>
+<p>
+    But before I come to my contact info, I will tell you a little story.
+</p>
+<p>
+    I started designing this website back in 1849. I did not know what it should be about, but I kept going.
+</p>
+<p>
+    Now I have built this beautiful website everyone loves.
+</p>
+<p>
+    So as a gift for your loving support I will give you my contact information now:
+</p>
+<br>
+<h2>Contact information</h2>
+<p>
+    Max Mustermann
+</p>
+<p>
+    Musterstraße 1
+</p>
+<p>
+    00000 Musterdorf
+</p>
+<p>
+    I hope to hear from you soon :)
+</p>
+<br><br>
 <!--footer-->
 <div class="footer">
     <p>I do not have any rights for any element used for this website. If an element happens to be owned by you, please
@@ -116,15 +121,13 @@
                 information: "General information",
                 website: "On this website you can shop what you like.",
                 using: "Its use?",
-                findings: "You can find anything here, from clothes to houses. Everything you could want, we have it.",
-                other: "Other good shops"
+                findings: "You can find anything here, from clothes to houses. Everything you could want, we have it."
             },
             de: {
                 information: "Generelle Informationen",
                 website: "Auf dieser Webseite können Sie shoppen, was Sie möchten.",
                 using: "Der Nutzen?",
-                findings: "Sie können hier alles finden, von Klamotten bis hin zu Häusern. Alles was Sie haben wollen, haben wir.",
-                other: "Andere gute Shops"
+                findings: "Sie können hier alles finden, von Klamotten bis hin zu Häusern. Alles was Sie haben wollen, haben wir."
             }
         };
         if (window.location.hash) {
@@ -137,8 +140,6 @@
                     language.en.using;
                 finding.textContent =
                     language.en.findings;
-                other.textContent =
-                    language.en.other;
             } else if (window.location.hash === "#de") {
                 info.textContent =
                     language.de.information;
@@ -148,8 +149,6 @@
                     language.de.using;
                 finding.textContent =
                     language.de.findings;
-                other.textContent =
-                    language.de.other;
             }
         }
     </script>
