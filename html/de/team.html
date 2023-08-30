@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Team</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/html/css/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet"
@@ -28,12 +28,11 @@
         }
     </script>
 </div>
-<!--website heading-->
-<h1>Our Team</h1>
+<h1>Unser Team</h1>
 <!--navigation-->
 <div class="navbar">
     <a href="index.html">Home</a>
-    <a href="location.html">Location</a>
+    <a href="anfahrt.html">Anfahrt</a>
     <a href="team.html">Team</a>
     <div class="tools">
         <button class="dropbtn">Tools
@@ -44,14 +43,14 @@
         </div>
     </div>
     <div class="help">
-        <button class="dropbtn">Help
+        <button class="dropbtn">Hilfe
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="help-content">
-            <a href="help.html">Help</a>
-            <a href="imprint.html">Imprint</a>
+            <a href="help.html">Hilfe</a>
+            <a href="imprint.html">Impressum</a>
             <a href="feedback.html">Feedback</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html">Kontakt</a>
         </div>
     </div>
     <div class="account">
@@ -68,24 +67,24 @@
         <i class="fa fa-caret-down"></i>
     </button>
     <div class="lang-content">
-        <a onclick="changeLanguage('en')">English</a>
-        <a onclick="changeLanguage('de')">German</a>
+        <a onclick="changeLanguage('en')">Englisch</a>
+        <a onclick="changeLanguage('de')">Deutsch</a>
     </div>
 </div>
 <!--main part of the website-->
-<p>This is our team:</p>
+<p>Das ist unser Team:</p>
 <a id="founder">
     <figure><img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3OPVtAbDEJp5X0yankYYgkV3FQ1RB1sQaNA&usqp=CAU"
             alt="Drachenlord" id="founderpic" style="width: 150px; height: 150px">
-        <figcaption id="Drachenlord">Drachenlord, our founder</figcaption>
+        <figcaption id="Drachenlord">Drachenlord, unser Gründer</figcaption>
     </figure>
 </a>
 <a id="co-founder">
     <figure><img
             src="https://i1.sndcdn.com/avatars-000737921116-60lmtb-t500x500.jpg"
             alt="Stroppo" id="co-founderpic" style="width: 150px; height: 150px">
-        <figcaption id="Stroppo">Stroppo, our co-founder</figcaption>
+        <figcaption id="Stroppo">Stroppo, unser Mitgründer</figcaption>
     </figure>
 </a>
 <a id="marketing">
@@ -93,27 +92,30 @@
         <img
                 src="https://pbs.twimg.com/media/EKdUaGdWwAAxNIl.jpg"
                 alt="Knossi" id="marketingpic" style="width: 150px; height: 150px">
-        <figcaption id="Knossi">Knossi, our marketing head</figcaption>
+        <figcaption id="Knossi">Knossi, unser Marketingleiter</figcaption>
     </figure>
 </a>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!--footer-->
 <div class="footer">
-    <p>I do not have any rights for any element used for this website. If an element happens to be owned by you, please
-        don't tell anyone. | <a id="imprints" href="imprint.html">Imprint</a> | Give us <a
-                href="feedback.html">Feedback</a>! | If you have any questions, feel free to <a href="contact.html">contact</a> us! | <a href="aboutUs.html">About us</a>
+    <p>Ich habe keinerlei Rechte an den für diese Website verwendeten Elementen. Wenn sich ein Element zufällig in Ihrem
+        Besitz befindet, wenden Sie sich bitte an uns, bitte erzählen Sie es niemandem. | <a id="imprints"
+                                                                                             href="imprint.html">Impressum</a>
+        | Give us <a
+                href="feedback.html">Feedback</a>! | Falls Sie Fragen haben, fühlen Sie sich frei uns zu <a
+                href="contact.html">kontaktieren</a>! | <a href="aboutUs.html">Über uns</a>
         <br>
         <span id="datetime"></span></p>
     <script>
-        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const day = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        const month = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+        const day = ["", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
         const dt = new Date();
         document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
     </script>
     <script>
         function changeLanguage(lang) {
             location.hash = lang;
-            location.href="/planeo_internship/html/de/team.html";
+            location.href = "/planeo_internship/html/team.html";
         }
     </script>
 </div>
