@@ -64,7 +64,9 @@ img{
 }
 
 #planeo_location {
-    margin-left: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 figure {
