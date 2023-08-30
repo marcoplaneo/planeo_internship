@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Feedback</title>
-    <link href="css/style.css" rel="stylesheet">
+    <title>Über uns</title>
+    <link href="/html/css/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet"
@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id="profile">
-    <a id="profilepic" href="profile.html"><img
+    <a id="profilepic" href="profil.html"><img
             src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
             alt="Gollum" style="width: 75px; height: 75px"></a>
 </div>
@@ -28,28 +28,30 @@
         }
     </script>
 </div>
-<h1>Feedback</h1>
+<!--website heading-->
+<h1>Über Uns</h1>
+<!--navigation-->
 <div class="navbar">
     <a href="index.html">Home</a>
-    <a href="location.html">Location</a>
+    <a href="anfahrt.html">Anfahrt</a>
     <a href="team.html">Team</a>
     <div class="tools">
         <button class="dropbtn">Tools
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="tools-content">
-            <a href="shop.html">Tools</a>
+            <a href="tools.html">Tools</a>
         </div>
     </div>
     <div class="help">
-        <button class="dropbtn">Help
+        <button class="dropbtn">Hilfe
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="help-content">
-            <a href="help.html">Help</a>
-            <a href="imprint.html">Imprint</a>
+            <a href="hilfe.html">Hilfe</a>
+            <a href="impressum.html">Impressum</a>
             <a href="feedback.html">Feedback</a>
-            <a href="contact.html">Contact</a>
+            <a href="kontakt.html">Kontakt</a>
         </div>
     </div>
     <div class="account">
@@ -57,6 +59,7 @@
         <button type="submit" class="button" name="LogIn">Log In</button>
     </div>
 </div>
+<!--language switch button-->
 <div class="lang">
     <button id="language" class="dropbtn">
         <span class="material-symbols-outlined">
@@ -65,46 +68,51 @@
         <i class="fa fa-caret-down"></i>
     </button>
     <div class="lang-content">
-        <a onclick="changeLanguage('en')">English</a>
-        <a onclick="changeLanguage('de')">German</a>
+        <a onclick="changeLanguage('en')">Englisch</a>
+        <a onclick="changeLanguage('de')">Deutsch</a>
     </div>
 </div>
-<br><br>
-<div class="main">
-    <label>
-        Name
-        <br>
-        <input type="text" id="name" name="Name" placeholder="Name">
-        <br><br>
-        E-Mail
-        <br>
-        <input type="text" id="mail" name="Mail" placeholder="E-Mail">
-        <br><br>
-        Feedback
-        <br>
-        <textarea id="feedback" name="Feedback" rows="20" cols="100" placeholder="Your Feedback!"></textarea>
-    </label>
-    <br><br>
-    <button type="submit" class="button" name="Feedback">Send Feedback</button>
-</div>
-<br><br><br><br><br>
+<!--main part of the subsite-->
+<h2>Warum?</h2>
+<p>
+    A few years ago I wanted to buy a few things like a smartphone and a country.
+    <br>
+    But somehow you can not buy everything on one single website.
+</p>
+<h2>Die Lösung!</h2>
+<p>
+    Also, wir kamen auf die Idee eine eigene Website zu erstellen, auf der man alles kaufen kann.
+    <br>
+    Es mag surreal und wie ein Traum klingen, ist es aber nicht. Solange es sich um ein echtes Ding handelt, das Sie wollen, können Sie es hier kaufen.
+    <br>
+    Und das Beste daran ist: Es muss nicht von irgendjemandem verkauft werden. Wir verkaufen es Ihnen einfach und liefern es Ihnen anschließend, wenn möglich, direkt an Ihre Haustür.
+</p>
+<h2>Los gehts!</h2>
+<p>
+    Also, worauf warten Sie noch? Bestellen Sie Ihre Sachen jetzt.
+    <br>
+    Wir sind bereit, Ihre Bestellung entgegenzunehmen.
+</p>
 <!--footer-->
 <div class="footer">
-    <p>I do not have any rights for any element used for this website. If an element happens to be owned by you, please
-        don't tell anyone. | <a id="imprints" href="imprint.html">Imprint</a> | Give us <a
-                href="feedback.html">Feedback</a>! | If you have any questions, feel free to <a href="contact.html">contact</a> us! | <a href="aboutUs.html">About us</a>
+    <p>Ich habe keinerlei Rechte an den für diese Website verwendeten Elementen. Wenn sich ein Element zufällig in Ihrem
+        Besitz befindet, wenden Sie sich bitte an uns, bitte erzählen Sie es niemandem. | <a id="imprints"
+                                                                                             href="impressum.html">Impressum</a>
+        | Give us <a
+                href="feedback.html">Feedback</a>! | Falls Sie Fragen haben, fühlen Sie sich frei uns zu <a
+                href="kontakt.html">kontaktieren</a>! | <a href="ueberUns.html">Über uns</a>
         <br>
         <span id="datetime"></span></p>
     <script>
-        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const day = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        const month = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+        const day = ["", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
         const dt = new Date();
         document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
     </script>
     <script>
         function changeLanguage(lang) {
             location.hash = lang;
-            location.href="/planeo_internship/html/de/feedback.html";
+            location.href = "/planeo_internship/html/aboutUs.html";
         }
     </script>
 </div>

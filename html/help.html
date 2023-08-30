@@ -128,6 +128,12 @@
         const dt = new Date();
         document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
     </script>
+    <script>
+        function changeLanguage(lang) {
+            location.hash = lang;
+            location.href="/planeo_internship/html/de/hilfe.html";
+        }
+    </script>
 </div>
 </body>
 </html>

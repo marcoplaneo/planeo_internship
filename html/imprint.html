@@ -72,8 +72,8 @@
 <br>
 <div class="main">
     <h3>Information according to § 5 TMG:</h3>
+    <h3>Value added tax</h3>
     <p>
-        Value added tax
         Sales tax identification number according to §27 a Umsatzsteuergesetz: DE324686663
     </p>
     <h3>Dispute resolution</h3>
@@ -127,6 +127,12 @@
         const day = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         const dt = new Date();
         document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
+    </script>
+    <script>
+        function changeLanguage(lang) {
+            location.hash = lang;
+            location.href="/planeo_internship/html/de/impressum.html";
+        }
     </script>
 </div>
 </body>

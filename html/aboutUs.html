@@ -109,43 +109,7 @@
     <script>
         function changeLanguage(lang) {
             location.hash = lang;
-            location.reload();
-        }
-
-        const language = {
-            en: {
-                information: "General information",
-                website: "On this website you can shop what you like.",
-                using: "Its use?",
-                findings: "You can find anything here, from clothes to houses. Everything you could want, we have it."
-            },
-            de: {
-                information: "Generelle Informationen",
-                website: "Auf dieser Webseite können Sie shoppen, was Sie möchten.",
-                using: "Der Nutzen?",
-                findings: "Sie können hier alles finden, von Klamotten bis hin zu Häusern. Alles was Sie haben wollen, haben wir."
-            }
-        };
-        if (window.location.hash) {
-            if (window.location.hash === "#en") {
-                info.textContent =
-                    language.en.information;
-                mainpart.textContent =
-                    language.en.website;
-                usages.textContent =
-                    language.en.using;
-                finding.textContent =
-                    language.en.findings;
-            } else if (window.location.hash === "#de") {
-                info.textContent =
-                    language.de.information;
-                mainpart.textContent =
-                    language.de.website;
-                usages.textContent =
-                    language.de.using;
-                finding.textContent =
-                    language.de.findings;
-            }
+            location.href="/planeo_internship/html/de/ueberUns.html";
         }
     </script>
 </div>
