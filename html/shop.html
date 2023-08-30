@@ -70,7 +70,6 @@
         <a onclick="changeLanguage('de')">German</a>
     </div>
 </div>
-<br>
 <!-- main part of subsite-->
 <div class="main">
     <p><span style="color: brown"><strong>Unfortunately</strong></span>, we are currently out of stock!</p>
@@ -158,6 +157,12 @@
         const day = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         const dt = new Date();
         document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
+    </script>
+    <script>
+        function changeLanguage(lang) {
+            location.hash = lang;
+            location.href="/planeo_internship/html/de/tools.html";
+        }
     </script>
 </div>
 </body>
