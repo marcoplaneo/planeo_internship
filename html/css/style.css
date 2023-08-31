@@ -137,10 +137,10 @@ div.sticky{
 .help{
     float: left;
     overflow: hidden;
-    width: 15%;
-    text-align: center;
+    width: 100%;
+    text-align: left;
 }
-
+/*
 .help .dropbtn {
     font-size: 16px;
     border: none;
@@ -150,15 +150,15 @@ div.sticky{
     background-color: inherit;
     margin: 0;
     width: 100%;
-}
+}*/
 
 .tools{
     float: left;
     overflow: hidden;
-    width: 15%;
-    text-align: center;
+    width: 100%;
+    text-align: left;
 }
-
+/*
 .tools .dropbtn {
     font-size: 16px;
     border: none;
@@ -168,7 +168,7 @@ div.sticky{
     background-color: inherit;
     margin: 0;
     width: 100%;
-}
+}*/
 
 .burger{
     float: left;
@@ -188,6 +188,16 @@ div.sticky{
     width: 100%;
 }
 
+.burger .dropdwn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    margin: 0;
+}
+
 .navbar a:hover, .help:hover, .tools:hover, .burger:hover, .dropbtn {
     background-color: lightskyblue;
 }
@@ -200,6 +210,8 @@ div.sticky{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
     width: 15%;
+    margin-top: -46px;
+    margin-left: 286px;
 }
 
 .help-content a {
@@ -214,6 +226,7 @@ div.sticky{
 
 .help-content a:hover {
     background-color: #ddd;
+    width: 80%;
 }
 
 .help:hover .help-content {
@@ -228,6 +241,8 @@ div.sticky{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
     width: 15%;
+    margin-top: -46px;
+    margin-left: 286px;
 }
 
 .tools-content a {
@@ -242,6 +257,7 @@ div.sticky{
 
 .tools-content a:hover {
     background-color: #ddd;
+    width: 80%;
 }
 
 .tools:hover .tools-content {
