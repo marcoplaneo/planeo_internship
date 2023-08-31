@@ -371,3 +371,15 @@ a:hover {
         font-size: 12px;
     }
 }
+
+@media screen and (max-width: 1870px){
+    figure {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    #co-founderpic {
+        margin-top: 0;
+    }
+}
