@@ -329,10 +329,11 @@ div.sticky{
 
 .footer {
     align-self: center;
-    margin-top: auto;
     background-color: darkgray;
     padding: 3px 100px 3px;
     font-size: 20px;
+    position: relative;
+    bottom: -250px;
 }
 
 .dm {

@@ -100,7 +100,6 @@
 <p>
     I hope to hear from you soon :)
 </p>
-<br><br>
 <!--footer-->
 <div class="footer">
     <p>I do not have any rights for any element used for this website. If an element happens to be owned by you, please
@@ -113,48 +112,6 @@
         const day = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         const dt = new Date();
         document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
-    </script>
-    <script>
-        function changeLanguage(lang) {
-            location.hash = lang;
-            location.reload();
-        }
-
-        const language = {
-            en: {
-                information: "General information",
-                website: "On this website you can shop what you like.",
-                using: "Its use?",
-                findings: "You can find anything here, from clothes to houses. Everything you could want, we have it."
-            },
-            de: {
-                information: "Generelle Informationen",
-                website: "Auf dieser Webseite können Sie shoppen, was Sie möchten.",
-                using: "Der Nutzen?",
-                findings: "Sie können hier alles finden, von Klamotten bis hin zu Häusern. Alles was Sie haben wollen, haben wir."
-            }
-        };
-        if (window.location.hash) {
-            if (window.location.hash === "#en") {
-                info.textContent =
-                    language.en.information;
-                mainpart.textContent =
-                    language.en.website;
-                usages.textContent =
-                    language.en.using;
-                finding.textContent =
-                    language.en.findings;
-            } else if (window.location.hash === "#de") {
-                info.textContent =
-                    language.de.information;
-                mainpart.textContent =
-                    language.de.website;
-                usages.textContent =
-                    language.de.using;
-                finding.textContent =
-                    language.de.findings;
-            }
-        }
     </script>
     <script>
         function changeLanguage(lang) {
