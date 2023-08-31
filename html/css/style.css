@@ -170,7 +170,25 @@ div.sticky{
     width: 100%;
 }
 
-.navbar a:hover, .help:hover, .tools:hover .dropbtn {
+.burger{
+    float: left;
+    overflow: hidden;
+    width: 15%;
+    text-align: center;
+}
+
+.burger .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    margin: 0;
+    width: 100%;
+}
+
+.navbar a:hover, .help:hover, .tools:hover, .burger:hover, .dropbtn {
     background-color: lightskyblue;
 }
 
@@ -230,9 +248,39 @@ div.sticky{
     display: block;
 }
 
+.burger-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 15%;
+}
+
+.burger-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    width: 90%;
+}
+
+.burger-content a:hover {
+    background-color: #ddd;
+}
+
+.burger:hover .burger-content {
+    display: block;
+}
+
 .account {
     margin-left: 80%;
-    margin-top: 5px;
+    margin-top: 15px;
+    display: flex;
+    gap: 20px;
 }
 
 /*button*/
@@ -357,6 +405,12 @@ a:hover {
     color: grey;
 }
 
+@media screen and (max-width: 1500px){
+    .account {
+        margin-left: 70%;
+    }
+}
+
 @media screen and (max-width: 1000px){
     .core, .opening {
         width: 100%;
@@ -369,6 +423,9 @@ a:hover {
     }
     .footer {
         font-size: 12px;
+    }
+    .account {
+        margin-left: 60%;
     }
 }
 
@@ -383,3 +440,21 @@ a:hover {
         margin-top: 0;
     }
 }
+
+/*Try to make the navbar responsive*/
+/*
+@media screen and (min-width: 1000px){
+    .burger {
+        visibility: hidden;
+    }
+
+    .burger-content {
+        display: flex;
+        visibility: visible;
+        gap: 150px;
+    }
+
+    .burger:hover .burger-content {
+        display: flex;
+    }
+}*/
