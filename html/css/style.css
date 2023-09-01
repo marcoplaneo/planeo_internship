@@ -441,7 +441,7 @@ a:hover {
 
 @media screen and (max-width: 1000px){
     .core, .opening {
-        width: 100%;
+        width: 95%;
     }
     .opening {
         display: block;
