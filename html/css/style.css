@@ -465,6 +465,48 @@ a:hover {
     }
 }
 
+@media screen and (min-width: 1000px) {
+    .burger {
+        visibility: hidden;
+    }
+    .burger-content {
+        display: inline-flex;
+        visibility: visible;
+        margin-left: -15%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        box-shadow: none;
+        width: 50%;
+        background-color: darkslategrey;
+    }
+    .burger-content a{
+        text-align: center;
+    }
+    .burger:hover .burger-content {
+        display: inline-flex;
+    }
+    .burger-content a:hover {
+        background-color: lightskyblue;
+        color: black;
+    }
+    .tools {
+        text-align: center;
+    }
+    .tools:hover .tools-content {
+        display: block;
+        margin-top: 0;
+        margin-left: 0;
+    }
+    .help {
+        text-align: center;
+    }
+    .help:hover .help-content {
+        display: block;
+        margin-top: 0;
+        margin-left: 0;
+    }
+}
+
 /*Try to make the navbar responsive*/
 /*
 @media screen and (min-width: 1000px){
