@@ -353,6 +353,15 @@ div.sticky{
     bottom: -250px;
 }
 
+.footer2 {
+    align-self: center;
+    background-color: darkgray;
+    padding: 3px 100px 3px;
+    font-size: 20px;
+    position: absolute;
+    bottom: -250px;
+}
+
 .dm {
     margin-left: -80px;
 }
