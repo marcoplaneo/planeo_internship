@@ -211,7 +211,7 @@ div.sticky{
     z-index: 1;
     width: 15%;
     margin-top: -46px;
-    margin-left: 286px;
+    margin-left: 100%;
 }
 
 .help-content a {
@@ -242,7 +242,7 @@ div.sticky{
     z-index: 1;
     width: 15%;
     margin-top: -46px;
-    margin-left: 286px;
+    margin-left: 100%;
 }
 
 .tools-content a {
@@ -286,6 +286,7 @@ div.sticky{
 
 .burger-content a:hover {
     background-color: #ddd;
+    width: 89%;
 }
 
 .burger:hover .burger-content {
@@ -372,7 +373,7 @@ div.sticky{
     overflow: hidden;
     text-align: center;
     margin-left: 83%;
-    margin-top: -229px;
+    margin-top: -237px;
 }
 
 .lang .dropbtn {
@@ -444,6 +445,12 @@ a:hover {
     .account {
         margin-left: 60%;
     }
+    #co-founderpic {
+        margin-top: 0;
+    }
+    .burger-content a:hover {
+        width: 85%;
+    }
 }
 
 @media screen and (max-width: 1870px){
@@ -452,9 +459,9 @@ a:hover {
     }
 }
 
-@media screen and (max-width: 1000px){
-    #co-founderpic {
-        margin-top: 0;
+@media screen and (min-width: 2000px){
+    .burger-content a:hover {
+        width: 95%;
     }
 }
 
