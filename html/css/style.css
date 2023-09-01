@@ -481,6 +481,7 @@ a:hover {
     }
     .burger-content a{
         text-align: center;
+        color: white;
     }
     .burger:hover .burger-content {
         display: inline-flex;
@@ -491,6 +492,12 @@ a:hover {
     }
     .tools {
         text-align: center;
+    }
+    .tools-content a {
+        color: black;
+    }
+    .help-content a {
+        color: black;
     }
     .tools:hover .tools-content {
         display: block;
@@ -504,6 +511,9 @@ a:hover {
         display: block;
         margin-top: 0;
         margin-left: 0;
+    }
+    .burger .dropdwn {
+        color: white;
     }
 }
 
