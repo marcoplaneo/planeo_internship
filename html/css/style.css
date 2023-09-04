@@ -99,9 +99,8 @@ figure {
 /*opening times table*/
 .opening {
     width: 48%;
-    /*margin-top: -168%;*/
     margin-left: 52%;
-    margin-bottom: -27%;
+    margin-bottom: -515px;
 }
 
 table, th, td {
