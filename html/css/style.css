@@ -211,7 +211,7 @@ div.sticky{
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
-    width: 15%;
+    width: 21%;
     margin-top: -46px;
     margin-left: 100%;
 }
@@ -242,7 +242,7 @@ div.sticky{
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
-    width: 15%;
+    width: 21.1%;
     margin-top: -46px;
     margin-left: 100%;
 }
@@ -297,9 +297,9 @@ div.sticky{
 
 .account {
     margin-left: 80%;
-    margin-top: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
     display: flex;
-    gap: 20px;
 }
 
 /*button*/
@@ -315,6 +315,21 @@ div.sticky{
 
 .button:hover {
     background-color: grey;
+    cursor: pointer;
+}
+
+.navbutton {
+    background-color: darkslategrey;
+    border: none;
+    color: white;
+    padding: 19px 20px 19px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbutton:hover {
+    background-color: lightskyblue;
     cursor: pointer;
 }
 
@@ -460,7 +475,7 @@ a:hover {
         margin-top: 0;
     }
     .burger-content a:hover {
-        width: 83%;
+        width: 82.8%;
     }
     .tools {
         padding-left: 0;
@@ -558,11 +573,11 @@ a:hover {
         color: black;
     }
     .tools-content a:hover {
-        width: 84%;
+        width: 86.4%;
         background-color: #ddd;
     }
     .help-content a:hover {
-        width: 84%;
+        width: 86.4%;
         background-color: #ddd;
     }
     .tools:hover .tools-content {
