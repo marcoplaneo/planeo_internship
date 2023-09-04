@@ -14,14 +14,17 @@ body, html {
     #feedback {
         background-color: black;
         border-color: white;
+        color: white;
     }
     #name {
         background-color: black;
         border-color: white;
+        color: white;
     }
     #mail {
         background-color: black;
         border-color: white;
+        color: white;
     }
 }
 
@@ -417,6 +420,20 @@ div.sticky{
 
 input:focus {
     box-shadow: 8px 8px 10px 0 rgba(120,120,120,0.3);
+}
+
+input:invalid {
+    outline: 2px solid red;
+    border-radius: 5px;
+}
+
+.form-feedback:focus {
+    box-shadow: 8px 8px 10px 0 rgba(120,120,120,0.3);
+}
+
+.form-feedback:invalid {
+    outline: 2px solid red;
+    border-radius: 5px;
 }
 
 .required {
