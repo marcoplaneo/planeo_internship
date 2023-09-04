@@ -80,18 +80,22 @@
 </div>
 <br><br>
 <div class="main">
+    <div class="required">
+        Boxes with a star(*) are required.
+    </div>
+    <br>
     <label>
         Name
         <br>
         <input type="text" id="name" name="Name" placeholder="Name">
         <br><br>
-        E-Mail
+        E-Mail *
         <br>
-        <input type="text" id="mail" name="Mail" placeholder="E-Mail">
+        <input type="text" id="mail" name="Mail" required placeholder="E-Mail">
         <br><br>
-        Feedback
+        Feedback *
         <br>
-        <textarea id="feedback" name="Feedback" rows="20" cols="100" placeholder="Your Feedback!"></textarea>
+        <textarea id="feedback" name="Feedback" required rows="20" cols="100" placeholder="Your Feedback!"></textarea>
     </label>
     <br><br>
     <button type="submit" class="button" name="Feedback">Send Feedback</button>

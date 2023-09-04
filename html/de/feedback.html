@@ -83,6 +83,10 @@
 <br><br>
 <!--main part of subsite-->
 <div class="main">
+    <div class="required">
+        Boxen mit einem Stern(*) sind Pflichtfelder.
+    </div>
+    <br>
     <label>
         Name
         <br>
@@ -90,11 +94,11 @@
         <br><br>
         E-Mail
         <br>
-        <input type="text" id="mail" name="Mail" placeholder="E-Mail">
+        <input type="text" id="mail" name="Mail" required placeholder="E-Mail">
         <br><br>
         Feedback
         <br>
-        <textarea id="feedback" name="Feedback" rows="20" cols="100" placeholder="Ihr Feedback!"></textarea>
+        <textarea id="feedback" name="Feedback" required rows="20" cols="100" placeholder="Ihr Feedback!"></textarea>
     </label>
     <br><br>
     <button type="submit" class="button" name="Feedback">Feedback senden</button>

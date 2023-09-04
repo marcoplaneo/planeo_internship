@@ -11,6 +11,18 @@ body, html {
 .dark-mode {
     background-color: black;
     color: white;
+    #feedback {
+        background-color: black;
+        border-color: white;
+    }
+    #name {
+        background-color: black;
+        border-color: white;
+    }
+    #mail {
+        background-color: black;
+        border-color: white;
+    }
 }
 
 .dropbtn#language {
@@ -391,8 +403,26 @@ div.sticky{
 }
 
 #feedback, #name, #mail{
-    border: 1px solid;
-    box-shadow: 8px 8px 16px 0 rgba(0,0,0,0.2);
+    border: 1px solid;/*
+    box-shadow: 8px 8px 16px 0 rgba(0,0,0,0.2);*/
+    font-size: 16px;
+}
+
+#name, #mail {
+    border-radius: 3%;
+}
+
+#feedback {
+    border-radius: 1%;
+}
+
+input:focus {
+    box-shadow: 8px 8px 10px 0 rgba(120,120,120,0.3);
+}
+
+.required {
+    font-size: 15px;
+    color: indianred;
 }
 
 .lang {
