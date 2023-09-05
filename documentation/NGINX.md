@@ -8,3 +8,5 @@
     - mail proxy
     - HTTP cache
 - deployed to serve static or dynamic web content
+- HTTP requests are handled by workers
+  - one worker can handle multiple incoming client connections and requests at a time
