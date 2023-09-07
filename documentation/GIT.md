@@ -18,3 +18,11 @@
 * log: shows history of commits with additional information
 * rm: removes files or collection of files
 * mv: moves or renames file or collection of files without deleting their history
+```
+usages of commands:
+
+git command, for example:
+-> git add documentation/GIT.md
+-> git commit "added to GIT documenation"
+-> git push
+```
