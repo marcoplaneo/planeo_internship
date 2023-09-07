@@ -33,8 +33,6 @@ server {
 
 	index index.php index.html index.htm shop.html;
 
-	include /home/marco/dev/planeo_internship/*.html;
-
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
@@ -57,7 +55,6 @@ server {
 - listen listens to a port (here: 80)
 - named the server internship.com
 - defined where root is
-- include refers to where the website is saved
 - try_files ...; tries to serve the request as different types (file, directories)
   - if this does not work error 404 is displayed
 - location ~ \.php§ {...} is for PHP
