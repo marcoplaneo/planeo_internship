@@ -3,6 +3,7 @@
 * programme to work on projects
 * alone or with others
 * branch: another version of the main version to work on
+  * to work on the project and test things, without affecting the project itself
 * merge: merge two branches
 * merge conflict: the two versions differ on the same line of code; must be resolved
 * .gitignore: ignores unnecessary files or build artifacts; can be derived or should not be committed
