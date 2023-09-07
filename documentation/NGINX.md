@@ -22,10 +22,7 @@
 
 # My Code
 
-```
-nginx configutation
-
-
+```nginx configuration
 # Default server configuration
 server {
 	# listen listens to a port (here: 80)
