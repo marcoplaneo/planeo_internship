@@ -13,7 +13,7 @@ In order to get to know the programmes I am building a website. Even though it i
 You should check it out sometime :)
 
 This is what my homepage looks like right now:\
-![](/home/marco/Pictures/Screenshots/homepage.png)
+<img src="/home/marco/Pictures/Screenshots/homepage.png"/></img>
 
 Here is another one of the feedback page :)\
-![](/home/marco/Pictures/Screenshots/feedback.png)
+<img src="/home/marco/Pictures/Screenshots/feedback.png"/></img>
