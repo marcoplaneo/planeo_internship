@@ -26,3 +26,45 @@
       - own cache settings
     - one pool can be configured without affecting others
 - to save data from webserver, database is needed
+
+## Installation
+
+- install in terminal
+- install php-fpm
+  - that way apache2 is not installed with it
+- installed in /etc/php/8.1/fpm
+
+## Syntax
+
+```php
+<?php
+// Here goes the PHP code
+// variables are shown as $name
+// variable names are absolute (they have to be always written the same when used)
+$color = "blue";
+// This prints out 'My cat is blue'
+echo "My cat is blue";
+echo "My cat is " . $color;
+
+//This and
+# these are comments
+/*This is also a comment
+but a multiline comment
+*/
+
+// You can have funtions
+function test() {
+echo "This is a test";
+}
+// use the function
+test();
+
+// You can have loops too
+while $color = "blue" {
+$color = "red";
+}
+for ($x=0; $x <= 5; $x++) {
+echo $x;
+}
+?>
+```
