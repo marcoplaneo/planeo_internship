@@ -58,22 +58,104 @@ An HTML document consists of two major parts:
     - cached
     - in browser history
     - -> for general things
-- buttons
-  - submit
-    - submits the form
-    - usually reloads the page
-- multimedia
-  - images
-    - \<img scr="">
-  - favicon
-    - in <head>
-      - \<link ...>
-- tables
-  - th
-    - header of table
-  - tr
-    - row of table
-  - td
-    - cell in a table
-  - structure
-    - \<tr>\<th>\</th>\</tr>\<tr>\<td>\</td>\</tr>
+
+## buttons
+
+- submit
+  - submits the form
+  - usually reloads the page
+
+## multimedia
+
+- images
+  - \<img scr="">
+- favicon
+  - in <head>
+    - \<link ...>
+
+## tables
+
+- th
+  - header of table
+- tr
+  - row of table
+- td
+  - cell in a table
+- structure
+```html
+<tr>
+  <th>
+    This is a header
+  </th>
+  <th>
+    This is the header of the second column
+  </th>
+</tr>
+<tr>
+  <td>
+    content of first column, first row
+  </td>
+  <td>
+    content of second column, first row
+  </td>
+</tr>
+```
+
+## Text Structure
+
+- p: Paragraph
+- li: list
+- ul: unordered list
+- div: division/section
+  - most of HTML consists of divs
+- br: one line break
+- span: mark part of line
+- b: bold text
+- strong: bold text with importance
+- q: quotation
+- a: hyperlink, from one page to another
+
+## Classes and IDs
+
+- Class
+  - specify class for HTML element
+  - multiple elements can have same class
+  - use for group of elements, for example buttons
+- ID
+  - name for HTML element
+  - each element has unique name
+  - use for one element
+
+## Iframes
+
+```html
+<iframe src="link"></iframe>
+```
+- use for inbound websites or maps
+
+## Responsive
+
+- responsiveness comes in CSS
+```css
+/*if the screen is smaller than 501px this will be in affect*/
+@media screen and (max-width: 500px){
+  
+}
+```
+
+## Others
+
+- headings
+  - titles or subtitles which shall be shown on the screen
+```html
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+```
+- select
+  - create dropdown list
+```html
+<select name="cars" id="cars">
+  <option value="skoda">Skoda</option>
+  <option value="vw">VW</option>
+</select>
+```
