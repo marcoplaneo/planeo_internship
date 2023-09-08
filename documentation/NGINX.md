@@ -11,6 +11,14 @@
 - HTTP requests are handled by workers
   - one worker can handle multiple incoming client connections and requests at a time
 
+## Virtual Hosting
+
+- often multiple websites on one server
+- ip and name based, no need to have unique ip/name for each website
+  - need only unique ip-name combination
+- used in companies to provide low cost website hosting
+- used in companies, if they have multiple websites
+
 # Config Structure
 
 - different server blocks for server configuration
@@ -58,3 +66,10 @@ server {
 	}
 }
 ```
+
+## logs
+
+- access log
+- error log
+- can be viewed in explorer or terminal
+  - /var/log/nginx
