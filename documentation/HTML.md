@@ -83,22 +83,25 @@ An HTML document consists of two major parts:
   - cell in a table
 - structure
 ```html
-<tr>
-  <th>
-    This is a header
-  </th>
-  <th>
-    This is the header of the second column
-  </th>
-</tr>
-<tr>
-  <td>
-    content of first column, first row
-  </td>
-  <td>
-    content of second column, first row
-  </td>
-</tr>
+
+<table>
+    <tr>
+        <th>
+            This is a header
+        </th>
+        <th>
+            This is the header of the second column
+        </th>
+    </tr>
+    <tr>
+        <td>
+            content of first column, first row
+        </td>
+        <td>
+            content of second column, first row
+        </td>
+    </tr>
+</table>
 ```
 
 ## Text Structure
