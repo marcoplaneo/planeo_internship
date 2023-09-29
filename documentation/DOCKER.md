@@ -177,12 +177,6 @@ ${var_name}
   ```dockerfile
   VOLUME ["/data"]
   ```
-  - USER
-    - sets username/UID and optionally user group/GID to use as default user and group
-  ```dockerfile
-  USER user[:group]
-  USER UID[:GID]
-  ```
   - WORKDIR
     - sets working directory
       - if it doesn't exist, it will be created
@@ -190,37 +184,10 @@ ${var_name}
   ```dockerfile
   WORKDIR /path/to/workdir
   ```
-  - ARG
-    - defines variable that users can pass at build-time to builder
-    - one or more ARG instructions per Dockerfile
-  ```dockerfile
-  ARG name[=defualt value]
-  ```
   - ONBUILD
     - adds trigger instruction to image to be executed at later time, when image is used as base for another build
   ```dockerfile
   ONBUILD INSTRUCTION
-  ```
-  - STOPSIGNAL
-    - sets system call signal that will be sent to container to exit
-  ```dockerfile
-  STOPSIGNAL signal
-  ```
-  - HEALTHCHECK
-    - tells Docker how to test container to check that it is still working
-  ```dockerfile
-  # command inside container
-  HEALTHCHECK [OPTIONS] CMD command
-  
-  # disable any healthcheck inherited from base image
-  HEALTHCHECK NONE
-  ```
-  - SHELL
-    - allows default shell used for shell form of commands to be overridden
-    - can be used multiple times in Dockerfile
-    - each SHELL instruction overwrites all previous SHELL instructions and affects all subsequent instructions
-  ```dockerfile
-  SHELL ["executable", "parameters"]
   ```
 
 ## Compose
@@ -249,31 +216,23 @@ ${var_name}
       - defines how to create Docker image for service
     - config section
       - allows services to adapt behaviour without rebuilding Docker image
-    - deploy
+    - deploy section
       - specifies configuration for deployment and lifecycle of services
-    - develop section
-      - specifies development configuration for maintaining container in sync with source
-    - devices
-      - defines list of device mappings for created containers
-    - environment
+    - environment section
       - defines environment variables set in container
-    - expose
+    - expose section
       - defines exposed ports from container
-    - image
+    - image section
       - specifies image to start container from
-    - labels
+    - labels section
       - adds metadata to containers
-    - ports
+    - ports section
       - exposes container ports
-    - restart
-      - defines policy that platform applies on container termination
-    - secrets
+    - secrets section
       - grants access to sensitive data defined by secrets
-    - user
-      - overrides user used to run container process
-    - volumes
+    - volumes section
       - defines mount host paths or named volumes that are accessible by service containers
-    - working_dir
+    - working_dir section
       - overrides container's working directory
   - Networks
     - layer that allows services communication with each other
