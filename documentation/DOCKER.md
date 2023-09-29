@@ -41,11 +41,6 @@
   - can run container that watch for filesystem changes and respond to them
 - often used for local development setups
 
-## Compose
-
-- define everything in a file
-- management is easier
-
 ## Commands
 
 - build: builds images from Dockerfile
@@ -227,3 +222,68 @@ ${var_name}
   ```dockerfile
   SHELL ["executable", "parameters"]
   ```
+
+## Compose
+
+- define everything in a file
+- management is easier
+
+## Compose File Structure
+
+- acceptable file names:
+  - compose.yaml
+  - compose.yml
+  - docker-compose.yaml
+  - docker-compose.yml
+- Version (optional)
+- Top-level elements
+  - Services (required)
+    - computing resource within application
+    - backed by containers
+    - defined by Docker image
+    - set of runtime arguments
+    - map whose keys are string representation of service names
+      - values are service definitions
+        - contains configuration that is applied to each service container
+    - include build section
+      - defines how to create Docker image for service
+    - config section
+      - allows services to adapt behaviour without rebuilding Docker image
+    - deploy
+      - specifies configuration for deployment and lifecycle of services
+    - develop section
+      - specifies development configuration for maintaining container in sync with source
+    - devices
+      - defines list of device mappings for created containers
+    - environment
+      - defines environment variables set in container
+    - expose
+      - defines exposed ports from container
+    - image
+      - specifies image to start container from
+    - labels
+      - adds metadata to containers
+    - ports
+      - exposes container ports
+    - restart
+      - defines policy that platform applies on container termination
+    - secrets
+      - grants access to sensitive data defined by secrets
+    - user
+      - overrides user used to run container process
+    - volumes
+      - defines mount host paths or named volumes that are accessible by service containers
+    - working_dir
+      - overrides container's working directory
+  - Networks
+    - layer that allows services communication with each other
+    - lets you configure named networks
+      - can be reused across multiple services
+  - Volumes
+    - persistent data stores
+    - lets you configure named volumes
+      - can be reused across multiple services
+  - Configs
+    - allows services to adapt their behaviour without need to rebuild Docker image
+  - Secrets
+    - flavor of Configs focusing on sensitive data
