@@ -246,3 +246,11 @@ ${var_name}
     - allows services to adapt their behaviour without need to rebuild Docker image
   - Secrets
     - flavor of Configs focusing on sensitive data
+
+## Networking
+
+- Docker only knows networking details as IP address and gateway
+  - does not know in which network it is
+- Networks knows in which network it is
+  - Dockers can communicate
+    - ports do not have to be exposed
