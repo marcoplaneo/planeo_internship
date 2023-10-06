@@ -49,17 +49,13 @@
 - container: manages containers
 - cp: copies files or folders
 - create: creates new container
-- diff: inspects changes to files or directories on container's filesystem
 - exec: executes a command in running container
-- export: exports a container's filesystem as tar archive
 - history: shows history of image
 - image: manages images
 - images: lists images
-- import: imports contents from tarball to create filesystem image
 - info: displays system-wide info
 - inspect: returns low-level info on Docker objects
 - kill: kills one or more running containers
-- load: loads image from tar archive or STDIN
 - logs: fetches logs from container
 - pause: pauses all processes within one or more containers
 - plugin: manages plugins
@@ -71,13 +67,11 @@
 - rm: removes one or more containers
 - rmi: removes one or more images
 - run: creates and runs new container from image
-- save: saves one or more images to tar archive
 - start: start one or more stopped containers
 - stats: displays live stream of container resource usage statistics
 - stop: stops one or more running containers
 - system: manages Docker
 - top: displays running processes of container
-- trust: manages trust on Docker images
 - unpause: unpauses all processes within one or more containers
 - update: updates configuration of one or more containers
 - version: shows Docker version information
@@ -99,7 +93,8 @@ $var_name
 ${var_name}
 ```
 - commands
-  - FROM: initializes new build stage and specifies parent image from which is built
+  - FROM
+    - initializes new build stage and specifies parent image from which is built
     - needs at least one argument
     - must be included in Dockerfile
     - new FROM clears state of previous instructions
@@ -254,3 +249,56 @@ ${var_name}
 - Networks knows in which network it is
   - Dockers can communicate
     - ports do not have to be exposed
+
+## Example
+
+```dockerfile
+# This is my Dockerfile
+
+# Specifies parent image as latest nginx version
+FROM nginx:latest
+
+# Copies current dir to path
+COPY . /usr/share/nginx/html
+```
+
+```yaml
+# This is my Docker-compose file
+
+services:
+  
+  # website app
+  app:
+    
+    # Image name
+    image: internship
+    
+    # port mapping
+    ports:
+      - 127.0.0.1:8080:80
+    working_dir: /planeo_internship
+    volumes:
+      - ./:/planeo_internship
+        
+    # mysql data
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: bernhard
+      MYSQL_PASSWORD: 12345
+      MYSQL_DB: internship
+
+
+  # mysql app
+  mysql:
+    image: mysql:latest
+    volumes:
+      - internship-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Password1
+      MYSQL_DATABASE: internship
+
+
+# specifies volumes
+volumes:
+  internship-mysql-data:
+```
