@@ -259,7 +259,7 @@ ${var_name}
 FROM nginx:latest
 
 # Copies current dir to path
-COPY . /usr/share/nginx/html
+COPY /html /usr/share/nginx/html
 ```
 
 ```yaml
