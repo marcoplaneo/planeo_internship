@@ -270,6 +270,9 @@ services:
   # website app
   app:
     
+    # build image from Dockerfile
+    build: .
+    
     # Image name
     image: internship
     
