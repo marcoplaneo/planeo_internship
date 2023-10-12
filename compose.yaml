@@ -23,5 +23,12 @@ services:
       MYSQL_DATABASE: internship
 
 
+  nginx:
+    image: nginx:latest
+    volumes:
+      - internship-nginx-files:/etc/nginx/sites-available/www.internship.com.conf
+
+
 volumes:
   internship-mysql-data:
+  internship-nginx-files:
