@@ -257,9 +257,6 @@ ${var_name}
 
 # Specifies parent image as latest nginx version
 FROM nginx:latest
-
-# Copies current dir to path
-COPY /html /usr/share/nginx/html
 ```
 
 ```yaml
@@ -271,7 +268,7 @@ services:
   app:
     
     # build image from Dockerfile
-    build: .
+    build: website
     
     # Image name
     image: internship
@@ -281,7 +278,7 @@ services:
       - 127.0.0.1:8080:80
     working_dir: /planeo_internship
     volumes:
-      - ./:/planeo_internship
+      - ./html:/usr/share/nginx/html
         
     # mysql data
     environment:
@@ -295,13 +292,21 @@ services:
   mysql:
     image: mysql:latest
     volumes:
-      - internship-mysql-data:/var/lib/mysql
+      - website-mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: Password1
       MYSQL_DATABASE: internship
+      
+  
+  # nginx app
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./website/config:/etc/nginx/sites-available
 
 
 # specifies volumes
 volumes:
   internship-mysql-data:
+  internship-nginx-files:
 ```
