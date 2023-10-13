@@ -13,10 +13,10 @@ In order to get to know the programmes I am building a website. Even though it i
 You should check it out sometime :)
 
 This is what my homepage looks like right now:\
-<img src="images/homepage.png"/></img>
+<img src="html/images/homepage.png"/></img>
 
 Here is another one of the feedback page :)\
-<img src="images/feedback.png"/></img>
+<img src="html/images/feedback.png"/></img>
 
 ## Docker
 
