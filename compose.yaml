@@ -1,6 +1,7 @@
 services:
   app:
     build: config/webserver
+    container_name: nginx
     ports:
       - 127.0.0.1:8080:80
     volumes:
@@ -10,12 +11,22 @@ services:
 
   mysql:
     build: config/database
+    container_name: mysql
     volumes:
       - /var/lib/mysql:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: Password1
+      MYSQL_USER: bernhard
+      MYSQL_PASSWORD: 12345
       MYSQL_DATABASE: internship
 
 
   phpmyadmin:
-    image: phpmyadmin:5.2.1
+    build: config/phpmyadmin
+    container_name: pma
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+    restart: always
+    ports:
+      - 127.0.0.1:8081:80
