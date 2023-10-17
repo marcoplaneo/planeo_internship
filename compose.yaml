@@ -1,21 +1,15 @@
 services:
   app:
-    build: website
-    image: internship
+    build: config/webserver
     ports:
       - 127.0.0.1:8080:80
-    working_dir: /planeo_internship
     volumes:
       - ./html:/usr/share/nginx/html
-    environment:
-      MYSQL_HOST: mysql
-      MYSQL_USER: bernhard
-      MYSQL_PASSWORD: 12345
-      MYSQL_DB: internship
+      - ./config/webserver:/etc/nginx/sites-available
 
 
   mysql:
-    image: mysql:latest
+    build: config/database
     volumes:
       - /var/lib/mysql:/var/lib/mysql
     environment:
@@ -23,12 +17,5 @@ services:
       MYSQL_DATABASE: internship
 
 
-  nginx:
-    image: nginx:latest
-    volumes:
-      - ./website/config:/etc/nginx/sites-available
-
-
-volumes:
-  internship-mysql-data:
-  internship-nginx-files:
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
