@@ -28,3 +28,10 @@ services:
       PMA_HOST: mysql
     ports:
       - 127.0.0.1:8081:80
+
+
+  php:
+    build: config/php
+    container_name: php
+    volumes:
+      - ./config/php:/etc/nginx/sites-available
