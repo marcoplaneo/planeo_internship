@@ -5,8 +5,7 @@ services:
     ports:
       - 127.0.0.1:8080:80
     volumes:
-      - ./html:/usr/share/nginx/html
-      - ./config/webserver:/etc/nginx/sites-available
+      - ./html:/var/www/html
 
 
   mysql:
@@ -34,4 +33,4 @@ services:
     build: config/php
     container_name: php
     volumes:
-      - ./config/php:/etc/nginx/sites-available
+      - ./html:/var/www/html
