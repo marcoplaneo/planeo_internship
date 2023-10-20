@@ -150,7 +150,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         echo"<br> Please enter a password";
     }
     else {
-        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $hash = hash('sha256', $password);
         $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
         try{
             mysqli_query($con, $sql);
