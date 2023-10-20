@@ -1,14 +1,20 @@
 <?php
 session_start();
+$db_server = "mysql";
+$db_user = "root";
+$db_pass = "root";
+$db_name = "internship";
+$con = "";
+try{
+    $con = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
+}
+catch(mysqli_sql_exception $ex){
+    echo"Could not connect to database <br>";
+}
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-    if (!empty($username) && !empty($password)) {
-        $_SESSION["username"] = "$username";
-        $_SESSION["password"] = "$password";
-        $_SESSION["status"] = "started";
-        header("Location: index.php");
-    }
+    $firstname = filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_SPECIAL_CHARS);
 }
 ?>
     <!doctype html>
@@ -18,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Sign Up</title>
+        <title>Log In</title>
         <link href="css/style.css" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="/images/1176favicon.ico">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
@@ -30,8 +36,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
     <div id="profile">
         <a id="profilepic" href="profile.html"><img
-                src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
-                alt="Gollum" style="width: 75px; height: 75px"></a>
+                    src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
+                    alt="Gollum" style="width: 75px; height: 75px"></a>
     </div>
     <div class="dm">
         <button id="darkmode" class="button" onclick="darkMode()">
@@ -101,9 +107,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <br><br>
             <label>Password: <br><input type="password" id="password" name="password"></label>
             <br><br>
-            <input type="submit" class="button" name="LogIn" value="Sign Up">
+            <input type="submit" class="button" name="LogIn" value="Log In">
             <br><br>
-            You don't have an account? <a href="signup.php">Sign Up</a> here!
+            Don't have an account? <a href="signup.php">Sign Up</a> here!
         </form>
     </div>
     <!--footer-->
@@ -141,5 +147,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         echo"<br> Please enter a password";
     }
+    else {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";//SELECT FROM
+        mysqli_query($con, $sql);
+        $_SESSION["name"] = "$firstname";
+        $_SESSION["username"] = "$username";
+        $_SESSION["password"] = "$password";
+        $_SESSION["status"] = "started";
+        ?>
+        <script type="text/javascript">
+            window.location.href = 'index.php';
+        </script>
+        <?php
+        // compare SELECT with input
+        // if true login & redirect
+        // else echo"This user does not exist!";
+        // IDEA: Want to create this user?
+    }
 }
+mysqli_close($con);
 ?>
