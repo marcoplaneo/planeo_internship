@@ -1,9 +1,30 @@
 <?php
     session_start();
+    $db_server = "mysql";
+    $db_user = "root";
+    $db_pass = "root";
+    $db_name = "internship";
+    $con = "";
+    try{
+        $con = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
+    }
+    catch(mysqli_sql_exception $ex){
+        echo"Could not connect to database <br>";
+    }
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
         $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+        $firstname = filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_SPECIAL_CHARS);
         if (!empty($username) && !empty($password)) {
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
+            try{
+                mysqli_query($con, $sql);
+            }
+            catch(mysqli_sql_exception $ex1){
+                echo"That username is taken";
+            }
+            $_SESSION["name"] = "$firstname";
             $_SESSION["username"] = "$username";
             $_SESSION["password"] = "$password";
             $_SESSION["status"] = "started";
@@ -144,4 +165,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         echo"<br> Please enter a password";
     }
 }
+mysqli_close($con);
 ?>
