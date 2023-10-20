@@ -109,7 +109,7 @@
         <br><br>
         <label>Password: <br><input type="password" id="password" name="password"></label>
         <br><br>
-        <input type="submit" class="button" name="LogIn" value="Sign Up">
+        <input type="submit" class="button" name="SignUp" value="Sign Up">
         <br><br>
         Already have an account? <a href="login.php">Log In</a> here!
     </form>
