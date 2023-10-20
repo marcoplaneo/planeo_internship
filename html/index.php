@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,8 +68,30 @@
         </div>
     </div>
     <div class="account">
-        <button type="submit" class="navbutton" name="SignUp">Sign Up</button>
-        <button type="submit" class="navbutton" name="LogIn">Log In</button>
+        <!--<button type="submit" class="navbutton" name="SignUp">Sign Up</button>
+        <button type="submit" class="navbutton" name="LogIn">Log In</button>-->
+        <form method="post">
+            <?php
+                if(isset($_POST["LogOut"]))
+                {
+                    $_SESSION["status"] = "stopped";
+                    session_destroy();
+                }
+                if(empty($_SESSION["status"]) || $_SESSION["status"] == "stopped")
+                {
+            ?>
+            <input type="submit" class="navbutton" name="SignUp" value="Sign Up" formaction="signup.php" formmethod="get">
+            <input type="submit" class="navbutton" name="LogIn" value="Log In" formaction="login.php" formmethod="get">
+            <?php
+                }
+                elseif($_SESSION["status"] == "started")
+                {
+            ?>
+            <input type="submit" class="navbutton" name="LogOut" value="LogOut">
+            <?php
+                }
+            ?>
+        </form>
     </div>
 </div>
 <!--language switch button-->
