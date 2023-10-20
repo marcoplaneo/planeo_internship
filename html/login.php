@@ -148,18 +148,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         echo"<br> Please enter a password";
     }
     else {
-        $hash = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";//SELECT FROM
-        mysqli_query($con, $sql);
-        $_SESSION["name"] = "$firstname";
-        $_SESSION["username"] = "$username";
-        $_SESSION["password"] = "$password";
-        $_SESSION["status"] = "started";
-        ?>
-        <script type="text/javascript">
-            window.location.href = 'index.php';
-        </script>
-        <?php
+        $hash = hash('sha256', $password);
+        $sql = "SELECT * FROM user WHERE username = '$username'"; //is an object
+        $usernameresult = mysqli_query($con, $sql);
+        if(mysqli_num_rows($usernameresult) > 0){
+            $row = mysqli_fetch_assoc($usernameresult);
+            if($row["username"] != $username){
+                echo"This user does not exist!";
+            }
+            elseif($row["password"] != $hash){
+                echo"<br> Wrong password!";
+            }
+            else{
+            ?>
+            <script type="text/javascript">
+                window.location.href = 'index.php';
+            </script>
+            <?php
+                $_SESSION["name"] = "$firstname";
+                $_SESSION["username"] = "$username";
+                $_SESSION["password"] = "$password";
+                $_SESSION["status"] = "started";
+            }
+        }
         // compare SELECT with input
         // if true login & redirect
         // else echo"This user does not exist!";
