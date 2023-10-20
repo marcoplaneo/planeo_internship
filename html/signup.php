@@ -15,21 +15,6 @@
         $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
         $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
         $firstname = filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_SPECIAL_CHARS);
-        if (!empty($username) && !empty($password)) {
-            $hash = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
-            try{
-                mysqli_query($con, $sql);
-            }
-            catch(mysqli_sql_exception $ex1){
-                echo"That username is taken";
-            }
-            $_SESSION["name"] = "$firstname";
-            $_SESSION["username"] = "$username";
-            $_SESSION["password"] = "$password";
-            $_SESSION["status"] = "started";
-            header("Location: index.php");
-        }
     }
 ?>
 <!doctype html>
@@ -163,6 +148,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     elseif(empty($password))
     {
         echo"<br> Please enter a password";
+    }
+    else {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
+        try{
+            mysqli_query($con, $sql);
+            $_SESSION["name"] = "$firstname";
+            $_SESSION["username"] = "$username";
+            $_SESSION["password"] = "$password";
+            $_SESSION["status"] = "started";
+            ?>
+            <script type="text/javascript">
+                window.location.href = 'index.php';
+            </script>
+            <?php
+        }
+        catch(mysqli_sql_exception $ex1){
+            echo"<br> That username is already taken";
+        }
     }
 }
 mysqli_close($con);
