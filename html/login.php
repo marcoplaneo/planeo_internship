@@ -159,10 +159,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $usernameresult = mysqli_query($con, $sql);
         if(mysqli_num_rows($usernameresult) > 0){
             $row = mysqli_fetch_assoc($usernameresult);
-            if($row["username"] != $username){
-                echo"<br> This user does not exist!";
-            }
-            elseif($row["password"] != $hash){
+            if($row["password"] != $hash){
                 echo"<br> Wrong password!";
             }
             else{
@@ -176,6 +173,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 $_SESSION["password"] = "$password";
                 $_SESSION["status"] = "started";
             }
+        }
+        else{
+            echo"<br> This user does not exist!";
         }
         // compare SELECT with input
         // if true login & redirect
