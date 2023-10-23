@@ -1,5 +1,7 @@
 <?php
+//start session
 session_start();
+//establish database connection
 $db_server = "mysql";
 $db_user = "root";
 $db_pass = "root";
@@ -11,6 +13,7 @@ try{
 catch(mysqli_sql_exception $ex){
     echo"Could not connect to database <br>";
 }
+//assign input to variables, while filtering them for special characters
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -135,10 +138,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     </body>
     </html>
 <?php
+//if Log In button is pressed
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+    //give feedback if information is missing
     if(empty($username))
     {
         echo"<br> Please enter a username";
@@ -148,39 +151,44 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         echo"<br> Please enter a password";
     }
     else {
+        //hash the password
         $hash = hash('sha256', $password);
-        $sql = "SELECT * FROM user WHERE username = '$username'"; //is an object
+        $sql = "SELECT * FROM user WHERE username = '$username'";
+        //if the program can't do SELECT it creates the database
         try{
             mysqli_query($con, "SELECT * FROM user");
         }
         catch (mysqli_sql_exception $ex2){
             mysqli_query($con, "CREATE TABLE `internship`.`user` (`uid` INT NOT NULL AUTO_INCREMENT , `firstname` TEXT NOT NULL , `username` VARCHAR(50) NOT NULL , `password` CHAR(255) NOT NULL , PRIMARY KEY (`uid`), UNIQUE (`username`)) ENGINE = InnoDB;");
         }
+        //save data from sql result in variable
         $usernameresult = mysqli_query($con, $sql);
+        //if variable is not empty
         if(mysqli_num_rows($usernameresult) > 0){
+            //assign variable objects to array
             $row = mysqli_fetch_assoc($usernameresult);
+            //compare password from db and input
             if($row["password"] != $hash){
                 echo"<br> Wrong password!";
             }
+            //if passwords are the same, forward to homepage
             else{
             ?>
             <script type="text/javascript">
                 window.location.href = 'index.php';
             </script>
             <?php
+                //assign session variables
                 $_SESSION["name"] = "$firstname";
                 $_SESSION["username"] = "$username";
                 $_SESSION["password"] = "$password";
                 $_SESSION["status"] = "started";
             }
         }
+        //if variable is empty
         else{
             echo"<br> This user does not exist!";
         }
-        // compare SELECT with input
-        // if true login & redirect
-        // else echo"This user does not exist!";
-        // IDEA: Want to create this user?
     }
 }
 mysqli_close($con);
