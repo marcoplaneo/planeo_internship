@@ -1,21 +1,24 @@
 <?php
-    session_start();
-    $db_server = "mysql";
-    $db_user = "root";
-    $db_pass = "root";
-    $db_name = "internship";
-    $con = "";
-    try{
-        $con = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
-    }
-    catch(mysqli_sql_exception $ex){
-        echo"Could not connect to database <br>";
-    }
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-        $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-        $firstname = filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_SPECIAL_CHARS);
-    }
+//start session
+session_start();
+//establish database connection
+$db_server = "mysql";
+$db_user = "root";
+$db_pass = "root";
+$db_name = "internship";
+$con = "";
+try{
+    $con = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
+}
+catch(mysqli_sql_exception $ex){
+    echo"Could not connect to database <br>";
+}
+//assign input to variables, while filtering them for special characters
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+    $firstname = filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_SPECIAL_CHARS);
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -137,11 +140,10 @@
 </body>
 </html>
 <?php
+//if Sign Up button is pressed
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-    $firstname = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
+    //give feedback if information is missing
     if(empty($username))
     {
         echo"<br> Please enter a username";
@@ -151,9 +153,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         echo"<br> Please enter a password";
     }
     else {
+        //hash the password
         $hash = hash('sha256', $password);
         $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
+        //try to create new account
         try{
+            //if the program can't do SELECT it creates the database
             try{
                 mysqli_query($con, "SELECT * FROM user");
             }
@@ -161,16 +166,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 mysqli_query($con, "CREATE TABLE `internship`.`user` (`uid` INT NOT NULL AUTO_INCREMENT , `firstname` TEXT NOT NULL , `username` VARCHAR(50) NOT NULL , `password` CHAR(255) NOT NULL , PRIMARY KEY (`uid`), UNIQUE (`username`)) ENGINE = InnoDB;");
             }
             mysqli_query($con, $sql);
+            //assign session variables
             $_SESSION["name"] = "$firstname";
             $_SESSION["username"] = "$username";
             $_SESSION["password"] = "$password";
             $_SESSION["status"] = "started";
+            //forward to homepage
             ?>
             <script type="text/javascript">
                 window.location.href = 'index.php';
             </script>
             <?php
         }
+        //if it fails username is taken
         catch(mysqli_sql_exception $ex1){
             echo"<br> That username is already taken";
         }
