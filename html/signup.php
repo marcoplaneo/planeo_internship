@@ -7,162 +7,156 @@ $db_user = "root";
 $db_pass = "root";
 $db_name = "internship";
 $con = "";
-try{
+try {
     $con = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
-}
-catch(mysqli_sql_exception $ex){
-    echo"Could not connect to database <br>";
+} catch (mysqli_sql_exception $ex) {
+    echo "Could not connect to database <br>";
 }
 //assign input to variables, while filtering them for special characters
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
     $firstname = filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_SPECIAL_CHARS);
 }
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/images/1176favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
-</head>
-<body>
-<div id="profile">
-    <a id="profilepic" href="profile.html"><img
-                src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
-                alt="Gollum" style="width: 75px; height: 75px"></a>
-</div>
-<div class="dm">
-    <button id="darkmode" class="button" onclick="darkMode()">
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sign Up</title>
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="/images/1176favicon.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+    </head>
+    <body>
+    <div id="profile">
+        <a id="profilepic" href="profile.html"><img
+                    src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
+                    alt="Gollum" style="width: 75px; height: 75px"></a>
+    </div>
+    <div class="dm">
+        <button id="darkmode" class="button" onclick="darkMode()">
             <span class="material-symbols-outlined">
                 radio_button_partial
             </span>
-    </button>
-    <script>
-        function darkMode() {
-            let element = document.body;
-            element.classList.toggle("dark-mode");
-        }
-    </script>
-</div>
-<!--website heading-->
-<h1>Sign Up</h1>
-<!--navigation-->
-<div class="navbar">
-    <div class="burger">
-        <button class="dropbtn">
-            <span class="material-symbols-outlined">menu</span>
-            <i class="fa fa-caret-down"></i>
         </button>
-        <div class="burger-content">
-            <a href="index.php">Home</a>
-            <a href="location.html">Location</a>
-            <a href="team.html">Team</a>
-            <div class="tools">
-                <button class="dropdwn">Tools
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="tools-content">
-                    <a href="shop.html">Tools</a>
+        <script>
+            function darkMode() {
+                let element = document.body;
+                element.classList.toggle("dark-mode");
+            }
+        </script>
+    </div>
+    <!--website heading-->
+    <h1>Sign Up</h1>
+    <!--navigation-->
+    <div class="navbar">
+        <div class="burger">
+            <button class="dropbtn">
+                <span class="material-symbols-outlined">menu</span>
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="burger-content">
+                <a href="index.php">Home</a>
+                <a href="location.html">Location</a>
+                <a href="team.html">Team</a>
+                <div class="tools">
+                    <button class="dropdwn">Tools
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="tools-content">
+                        <a href="shop.html">Tools</a>
+                    </div>
                 </div>
-            </div>
-            <div class="help">
-                <button class="dropdwn">Help
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="help-content">
-                    <a href="help.html">Help</a>
-                    <a href="imprint.html">Imprint</a>
-                    <a href="feedback.html">Feedback</a>
-                    <a href="contact.html">Contact</a>
+                <div class="help">
+                    <button class="dropdwn">Help
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="help-content">
+                        <a href="help.html">Help</a>
+                        <a href="imprint.html">Imprint</a>
+                        <a href="feedback.html">Feedback</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--language switch button-->
-<div class="lang">
-    <button id="language" class="dropbtn">
+    <!--language switch button-->
+    <div class="lang">
+        <button id="language" class="dropbtn">
         <span class="material-symbols-outlined">
             language
         </span>
-        <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="lang-content">
-        <a onclick="changeLanguage('en')">English</a>
-        <a onclick="changeLanguage('de')">German</a>
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="lang-content">
+            <a onclick="changeLanguage('en')">English</a>
+            <a onclick="changeLanguage('de')">German</a>
+        </div>
     </div>
-</div>
-<div class="main">
-    <form method="post">
-        <br><br>
-        <label>First Name: <br><input type="text" id="firstname" name="name"></label>
-        <br><br>
-        <label>Username: <br><input type="text" id="username" name="username"></label>
-        <br><br>
-        <label>Password: <br><input type="password" id="password" name="password"></label>
-        <br><br>
-        <input type="submit" class="button" name="SignUp" value="Sign Up">
-        <br><br>
-        Already have an account? <a href="login.php">Log In</a> here!
-    </form>
-</div>
-<!--footer-->
-<div class="footer2">
-    <p>Give us <a href="feedback.html">Feedback</a>! | If you have any questions, feel free to <a href="contact.html">contact</a> us!
-        <br>
-        <a href="aboutUs.html">About us</a> | <a id="imprints" href="imprint.html">Imprint</a>
-        <br>
-        <span id="datetime"></span></p>
-    <script>
-        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const day = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        const dt = new Date();
-        document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
-    </script>
-    <script>
-        function changeLanguage(lang) {
-            location.hash = lang;
-            location.href = "/./de/index.html";
-        }
-    </script>
-</div>
-</body>
-</html>
+    <div class="main">
+        <form method="post">
+            <br><br>
+            <label>First Name: <br><input type="text" id="firstname" name="name"></label>
+            <br><br>
+            <label>Username: <br><input type="text" id="username" name="username"></label>
+            <br><br>
+            <label>Password: <br><input type="password" id="password" name="password"></label>
+            <br><br>
+            <input type="submit" class="button" name="SignUp" value="Sign Up">
+            <br><br>
+            Already have an account? <a href="login.php">Log In</a> here!
+        </form>
+    </div>
+    <!--footer-->
+    <div class="footer2">
+        <p>Give us <a href="feedback.html">Feedback</a>! | If you have any questions, feel free to <a
+                    href="contact.html">contact</a> us!
+            <br>
+            <a href="aboutUs.html">About us</a> | <a id="imprints" href="imprint.html">Imprint</a>
+            <br>
+            <span id="datetime"></span></p>
+        <script>
+            const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const day = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+            const dt = new Date();
+            document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
+        </script>
+        <script>
+            function changeLanguage(lang) {
+                location.hash = lang;
+                location.href = "/./de/index.html";
+            }
+        </script>
+    </div>
+    </body>
+    </html>
 <?php
 //if Sign Up button is pressed
-if($_SERVER["REQUEST_METHOD"] == "POST")
-{
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //give feedback if information is missing
-    if(empty($username))
-    {
-        echo"<br> Please enter a username";
-    }
-    elseif(empty($password))
-    {
-        echo"<br> Please enter a password";
-    }
-    else {
+    if (empty($username)) {
+        echo "<br> Please enter a username";
+    } elseif (empty($password)) {
+        echo "<br> Please enter a password";
+    } else {
         //hash the password
         $hash = hash('sha256', $password);
         $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
         //try to create new account
-        try{
+        try {
             //if the program can't do SELECT it creates the database
-            try{
+            try {
                 mysqli_query($con, "SELECT * FROM user");
-            }
-            catch (mysqli_sql_exception $ex2){
+            } catch (mysqli_sql_exception $ex2) {
                 mysqli_query($con, "CREATE TABLE `internship`.`user` (`uid` INT NOT NULL AUTO_INCREMENT , `firstname` TEXT NOT NULL , `username` VARCHAR(50) NOT NULL , `password` CHAR(255) NOT NULL , PRIMARY KEY (`uid`), UNIQUE (`username`)) ENGINE = InnoDB;");
             }
             mysqli_query($con, $sql);
@@ -177,10 +171,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 window.location.href = 'index.php';
             </script>
             <?php
-        }
-        //if it fails username is taken
-        catch(mysqli_sql_exception $ex1){
-            echo"<br> That username is already taken";
+        } //if it fails username is taken
+        catch (mysqli_sql_exception $ex1) {
+            echo "<br> That username is already taken";
         }
     }
 }

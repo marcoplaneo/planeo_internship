@@ -11,16 +11,19 @@ body, html {
 .dark-mode {
     background-color: black;
     color: white;
+
     #feedback {
         background-color: black;
         border-color: white;
         color: white;
     }
+
     #name {
         background-color: black;
         border-color: white;
         color: white;
     }
+
     #mail {
         background-color: black;
         border-color: white;
@@ -34,7 +37,7 @@ body, html {
 }
 
 /*heading formats*/
-h1{
+h1 {
     color: midnightblue;
     background-color: dodgerblue;
     font-size: 75px;
@@ -45,17 +48,17 @@ h1{
     padding-bottom: 40px;
 }
 
-h2{
+h2 {
     font-size: 40px;
     text-align: center;
 }
 
-h3{
+h3 {
     font-size: 25px;
     text-align: center;
 }
 
-h4{
+h4 {
     color: midnightblue;
     background-color: dodgerblue;
     font-size: 75px;
@@ -67,14 +70,14 @@ h4{
 }
 
 /*paragraph format*/
-p{
+p {
     text-align: center;
     margin-left: 50px;
     margin-right: 50px;
 }
 
 /*image format*/
-img{
+img {
     border-radius: 50%;
 }
 
@@ -91,7 +94,7 @@ figure {
     color: grey;
 }
 
-#founderpic, #co-founderpic, #marketingpic{
+#founderpic, #co-founderpic, #marketingpic {
     border: 5px solid dodgerblue;
 }
 
@@ -125,9 +128,9 @@ tr:nth-child(even) {
 }
 
 /*sticky part*/
-div.sticky{
+div.sticky {
     position: sticky;
-    top:0;
+    top: 0;
 }
 
 /*navigation bar*/
@@ -148,13 +151,14 @@ div.sticky{
     width: 12%;
 }
 
-.help{
+.help {
     float: left;
     overflow: hidden;
     width: 100%;
     text-align: left;
     padding: 5px 12px 5px 16px;
 }
+
 /*
 .help .dropbtn {
     font-size: 16px;
@@ -167,13 +171,14 @@ div.sticky{
     width: 100%;
 }*/
 
-.tools{
+.tools {
     float: left;
     overflow: hidden;
     width: 100%;
     text-align: left;
     padding: 5px 12px 5px 16px;
 }
+
 /*
 .tools .dropbtn {
     font-size: 16px;
@@ -186,7 +191,7 @@ div.sticky{
     width: 100%;
 }*/
 
-.burger{
+.burger {
     float: left;
     overflow: hidden;
     width: 15%;
@@ -223,7 +228,7 @@ div.sticky{
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
     width: 21%;
     margin-top: -46px;
@@ -254,7 +259,7 @@ div.sticky{
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
     width: 21.1%;
     margin-top: -46px;
@@ -285,7 +290,7 @@ div.sticky{
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
     width: 15%;
 }
@@ -404,9 +409,10 @@ div.sticky{
     margin-left: 5px;
 }
 
-#feedback, #name, #mail{
-    border: 1px solid;/*
-    box-shadow: 8px 8px 16px 0 rgba(0,0,0,0.2);*/
+#feedback, #name, #mail {
+    border: 1px solid;
+    /*
+        box-shadow: 8px 8px 16px 0 rgba(0,0,0,0.2);*/
     font-size: 16px;
 }
 
@@ -419,7 +425,7 @@ div.sticky{
 }
 
 input:focus {
-    box-shadow: 8px 8px 10px 0 rgba(120,120,120,0.3);
+    box-shadow: 8px 8px 10px 0 rgba(120, 120, 120, 0.3);
 }
 
 input:invalid {
@@ -428,7 +434,7 @@ input:invalid {
 }
 
 .form-feedback:focus {
-    box-shadow: 8px 8px 10px 0 rgba(120,120,120,0.3);
+    box-shadow: 8px 8px 10px 0 rgba(120, 120, 120, 0.3);
 }
 
 .form-feedback:invalid {
@@ -468,7 +474,7 @@ input:invalid {
     right: 0;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -495,91 +501,106 @@ a:hover {
     color: grey;
 }
 
-@media screen and (max-width: 1500px){
+@media screen and (max-width: 1500px) {
     .account {
         margin-left: 70%;
     }
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
     .core, .opening {
         width: 95%;
     }
+
     .opening {
         display: block;
         margin-left: 12%;
         margin-bottom: 0;
         margin-top: 100px;
     }
+
     .footer {
         font-size: 12px;
     }
+
     .account {
         margin-left: 60%;
     }
+
     #co-founderpic {
         margin-top: 0;
     }
+
     .burger-content a:hover {
         width: 82.8%;
     }
+
     .tools {
         padding-left: 0;
         padding-right: 0;
     }
+
     .tools-content {
         margin-top: -51px;
     }
+
     .help {
         padding-left: 0;
         padding-right: 0;
     }
+
     .help-content {
         margin-top: -51px;
     }
+
     #planeo_location {
         width: 550px;
         height: 350px;
     }
+
     #feedback {
         width: 75%;
     }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
     #planeo_location {
         width: 400px;
         height: 250px;
     }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
     h1 {
         font-size: 60px;
         margin-top: -146px;
     }
+
     .button#darkmode {
         margin-top: 31px;
     }
+
     h4 {
         font-size: 60px;
         margin-top: -146px;
     }
+
     .button#darkmodeprofile {
         margin-top: 106px;
     }
 }
 
-@media screen and (max-width: 1300px){
-    .button#darkmode{
+@media screen and (max-width: 1300px) {
+    .button#darkmode {
         margin-left: 80%;
     }
-    .button#darkmodeprofile{
+
+    .button#darkmodeprofile {
         margin-left: 80%;
     }
 }
 
-@media screen and (max-width: 1870px){
+@media screen and (max-width: 1870px) {
     figure {
         width: 20%;
     }
@@ -589,6 +610,7 @@ a:hover {
     .burger {
         visibility: hidden;
     }
+
     .burger-content {
         display: inline-flex;
         visibility: visible;
@@ -597,61 +619,73 @@ a:hover {
         width: 50%;
         background-color: darkslategrey;
     }
-    .burger-content a{
+
+    .burger-content a {
         text-align: center;
         color: white;
     }
+
     .burger:hover .burger-content {
         display: inline-flex;
     }
+
     .burger-content a:hover {
         background-color: lightskyblue;
         color: black;
         width: 90%;
     }
+
     .tools {
         text-align: center;
     }
+
     .tools-content a {
         color: black;
     }
+
     .help-content a {
         color: black;
     }
+
     .tools-content a:hover {
         width: 86.4%;
         background-color: #ddd;
     }
+
     .help-content a:hover {
         width: 86.4%;
         background-color: #ddd;
     }
+
     .tools:hover .tools-content {
         display: block;
         margin-top: 5px;
         margin-left: -16px;
     }
+
     .help {
         text-align: center;
     }
+
     .help:hover .help-content {
         display: block;
         margin-top: 5px;
         margin-left: -16px;
     }
+
     .burger .dropdwn {
         color: white;
     }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
     .footer2 {
         bottom: -500px;
         width: 58.8%;
     }
 }
 
-@media screen and (max-height: 650px){
+@media screen and (max-height: 650px) {
     .footer2 {
         bottom: -1100px;
     }

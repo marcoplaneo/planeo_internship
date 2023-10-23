@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +17,8 @@
 <body>
 <div id="profile">
     <a id="profilepic" href="profile.html"><img
-            src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
-            alt="Gollum" style="width: 75px; height: 75px"></a>
+                src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
+                alt="Gollum" style="width: 75px; height: 75px"></a>
 </div>
 <div class="dm">
     <button id="darkmode" class="button" onclick="darkMode()">
@@ -72,24 +72,22 @@
         <button type="submit" class="navbutton" name="LogIn">Log In</button>-->
         <form method="post">
             <?php
-                if(isset($_POST["LogOut"]))
-                {
-                    $_SESSION["status"] = "stopped";
-                    session_destroy();
-                }
-                if(empty($_SESSION["status"]) || $_SESSION["status"] == "stopped")
-                {
-            ?>
-            <input type="submit" class="navbutton" name="SignUp" value="Sign Up" formaction="signup.php" formmethod="get">
-            <input type="submit" class="navbutton" name="LogIn" value="Log In" formaction="login.php" formmethod="get">
-            <?php
-                }
-                elseif($_SESSION["status"] == "started")
-                {
-            ?>
-            <input type="submit" class="navbutton" name="LogOut" value="Log Out">
-            <?php
-                }
+            if (isset($_POST["LogOut"])) {
+                $_SESSION["status"] = "stopped";
+                session_destroy();
+            }
+            if (empty($_SESSION["status"]) || $_SESSION["status"] == "stopped") {
+                ?>
+                <input type="submit" class="navbutton" name="SignUp" value="Sign Up" formaction="signup.php"
+                       formmethod="get">
+                <input type="submit" class="navbutton" name="LogIn" value="Log In" formaction="login.php"
+                       formmethod="get">
+                <?php
+            } elseif ($_SESSION["status"] == "started") {
+                ?>
+                <input type="submit" class="navbutton" name="LogOut" value="Log Out">
+                <?php
+            }
             ?>
         </form>
     </div>
@@ -255,7 +253,8 @@
 </div>
 <!--footer-->
 <div class="footer">
-    <p>Give us <a href="feedback.html">Feedback</a>! | If you have any questions, feel free to <a href="contact.html">contact</a> us!
+    <p>Give us <a href="feedback.html">Feedback</a>! | If you have any questions, feel free to <a href="contact.html">contact</a>
+        us!
         <br>
         <a href="aboutUs.html">About us</a> | <a id="imprints" href="imprint.html">Imprint</a>
         <br>
