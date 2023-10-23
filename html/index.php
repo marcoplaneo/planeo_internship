@@ -87,7 +87,7 @@
                 elseif($_SESSION["status"] == "started")
                 {
             ?>
-            <input type="submit" class="navbutton" name="LogOut" value="LogOut">
+            <input type="submit" class="navbutton" name="LogOut" value="Log Out">
             <?php
                 }
             ?>
