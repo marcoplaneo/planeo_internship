@@ -150,11 +150,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     else {
         $hash = hash('sha256', $password);
         $sql = "SELECT * FROM user WHERE username = '$username'"; //is an object
+        try{
+            mysqli_query($con, "SELECT * FROM user");
+        }
+        catch (mysqli_sql_exception $ex2){
+            mysqli_query($con, "CREATE TABLE `internship`.`user` (`uid` INT NOT NULL AUTO_INCREMENT , `firstname` TEXT NOT NULL , `username` VARCHAR(50) NOT NULL , `password` CHAR(255) NOT NULL , PRIMARY KEY (`uid`), UNIQUE (`username`)) ENGINE = InnoDB;");
+        }
         $usernameresult = mysqli_query($con, $sql);
         if(mysqli_num_rows($usernameresult) > 0){
             $row = mysqli_fetch_assoc($usernameresult);
             if($row["username"] != $username){
-                echo"This user does not exist!";
+                echo"<br> This user does not exist!";
             }
             elseif($row["password"] != $hash){
                 echo"<br> Wrong password!";

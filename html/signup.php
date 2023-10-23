@@ -141,6 +141,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+    $firstname = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
     if(empty($username))
     {
         echo"<br> Please enter a username";
@@ -153,6 +154,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $hash = hash('sha256', $password);
         $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
         try{
+            try{
+                mysqli_query($con, "SELECT * FROM user");
+            }
+            catch (mysqli_sql_exception $ex2){
+                mysqli_query($con, "CREATE TABLE `internship`.`user` (`uid` INT NOT NULL AUTO_INCREMENT , `firstname` TEXT NOT NULL , `username` VARCHAR(50) NOT NULL , `password` CHAR(255) NOT NULL , PRIMARY KEY (`uid`), UNIQUE (`username`)) ENGINE = InnoDB;");
+            }
             mysqli_query($con, $sql);
             $_SESSION["name"] = "$firstname";
             $_SESSION["username"] = "$username";
