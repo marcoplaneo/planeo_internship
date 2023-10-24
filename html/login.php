@@ -16,7 +16,6 @@ try {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-    $firstname = filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_SPECIAL_CHARS);
 }
 ?>
     <!doctype html>
@@ -166,7 +165,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </script>
                 <?php
                 //assign session variables
-                $_SESSION["name"] = "$firstname";
                 $_SESSION["username"] = "$username";
                 $_SESSION["password"] = "$password";
                 $_SESSION["status"] = "started";
