@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="main">
         <form method="post">
             <br><br>
-            <label>First Name: <br><input type="text" id="firstname" name="name"></label>
+            <label>First Name: <br><input type="text" id="firstname" name="firstname"></label>
             <br><br>
             <label>Username: <br><input type="text" id="username" name="username"></label>
             <br><br>
@@ -153,12 +153,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
         //try to create new account
         try {
-            //if the program can't do SELECT it creates the database
-            try {
-                mysqli_query($con, "SELECT * FROM user");
-            } catch (mysqli_sql_exception $ex2) {
-                mysqli_query($con, "CREATE TABLE `internship`.`user` (`uid` INT NOT NULL AUTO_INCREMENT , `firstname` TEXT NOT NULL , `username` VARCHAR(50) NOT NULL , `password` CHAR(255) NOT NULL , PRIMARY KEY (`uid`), UNIQUE (`username`)) ENGINE = InnoDB;");
-            }
             mysqli_query($con, $sql);
             //assign session variables
             $_SESSION["name"] = "$firstname";

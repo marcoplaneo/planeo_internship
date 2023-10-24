@@ -149,12 +149,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //hash the password
         $hash = hash('sha256', $password);
         $sql = "SELECT * FROM user WHERE username = '$username'";
-        //if the program can't do SELECT it creates the database
-        try {
-            mysqli_query($con, "SELECT * FROM user");
-        } catch (mysqli_sql_exception $ex2) {
-            mysqli_query($con, "CREATE TABLE `internship`.`user` (`uid` INT NOT NULL AUTO_INCREMENT , `firstname` TEXT NOT NULL , `username` VARCHAR(50) NOT NULL , `password` CHAR(255) NOT NULL , PRIMARY KEY (`uid`), UNIQUE (`username`)) ENGINE = InnoDB;");
-        }
         //save data from sql result in variable
         $usernameresult = mysqli_query($con, $sql);
         //if variable is not empty

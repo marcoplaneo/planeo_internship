@@ -12,6 +12,7 @@ services:
     build: config/database
     container_name: mysql
     volumes:
+      - ./init-scripts:/docker-entrypoint-initdb.d/:ro
       - mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
