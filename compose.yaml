@@ -6,6 +6,7 @@ services:
       - 127.0.0.1:8080:80
     volumes:
       - ./html:/var/www/html
+      - ./errors:/usr/share/nginx/html
 
 
   mysql:
