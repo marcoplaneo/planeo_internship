@@ -71,8 +71,55 @@ session_start();
         <!--<button type="submit" class="navbutton" name="SignUp">Sign Up</button>
         <button type="submit" class="navbutton" name="LogIn">Log In</button>-->
         <form method="post">
-            <?php
-            if (isset($_POST["LogOut"])) {
+            <!-- Trigger/Open The Modal -->
+            <button type="button" class="navbutton" id="signup">Sign Up</button>
+            <button type="button" class="navbutton" id="login">Log In</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p>
+                </div>
+
+            </div>
+
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the button that opens the modal
+                var signup = document.getElementById("signup");
+                var login = document.getElementById("login");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks the button, open the modal
+                signup.onclick = function() {
+                    modal.style.display = "block";
+                }
+
+                login.onclick = function() {
+                    modal.style.display = "block";
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+            <!--<?php
+            /*if (isset($_POST["LogOut"])) {
                 $_SESSION["status"] = "stopped";
                 session_destroy();
             }
@@ -87,8 +134,8 @@ session_start();
                 ?>
                 <input type="submit" class="navbutton" name="LogOut" value="Log Out">
                 <?php
-            }
-            ?>
+            }*/
+            ?>-->
         </form>
     </div>
 </div>
