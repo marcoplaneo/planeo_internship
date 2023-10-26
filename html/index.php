@@ -43,7 +43,7 @@ session_start();
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="burger-content">
-            <a href="index.html">Home</a>
+            <a href="index.php">Home</a>
             <a href="location.html">Location</a>
             <a href="team.html">Team</a>
             <div class="tools">
@@ -71,71 +71,89 @@ session_start();
         <!--<button type="submit" class="navbutton" name="SignUp">Sign Up</button>
         <button type="submit" class="navbutton" name="LogIn">Log In</button>-->
         <form method="post">
-            <!-- Trigger/Open The Modal -->
-            <button type="button" class="navbutton" id="signup">Sign Up</button>
-            <button type="button" class="navbutton" id="login">Log In</button>
+            <?php
+            if (isset($_POST["LogOut"])) {
+                $_SESSION["status"] = "stopped";
+                session_destroy();
+            }
+            if (empty($_SESSION["status"]) || $_SESSION["status"] == "stopped") {
+                ?>
+                <!-- Trigger/Open The Modal -->
+                <button type="button" class="navbutton" id="signup">Sign Up</button>
+                <button type="button" class="navbutton" id="login">Log In</button>
 
-            <!-- The Modal -->
-            <div id="signupmodal" class="modal">
+                <!-- The Modal -->
+                <div id="signupmodal" class="modal">
 
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="closesignup">&times;</span>
-                    <p>Some text in the Modal..</p>
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="closesignup">&times;</span>
+                        <?php
+                        include("signup.php");
+                        ?>
+                    </div>
+
                 </div>
 
-            </div>
+                <div id="loginmodal" class="modal">
 
-            <div id="loginmodal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="closelogin">&times;</span>
+                        <?php
+                        include("login.php");
+                        ?>
+                    </div>
 
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="closelogin">&times;</span>
-                    <p>Some text in the Modal..</p>
                 </div>
 
-            </div>
+                <script>
+                    // Get the modal
+                    var signupmodal = document.getElementById("signupmodal");
+                    var loginmodal = document.getElementById("loginmodal");
 
-            <script>
-                // Get the modal
-                var signupmodal = document.getElementById("signupmodal");
-                var loginmodal = document.getElementById("loginmodal");
+                    // Get the button that opens the modal
+                    var signup = document.getElementById("signup");
+                    var login = document.getElementById("login");
 
-                // Get the button that opens the modal
-                var signup = document.getElementById("signup");
-                var login = document.getElementById("login");
+                    // Get the <span> element that closes the modal
+                    var spansignup = document.getElementsByClassName("closesignup")[0];
+                    var spanlogin = document.getElementsByClassName("closelogin")[0];
 
-                // Get the <span> element that closes the modal
-                var spansignup = document.getElementsByClassName("closesignup")[0];
-                var spanlogin = document.getElementsByClassName("closelogin")[0];
+                    // When the user clicks the button, open the modal
+                    signup.onclick = function () {
+                        signupmodal.style.display = "block";
+                    }
 
-                // When the user clicks the button, open the modal
-                signup.onclick = function () {
-                    signupmodal.style.display = "block";
-                }
+                    login.onclick = function () {
+                        loginmodal.style.display = "block";
+                    }
 
-                login.onclick = function () {
-                    loginmodal.style.display = "block";
-                }
-
-                // When the user clicks on <span> (x), close the modal
-                spansignup.onclick = function () {
-                    signupmodal.style.display = "none";
-                }
-
-                spanlogin.onclick = function () {
-                    loginmodal.style.display = "none";
-                }
-
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function (event) {
-                    if (event.target == signupmodal) {
+                    // When the user clicks on <span> (x), close the modal
+                    spansignup.onclick = function () {
                         signupmodal.style.display = "none";
-                    } else if (event.target == loginmodal) {
+                    }
+
+                    spanlogin.onclick = function () {
                         loginmodal.style.display = "none";
                     }
-                }
-            </script>
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == signupmodal) {
+                            signupmodal.style.display = "none";
+                        } else if (event.target == loginmodal) {
+                            loginmodal.style.display = "none";
+                        }
+                    }
+                </script>
+                <?php
+            } elseif ($_SESSION["status"] == "started") {
+                ?>
+                <input type="submit" class="navbutton" name="LogOut" value="Log Out">
+                <?php
+            }
+            ?>
             <!--<?php
             /*if (isset($_POST["LogOut"])) {
                 $_SESSION["status"] = "stopped";
