@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </html>
 <?php
 //if Log In button is pressed
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST["LogIn"])) {
     //give feedback if information is missing
     if (empty($username)) {
         echo "<br> Please enter a username";

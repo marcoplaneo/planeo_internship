@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </html>
 <?php
 //if Sign Up button is pressed
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST["SignUp"])) {
     //if necessary fields are filled
     if (!empty($username) && !empty($password)) {
         //hash the password
