@@ -26,11 +26,11 @@ if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
 <?php
 }else{
 ?>
-    <script>
+    <style>
         h1{
             margin-top: -100px;
         }
-    </script>
+    </style>
 <?php
 }
 ?>
