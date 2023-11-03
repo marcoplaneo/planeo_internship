@@ -13,12 +13,27 @@ session_start();
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
 <div id="profile">
-    <a id="profilepic" href="profile.html"><img
-                src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
-                alt="Gollum" style="width: 75px; height: 75px"></a>
+<?php
+if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
+?>
+    <span class="material-symbols-outlined">
+        <a href="profile.html" class="profilelink">account_circle</a>
+</span>
+<?php
+}else{
+?>
+    <script>
+        h1{
+            margin-top: -100px;
+        }
+    </script>
+<?php
+}
+?>
 </div>
 <div class="dm">
     <button id="darkmode" class="button" onclick="darkMode()">
