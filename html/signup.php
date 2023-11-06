@@ -1,15 +1,5 @@
 <?php
-//establish database connection
-$db_server = "mysql";
-$db_user = "root";
-$db_pass = "root";
-$db_name = "internship";
-$con = "";
-try {
-    $con = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
-} catch (mysqli_sql_exception $ex) {
-    echo "Could not connect to database <br>";
-}
+include("db.php");
 //assign input to variables, while filtering them for special characters
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
