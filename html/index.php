@@ -21,7 +21,7 @@ session_start();
 if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
 ?>
     <span class="material-symbols-outlined">
-        <a href="profile.html" class="profilelink">account_circle</a>
+        <a href="profile.php" class="profilelink">account_circle</a>
 </span>
 <?php
 }else{

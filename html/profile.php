@@ -1,3 +1,7 @@
+<?php
+session_start();
+include("db.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,105 +14,21 @@
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
 </head>
 <body>
-<div class="dm">
-    <button id="darkmodeprofile" class="button" onclick="darkMode()">
-            <span class="material-symbols-outlined">
-                radio_button_partial
-            </span>
-    </button>
-    <script>
-        function darkMode() {
-            let element = document.body;
-            element.classList.toggle("dark-mode");
-        }
-    </script>
-</div>
 <!--heading-->
-<h4>
-    Profile
-</h4>
-<!--navigation-->
-<div class="navbar">
-    <div class="burger">
-        <button class="dropbtn">
-            <span class="material-symbols-outlined">menu</span>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="burger-content">
-            <a href="index.html">Home</a>
-            <a href="location.html">Location</a>
-            <a href="team.html">Team</a>
-            <div class="tools">
-                <button class="dropdwn">Tools
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="tools-content">
-                    <a href="shop.html">Tools</a>
-                </div>
-            </div>
-            <div class="help">
-                <button class="dropdwn">Help
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="help-content">
-                    <a href="help.html">Help</a>
-                    <a href="imprint.html">Imprint</a>
-                    <a href="feedback.html">Feedback</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="account">
-        <button type="submit" class="navbutton" name="SignUp">Sign Up</button>
-        <button type="submit" class="navbutton" name="LogIn">Log In</button>
-    </div>
-</div>
-<div class="lang">
-    <button id="language" class="dropbtn">
-        <span class="material-symbols-outlined">
-            language
-        </span>
-        <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="lang-content">
-        <a onclick="changeLanguage('en')">English</a>
-        <a onclick="changeLanguage('de')">German</a>
-    </div>
-</div>
-<div class="main">
-    <!--main part of subsite-->
-    <p>
-        Your profile picture:
-    </p>
-    <p>
-        <img src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
-             alt="Gollum" style="width:105px;height:105px">
-    </p>
-    <p>
-        Changing it is not possible.
-    </p>
-</div>
-<!--footer-->
-<div class="footer2">
-    <p>Give us <a href="feedback.html">Feedback</a>! | If you have any questions, feel free to <a href="contact.html">contact</a>
-        us!
-        <br>
-        <a href="aboutUs.html">About us</a> | <a id="imprints" href="imprint.html">Imprint</a>
-        <br>
-        <span id="datetime"></span></p>
-    <script>
-        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const day = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        const dt = new Date();
-        document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
-    </script>
-    <script>
-        function changeLanguage(lang) {
-            location.hash = lang;
-            location.href = "/./de/profil.html";
-        }
-    </script>
-</div>
+<h5>Settings</h5>
+<form method="post">
+    <input type="submit" name="deleteuser" value="Delete user">
+</form>
+<?php
+if (isset($_POST["deleteuser"])) {
+    $username = $_SESSION["username"];
+    $sql = "DELETE FROM user WHERE username = '$username'";
+
+        mysqli_query($con, $sql);
+        $_SESSION["status"] = "stopped";
+        session_destroy();
+
+}
+?>
 </body>
 </html>
