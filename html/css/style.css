@@ -62,7 +62,8 @@ body, html {
 
 /* The Close Button */
 .closesignup,
-.closelogin {
+.closelogin,
+.closechangename {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
@@ -72,7 +73,9 @@ body, html {
 .closesignup:hover,
 .closesignup:focus,
 .closelogin:hover,
-.closelogin:focus {
+.closelogin:focus,
+.closechangename:hover,
+.closechangename:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
