@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("db.php");
+$username = $_SESSION["username"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,10 +17,10 @@ include("db.php");
 <body>
 <!--heading-->
 <h5>Settings</h5>
-    <!--open change modal-->
-    <!-- Trigger/Open The Modal -->
+<!-- Trigger/Open The Modal -->
 <form method="post">
-    <button type="button" id="changename">Change name/username</button><br>
+    <button type="button" id="changename">Change name/username</button>
+    <br>
 
     <!-- The Modal -->
     <div id="changenamemodal" class="modal">
@@ -27,7 +28,12 @@ include("db.php");
         <!-- Modal content -->
         <div class="modal-content">
             <span class="closechangename">&times;</span>
-            <!--content of modal-->
+            <h5>Change name and/or username</h5>
+            <label>Change firstname to<br>
+                <input type="text" id="changefirstname" name="changefirstname"></label><br><br>
+            <label>Change username to<br>
+                <input type="text" id="changeusername" name="changeusername"></label><br><br>
+            <input type="submit" id="applychanges" name="applychanges" value="Apply changes">
         </div>
 
     </div>
@@ -62,8 +68,42 @@ include("db.php");
     <input type="submit" name="deleteuser" value="Delete user">
 </form>
 <?php
+if (isset($_POST["applychanges"])) {
+    if (!empty($_POST["changefirstname"]) && !empty($_POST["changeusername"])) {
+        //change firstname and username
+        $newusername = $_POST["changeusername"];
+        $newfirstname = $_POST["changefirstname"];
+        $sql = "UPDATE user SET username = '$newusername', firstname = '$newfirstname' WHERE username = '$username'";
+        try {
+            mysqli_query($con, $sql);
+            $_SESSION["name"] = "$newfirstname";
+            $_SESSION["username"] = "$newusername";
+        } catch (mysqli_sql_exception $ex1) {
+            echo "That username is already taken!";
+        }
+    } elseif (!empty($_POST["changefirstname"])) {
+        //change firstname
+        $newfirstname = $_POST["changefirstname"];
+        $sql = "UPDATE user SET firstname = '$newfirstname' WHERE username = '$username'";
+        try {
+            mysqli_query($con, $sql);
+            $_SESSION["name"] = "$newfirstname";
+        } catch (mysqli_sql_exception $ex2) {
+            echo "Oops, something went wrong!";
+        }
+    } elseif (!empty($_POST["changeusername"])) {
+        //change username
+        $newusername = $_POST["changeusername"];
+        $sql = "UPDATE user SET username = '$newusername' WHERE username = '$username'";
+        try {
+            mysqli_query($con, $sql);
+            $_SESSION["username"] = "$newusername";
+        } catch (mysqli_sql_exception $ex3) {
+            echo "That username is already taken!";
+        }
+    }
+}
 if (isset($_POST["deleteuser"])) {
-    $username = $_SESSION["username"];
     $sql = "DELETE FROM user WHERE username = '$username'";
 
     mysqli_query($con, $sql);
