@@ -16,23 +16,28 @@ session_start();
 </head>
 <body>
 <div id="profile">
-<?php
-if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
-?>
     <a id="profilepic" href="profile.php"><img
                 src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
                 alt="Gollum" style="width: 75px; height: 75px"></a>
-<?php
-}else{
-?>
-    <style>
-        h1{
-            margin-top: -100px;
-        }
-    </style>
-<?php
-}
-?>
+    <?php
+    if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
+        ?>
+        <style>
+            #profilepic {
+                visibility: visible;
+            }
+        </style>
+        <?php
+    } else {
+        ?>
+        <style>
+            #profilepic {
+                visibility: hidden;
+            }
+        </style>
+        <?php
+    }
+    ?>
 </div>
 <div class="dm">
     <button id="darkmode" class="button" onclick="darkMode()">
@@ -161,10 +166,10 @@ if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
                         }
                     }
                 </script>
-                <?php
+            <?php
             } elseif ($_SESSION["status"] == "started") {
-                ?>
-                <input type="submit" class="navbutton" name="LogOut" value="Log Out">
+            ?>
+            <input type="submit" class="navbutton" name="LogOut" value="Log Out">
                 <?php
             }
             ?>
