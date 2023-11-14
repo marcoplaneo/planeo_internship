@@ -94,6 +94,11 @@ session_start();
             if (isset($_POST["LogOut"])) {
                 $_SESSION["status"] = "stopped";
                 session_destroy();
+                ?>
+                <script type="text/javascript">
+                    window.location.href = 'index.php';
+                </script>
+                <?php
             }
             if (empty($_SESSION["status"]) || $_SESSION["status"] == "stopped") {
                 ?>
