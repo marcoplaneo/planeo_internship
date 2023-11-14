@@ -13,16 +13,15 @@ session_start();
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
 <div id="profile">
 <?php
 if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
 ?>
-    <span class="material-symbols-outlined">
-        <a href="profile.php" class="profilelink">account_circle</a>
-</span>
+    <a id="profilepic" href="profile.php"><img
+                src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
+                alt="Gollum" style="width: 75px; height: 75px"></a>
 <?php
 }else{
 ?>
