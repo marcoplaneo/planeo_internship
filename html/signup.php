@@ -51,11 +51,6 @@ if (isset($_POST["SignUp"])) {
         //try to create new account
         try {
             mysqli_query($con, $sql);
-            //assign session variables
-            $_SESSION["name"] = "$firstname";
-            $_SESSION["username"] = "$username";
-            $_SESSION["password"] = "$password";
-            $_SESSION["status"] = "started";
             //forward to homepage
             ?>
             <script type="text/javascript">
