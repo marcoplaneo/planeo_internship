@@ -17,7 +17,7 @@ session_start();
 <body>
 <div id="profile">
     <a id="profilepic"><img
-                src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
                 alt="Gollum" style="width: 75px; height: 75px"></a>
     <?php
     if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
@@ -85,27 +85,28 @@ session_start();
                 </div>
             </div>
             <?php
-            if(!empty($_SESSION["status"])){
-            if ($_SESSION["status"] == "started") {
-            ?>
-            <a href="profile.php">Settings</a>
-                <style>
-                    .help-content {
-                        width: 17.65%;
-                    }
-
-                    .tools-content {
-                        width: 17.7%;
-                    }
-
-                    @media screen and (min-width: 1000px) {
-                        .burger-content {
-                            width: 60%;
+            if (!empty($_SESSION["status"])) {
+                if ($_SESSION["status"] == "started") {
+                    ?>
+                    <a href="profile.php">Settings</a>
+                    <style>
+                        .help-content {
+                            width: 17.65%;
                         }
-                    }
-                </style>
-            <?php
-            }}
+
+                        .tools-content {
+                            width: 17.7%;
+                        }
+
+                        @media screen and (min-width: 1000px) {
+                            .burger-content {
+                                width: 60%;
+                            }
+                        }
+                    </style>
+                    <?php
+                }
+            }
             ?>
         </div>
     </div>
