@@ -109,7 +109,11 @@ if (isset($_POST["deleteuser"])) {
     mysqli_query($con, $sql);
     $_SESSION["status"] = "stopped";
     session_destroy();
-
+    ?>
+    <script type="text/javascript">
+        window.location.href = 'index.php';
+    </script>
+    <?php
 }
 ?>
 </body>
