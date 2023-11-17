@@ -73,14 +73,14 @@ $username = $_SESSION["username"];
     <input type="submit" name="deleteuser" value="Delete user">
 </form>
 <?php
-if (isset($_POST["profilepicture"])){
+if (isset($_POST["submitprofilepicture"])){
     $sql = "SELECT avatarpath FROM user WHERE username = '$username'";
     $avatarpath = mysqli_query($con, $sql);
     if (mysqli_num_rows($avatarpath) > 0) {
         //assign variable objects to array
         $row = mysqli_fetch_assoc($avatarpath);
     }
-    $target_file = $row["avatarpath"] . "/" . basename($_FILES["fileToUpload"]["$username"]);
+    $target_file = $row["avatarpath"] . "/" . basename($_FILES["fileToUpload"]["name"]);
 
     // Check if file was uploaded without errors
     if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["error"] == 0) {
@@ -108,12 +108,12 @@ if (isset($_POST["profilepicture"])){
         {
             // Check whether file exists before uploading it
             if (file_exists("upload/" . $_FILES["fileToUpload"]["name"])) {
-                echo $_FILES["fileToUpload"]["$username"]." is already exists.";
+                echo $_FILES["fileToUpload"]["name"]." already exists.";
             }
             else {
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],
                     $target_file)) {
-                    echo "The file ".  $_FILES["fileToUpload"]["$username"].
+                    echo "The file ".  $_FILES["fileToUpload"]["name"].
                         " has been uploaded.";
                 }
                 else {
@@ -134,7 +134,7 @@ if (isset($_POST["applychanges"])) {
         //change firstname and username
         $newusername = $_POST["changeusername"];
         $newfirstname = $_POST["changefirstname"];
-        $sql = "UPDATE user SET username = '$newusername', firstname = '$newfirstname', avatarpath = './images/users/$newusername' WHERE username = '$username'";
+        $sql = "UPDATE user SET username = '$newusername', firstname = '$newfirstname', avatarpath = './images/users' WHERE username = '$username'";
         try {
             mysqli_query($con, $sql);
             $_SESSION["name"] = "$newfirstname";
@@ -155,7 +155,7 @@ if (isset($_POST["applychanges"])) {
     } elseif (!empty($_POST["changeusername"])) {
         //change username
         $newusername = $_POST["changeusername"];
-        $sql = "UPDATE user SET username = '$newusername', avatarpath = './images/users/$newusername' WHERE username = '$username'";
+        $sql = "UPDATE user SET username = '$newusername', avatarpath = './images/users' WHERE username = '$username'";
         try {
             mysqli_query($con, $sql);
             $_SESSION["username"] = "$newusername";
