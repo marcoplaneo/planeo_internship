@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("db.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,10 +17,35 @@ session_start();
 </head>
 <body>
 <div id="profile">
-    <a id="profilepic"><img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
-                alt="Gollum" style="width: 75px; height: 75px"></a>
     <?php
+    if (!empty($_SESSION["status"])) {
+        $username = $_SESSION["username"];
+        $sql = "SELECT avatarpath FROM user WHERE username = '$username'";
+        $avatarpath = mysqli_query($con, $sql);
+        if (mysqli_num_rows($avatarpath) > 0) {
+            //assign variable objects to array
+            $row = mysqli_fetch_assoc($avatarpath);
+        }
+        if (is_file("$row[avatarpath]/$username.jpg") || is_file("$row[avatarpath]/$username.jpeg") || is_file("$row[avatarpath]/$username.png")) {
+            ?>
+            <a id="profilepic"><img
+                        src="./images/marco.png"
+                        alt="Gollum" style="width: 75px; height: 75px"></a>
+            <?php
+        } else {
+            ?>
+            <a id="profilepic"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
+                        alt="Gollum" style="width: 75px; height: 75px"></a>
+            <?php
+        }
+    } else {
+        ?>
+        <a id="profilepic"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
+                    alt="Gollum" style="width: 75px; height: 75px"></a>
+        <?php
+    }
     if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
         ?>
         <style>
