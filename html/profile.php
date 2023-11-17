@@ -22,7 +22,7 @@ $username = $_SESSION["username"];
     Select your profile picture:
     <input type="file" name="fileToUpload" id="fileToUpload">
     <br>
-    <input type="submit" value="Change profile picture" name="submit">
+    <input type="submit" value="Change profile picture" name="submitprofilepicture" id="submitprofilepicture">
     <br><br>
     <button type="button" id="changename" name="changename">Change name/username</button>
     <br>
@@ -73,14 +73,14 @@ $username = $_SESSION["username"];
     <input type="submit" name="deleteuser" value="Delete user">
 </form>
 <?php
-if (isset($_POST["changename"])){
+if (isset($_POST["profilepicture"])){
     $sql = "SELECT avatarpath FROM user WHERE username = '$username'";
     $avatarpath = mysqli_query($con, $sql);
     if (mysqli_num_rows($avatarpath) > 0) {
         //assign variable objects to array
         $row = mysqli_fetch_assoc($avatarpath);
     }
-    $target_file = $row[$avatarpath] . "/" . basename($_FILES["fileToUpload"]["$username"]);
+    $target_file = $row["avatarpath"] . "/" . basename($_FILES["fileToUpload"]["$username"]);
 
     // Check if file was uploaded without errors
     if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["error"] == 0) {
@@ -108,12 +108,12 @@ if (isset($_POST["changename"])){
         {
             // Check whether file exists before uploading it
             if (file_exists("upload/" . $_FILES["fileToUpload"]["name"])) {
-                echo $_FILES["fileToUpload"]["name"]." is already exists.";
+                echo $_FILES["fileToUpload"]["$username"]." is already exists.";
             }
             else {
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],
                     $target_file)) {
-                    echo "The file ".  $_FILES["fileToUpload"]["name"].
+                    echo "The file ".  $_FILES["fileToUpload"]["$username"].
                         " has been uploaded.";
                 }
                 else {
