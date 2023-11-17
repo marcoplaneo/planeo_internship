@@ -47,7 +47,7 @@ if (isset($_POST["SignUp"])) {
     if (!empty($username) && !empty($password)) {
         //hash the password
         $hash = hash('sha256', $password);
-        $sql = "INSERT INTO user (firstname, username, password, avatarpath) VALUES ('$firstname', '$username', '$hash', './images/users/$username')";
+        $sql = "INSERT INTO user (firstname, username, password, avatarpath) VALUES ('$firstname', '$username', '$hash', './images/users')";
         //try to create new account
         try {
             mysqli_query($con, $sql);
