@@ -9,14 +9,20 @@ $username = $_SESSION["username"];
     <meta charset="UTF-8">
     <title>Profile</title>
     <link href="css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/images/1176favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./images/1176favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
 </head>
 <body>
+<?php
+include("profile.php");
+?>
 <!--heading-->
-<h5>Settings</h5>
+<h1>Settings</h1>
+<?php
+include("nav.php");
+?>
 <!-- Trigger/Open The Modal -->
 <form method="post" action="profile.php" enctype="multipart/form-data">
     Select your profile picture:
@@ -179,5 +185,26 @@ if (isset($_POST["deleteuser"])) {
     <?php
 }
 ?>
+<!--footer-->
+<div class="footer2">
+    <p>Give us <a href="feedback.html">Feedback</a>! | If you have any questions, feel free to <a href="contact.html">contact</a>
+        us!
+        <br>
+        <a href="aboutUs.html">About us</a> | <a id="imprints" href="imprint.html">Imprint</a>
+        <br>
+        <span id="datetime"></span></p>
+    <script>
+        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const day = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        const dt = new Date();
+        document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
+    </script>
+    <script>
+        function changeLanguage(lang) {
+            location.hash = lang;
+            location.href = "/./de/index.html";
+        }
+    </script>
+</div>
 </body>
 </html>
