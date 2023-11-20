@@ -19,7 +19,7 @@ $username = $_SESSION["username"];
 include("profile.php");
 ?>
 <!--website heading-->
-<h4>Profil</h4>
+<h1>Einstellungen</h1>
 <?php
 include("nav.php");
 ?>
@@ -147,6 +147,7 @@ if (isset($_POST["applychanges"])) {
             mysqli_query($con, $sql);
             $_SESSION["name"] = "$newfirstname";
             $_SESSION["username"] = "$newusername";
+            echo "Daten erfolgreich geändert";
         } catch (mysqli_sql_exception $ex1) {
             echo "Dieser Benutzername ist bereits vergeben!";
         }
@@ -157,6 +158,7 @@ if (isset($_POST["applychanges"])) {
         try {
             mysqli_query($con, $sql);
             $_SESSION["name"] = "$newfirstname";
+            echo "Vorname erfolgreich geändert";
         } catch (mysqli_sql_exception $ex2) {
             echo "Oops, etwas ist schief gelaufen!";
         }
@@ -167,6 +169,7 @@ if (isset($_POST["applychanges"])) {
         try {
             mysqli_query($con, $sql);
             $_SESSION["username"] = "$newusername";
+            echo "Benutzername erfolgreich geändert";
         } catch (mysqli_sql_exception $ex3) {
             echo "Dieser Benutzername ist bereits vergeben!";
         }

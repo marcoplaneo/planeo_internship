@@ -147,6 +147,7 @@ if (isset($_POST["applychanges"])) {
             mysqli_query($con, $sql);
             $_SESSION["name"] = "$newfirstname";
             $_SESSION["username"] = "$newusername";
+            echo "Data changed successfully";
         } catch (mysqli_sql_exception $ex1) {
             echo "That username is already taken!";
         }
@@ -157,6 +158,7 @@ if (isset($_POST["applychanges"])) {
         try {
             mysqli_query($con, $sql);
             $_SESSION["name"] = "$newfirstname";
+            echo "First name changed successfully";
         } catch (mysqli_sql_exception $ex2) {
             echo "Oops, something went wrong!";
         }
@@ -167,6 +169,7 @@ if (isset($_POST["applychanges"])) {
         try {
             mysqli_query($con, $sql);
             $_SESSION["username"] = "$newusername";
+            echo "Username changed successfully";
         } catch (mysqli_sql_exception $ex3) {
             echo "That username is already taken!";
         }
