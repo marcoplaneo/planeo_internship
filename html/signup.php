@@ -51,12 +51,7 @@ if (isset($_POST["SignUp"])) {
         //try to create new account
         try {
             mysqli_query($con, $sql);
-            //forward to homepage
-            ?>
-            <script type="text/javascript">
-                window.location.href = 'index.php';
-            </script>
-            <?php
+            echo "Account created successfully";
         } //if it fails username is taken
         catch (mysqli_sql_exception $ex1) {
             echo "<br> That username is already taken";
