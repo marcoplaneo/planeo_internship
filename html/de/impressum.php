@@ -1,85 +1,27 @@
+<?php
+session_start();
+include("../db.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Impressum</title>
-    <link href="/../css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/images/1176favicon.ico">
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../images/1176favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
 </head>
 <body>
-<div id="profile">
-    <a id="profilepic" href="profil.html"><img
-            src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
-            alt="Gollum" style="width: 75px; height: 75px"></a>
-</div>
-<div class="dm">
-    <button id="darkmode" class="button" onclick="darkMode()">
-            <span class="material-symbols-outlined">
-                radio_button_partial
-            </span>
-    </button>
-    <script>
-        function darkMode() {
-            let element = document.body;
-            element.classList.toggle("dark-mode");
-        }
-    </script>
-</div>
+<?php
+include("profile.php");
+?>
 <!--website heading-->
 <h1>Impressum</h1>
-<!--navigation-->
-<div class="navbar">
-    <div class="burger">
-        <button class="dropbtn">
-            <span class="material-symbols-outlined">menu</span>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="burger-content">
-            <a href="index.html">Home</a>
-            <a href="anfahrt.html">Anfahrt</a>
-            <a href="team.html">Team</a>
-            <div class="tools">
-                <button class="dropdwn">Tools
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="tools-content">
-                    <a href="tools.html">Tools</a>
-                </div>
-            </div>
-            <div class="help">
-                <button class="dropdwn">Hilfe
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="help-content">
-                    <a href="hilfe.html">Hilfe</a>
-                    <a href="impressum.html">Impressum</a>
-                    <a href="feedback.html">Feedback</a>
-                    <a href="kontakt.html">Kontakt</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="account">
-        <button type="submit" class="navbutton" name="SignUp">Sign Up</button>
-        <button type="submit" class="navbutton" name="LogIn">Log In</button>
-    </div>
-</div>
-<!--language switch button-->
-<div class="lang">
-    <button id="language" class="dropbtn">
-        <span class="material-symbols-outlined">
-            language
-        </span>
-        <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="lang-content">
-        <a onclick="changeLanguage('en')">Englisch</a>
-        <a onclick="changeLanguage('de')">Deutsch</a>
-    </div>
-</div>
+<?php
+include("nav.php");
+?>
 <br>
 <!--main part of the website-->
 <div class="main">
@@ -132,10 +74,10 @@
 </div>
 <!--footer-->
 <div class="footer">
-    <p>Geben Sie uns <a href="feedback.html">Feedback</a>! | Falls Sie Fragen haben, fühlen Sie sich frei uns zu <a
-            href="kontakt.html">kontaktieren</a>!
+    <p>Geben Sie uns <a href="feedback.php">Feedback</a>! | Falls Sie Fragen haben, fühlen Sie sich frei uns zu <a
+            href="kontakt.php">kontaktieren</a>!
         <br>
-        <a href="ueberUns.html">Über uns</a> | <a id="imprints" href="impressum.html">Impressum</a>
+        <a href="ueberUns.php">Über uns</a> | <a id="imprints" href="impressum.php">Impressum</a>
         <br>
         <span id="datetime"></span></p>
     <script>
@@ -147,7 +89,7 @@
     <script>
         function changeLanguage(lang) {
             location.hash = lang;
-            location.href = "/../imprint.html";
+            location.href = "../imprint.php";
         }
     </script>
 </div>

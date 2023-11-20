@@ -1,130 +1,31 @@
+<?php
+session_start();
+include("../db.php");
+?>
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Homepage</title>
-    <link href="/../css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/images/1176favicon.ico">
+    <title>Tools</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../images/1176favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
 </head>
 <body>
-<div id="profile">
-    <a id="profilepic" href="profil.html"><img
-            src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
-            alt="Gollum" style="width: 75px; height: 75px"></a>
-</div>
-<div class="dm">
-    <button id="darkmode" class="button" onclick="darkMode()">
-            <span class="material-symbols-outlined">
-                radio_button_partial
-            </span>
-    </button>
-    <script>
-        function darkMode() {
-            let element = document.body;
-            element.classList.toggle("dark-mode");
-        }
-    </script>
-</div>
+<?php
+include("profile.php");
+?>
 <!--website heading-->
-<h1>Shop</h1>
-<!--navigation-->
-<div class="navbar">
-    <div class="burger">
-        <button class="dropbtn">
-            <span class="material-symbols-outlined">menu</span>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="burger-content">
-            <a href="index.html">Home</a>
-            <a href="anfahrt.html">Anfahrt</a>
-            <a href="team.html">Team</a>
-            <div class="tools">
-                <button class="dropdwn">Tools
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="tools-content">
-                    <a href="tools.html">Tools</a>
-                </div>
-            </div>
-            <div class="help">
-                <button class="dropdwn">Hilfe
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="help-content">
-                    <a href="hilfe.html">Hilfe</a>
-                    <a href="impressum.html">Impressum</a>
-                    <a href="feedback.html">Feedback</a>
-                    <a href="kontakt.html">Kontakt</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="account">
-        <button type="submit" class="navbutton" name="SignUp">Sign Up</button>
-        <button type="submit" class="navbutton" name="LogIn">Log In</button>
-    </div>
-</div>
-<!--language switch button-->
-<div class="lang">
-    <button id="language" class="dropbtn">
-        <span class="material-symbols-outlined">
-            language
-        </span>
-        <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="lang-content">
-        <a onclick="changeLanguage('en')">Englisch</a>
-        <a onclick="changeLanguage('de')">Deutsch</a>
-    </div>
-</div>
-<!--right side of the website-->
-<div class="opening">
-    <table>
-        <caption><h2>Öffnungszeiten</h2></caption>
-        <tbody>
-        <tr>
-            <th>Tag</th>
-            <th>Öffnungszeit</th>
-        </tr>
-        <tr>
-            <td>Montag</td>
-            <td style="float: right">7 - 21 Uhr</td>
-        </tr>
-        <tr>
-            <td>Dienstag</td>
-            <td style="float: right">7 - 21 Uhr</td>
-        </tr>
-        <tr>
-            <td>Mittwoch</td>
-            <td style="float: right">7 - 21 Uhr</td>
-        </tr>
-        <tr>
-            <td>Donnerstag</td>
-            <td style="float: right">7 - 21 Uhr</td>
-        </tr>
-        <tr>
-            <td>Freitag</td>
-            <td style="float: right">7 - 21 Uhr</td>
-        </tr>
-        <tr>
-            <td>Samstag</td>
-            <td style="float: right">14 - 17 Uhr</td>
-        </tr>
-        <tr>
-            <td>Sonntag</td>
-            <td style="float: right">geschlossen</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<!--main part of the website-->
-<div class="core">
-    <h2 id="info">Generelle Informationen</h2>
-    <br>
-    <p id="mainpart">Auf dieser Webseite können Sie shoppen, was Sie möchten.</p>
+<h1>Tools</h1>
+<?php
+include("nav.php");
+?>
+<!-- main part of subsite-->
+<div class="main">
+    <p><span style="color: brown"><strong>Leider</strong></span>, haben wir gerade nichts auf Vorrat!</p>
+    <p>Klicken Sie <a href="index.php"><q>hier</q></a>, um zur Homepage zurückzukehren.</p>
     <p>Es wird mindestens eine Zeit in unserem Leben geben, in der wir ein Geschenk erhalten, in dem jemand etwas tut,
         für das wir dankbar sein sollen. (Wenn Ihnen noch nie jemand ein Geschenk gemacht oder etwas Nettes für Sie
         getan hat, müssen Sie entweder wirklich übel riechen oder so aussehen.) Siehe nebenstehendes Bild.
@@ -240,10 +141,10 @@
 </div>
 <!--footer-->
 <div class="footer">
-    <p>Geben Sie uns <a href="feedback.html">Feedback</a>! | Falls Sie Fragen haben, fühlen Sie sich frei uns zu <a
-            href="kontakt.html">kontaktieren</a>!
+    <p>Geben Sie uns <a href="feedback.php">Feedback</a>! | Falls Sie Fragen haben, fühlen Sie sich frei uns zu <a
+            href="kontakt.php">kontaktieren</a>!
         <br>
-        <a href="ueberUns.html">Über uns</a> | <a id="imprints" href="impressum.html">Impressum</a>
+        <a href="ueberUns.php">Über uns</a> | <a id="imprints" href="impressum.php">Impressum</a>
         <br>
         <span id="datetime"></span></p>
     <script>
@@ -255,7 +156,7 @@
     <script>
         function changeLanguage(lang) {
             location.hash = lang;
-            location.href = "/../index.html";
+            location.href = "../shop.php";
         }
     </script>
 </div>

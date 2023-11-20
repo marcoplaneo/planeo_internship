@@ -1,15 +1,15 @@
 <?php
 session_start();
-include("db.php");
+include("../db.php");
 $username = $_SESSION["username"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="./images/1176favicon.ico">
+    <title>Profil</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../images/1176favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
@@ -18,19 +18,19 @@ $username = $_SESSION["username"];
 <?php
 include("profile.php");
 ?>
-<!--heading-->
-<h1>Settings</h1>
+<!--website heading-->
+<h4>Profil</h4>
 <?php
 include("nav.php");
 ?>
 <!-- Trigger/Open The Modal -->
-<form method="post" action="settings.php" enctype="multipart/form-data">
-    Select your profile picture:
+<form method="post" action="einstellungen.php" enctype="multipart/form-data">
+    Wählen Sie Ihr Profilbild aus:
     <input type="file" name="fileToUpload" id="fileToUpload">
     <br>
-    <input type="submit" value="Change profile picture" name="submitprofilepicture" id="submitprofilepicture">
+    <input type="submit" value="Profilbild ändern" name="submitprofilepicture" id="submitprofilepicture">
     <br><br>
-    <button type="button" id="changename" name="changename">Change name/username</button>
+    <button type="button" id="changename" name="changename">Namen/Benutzernamen ändern</button>
     <br>
 
     <!-- The Modal -->
@@ -39,12 +39,12 @@ include("nav.php");
         <!-- Modal content -->
         <div class="modal-content">
             <span class="closechangename">&times;</span>
-            <h5>Change name and/or username</h5>
-            <label>Change firstname to<br>
+            <h5>Namen und/oder Benutzernamen ändern</h5>
+            <label>Ändere Vornamen zu<br>
                 <input type="text" id="changefirstname" name="changefirstname"></label><br><br>
-            <label>Change username to<br>
+            <label>Ändere Benutzernamen zu<br>
                 <input type="text" id="changeusername" name="changeusername"></label><br><br>
-            <input type="submit" id="applychanges" name="applychanges" value="Apply changes">
+            <input type="submit" id="applychanges" name="applychanges" value="Änderungen übernhemen">
         </div>
 
     </div>
@@ -76,7 +76,7 @@ include("nav.php");
             }
         }
     </script>
-    <input type="submit" name="deleteuser" value="Delete user">
+    <input type="submit" name="deleteuser" value="Benutzer löschen">
 </form>
 <?php
 if (isset($_POST["submitprofilepicture"])) {
@@ -86,7 +86,7 @@ if (isset($_POST["submitprofilepicture"])) {
         //assign variable objects to array
         $row = mysqli_fetch_assoc($avatarpath);
     }
-    $target_file = $row["avatarpath"] . "/" . basename($_FILES["fileToUpload"]["name"]);
+    $target_file = "." . $row["avatarpath"] . "/" . basename($_FILES["fileToUpload"]["name"]);
 
     // Check if file was uploaded without errors
     if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["error"] == 0) {
@@ -99,38 +99,38 @@ if (isset($_POST["submitprofilepicture"])) {
         $ext = pathinfo($file_name, PATHINFO_EXTENSION);
 
         if (!array_key_exists($ext, $allowed_ext)) {
-            die("Error: Please select a valid file format.");
+            die("Error: Bitte wählen Sie ein gültiges Dateiformat aus.");
         }
 
         // Verify file size - 2MB max
         $maxsize = 2 * 1024 * 1024;
 
         if ($file_size > $maxsize) {
-            die("Error: File size is larger than the allowed limit.");
+            die("Error: Die Datei ist größer als zulässig.");
         }
 
         // Verify MYME type of the file
         if (in_array($file_type, $allowed_ext)) {
             // Check whether file exists before uploading it
-            if (file_exists("$row[avatarpath]" . "/" . $_FILES["fileToUpload"]["name"])) {
+            if (file_exists("." . "$row[avatarpath]" . "/" . $_FILES["fileToUpload"]["name"])) {
                 echo $_FILES["fileToUpload"]["name"] . " already exists.";
             } else {
                 $tmp = explode(".", $_FILES["fileToUpload"]["name"]);
                 $newfilename = $username . '.' . end($tmp);
-                $new_target_file = $row["avatarpath"] . "/" . $newfilename;
-                if (file_exists("./images/users/$username.png")) unlink("./images/users/$username.png");
-                if (file_exists("./images/users/$username.jpg")) unlink("./images/users/$username.jpg");
-                if (file_exists("./images/users/$username.jpeg")) unlink("./images/users/$username.jpeg");
+                $new_target_file = "." . $row["avatarpath"] . "/" . $newfilename;
+                if (file_exists("../images/users/$username.png")) unlink("../images/users/$username.png");
+                if (file_exists("../images/users/$username.jpg")) unlink("../images/users/$username.jpg");
+                if (file_exists("../images/users/$username.jpeg")) unlink("../images/users/$username.jpeg");
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],
                     $new_target_file)) {
-                    echo "The file " . $_FILES["fileToUpload"]["name"] .
-                        " has been uploaded.";
+                    echo "Die Datei " . $_FILES["fileToUpload"]["name"] .
+                        " wurde hochgeladen.";
                 } else {
-                    echo "Sorry, there was an error uploading your file.";
+                    echo "Leider ist beim Hochladen der Datei ein Fehler aufgetreten.";
                 }
             }
         } else {
-            echo "Error: Please try again.";
+            echo "Error: Bitte erneut versuchen.";
         }
     } else {
         echo "Error: " . $_FILES["fileToUpload"]["error"];
@@ -148,7 +148,7 @@ if (isset($_POST["applychanges"])) {
             $_SESSION["name"] = "$newfirstname";
             $_SESSION["username"] = "$newusername";
         } catch (mysqli_sql_exception $ex1) {
-            echo "That username is already taken!";
+            echo "Dieser Benutzername ist bereits vergeben!";
         }
     } elseif (!empty($_POST["changefirstname"])) {
         //change firstname
@@ -158,7 +158,7 @@ if (isset($_POST["applychanges"])) {
             mysqli_query($con, $sql);
             $_SESSION["name"] = "$newfirstname";
         } catch (mysqli_sql_exception $ex2) {
-            echo "Oops, something went wrong!";
+            echo "Oops, etwas ist schief gelaufen!";
         }
     } elseif (!empty($_POST["changeusername"])) {
         //change username
@@ -168,7 +168,7 @@ if (isset($_POST["applychanges"])) {
             mysqli_query($con, $sql);
             $_SESSION["username"] = "$newusername";
         } catch (mysqli_sql_exception $ex3) {
-            echo "That username is already taken!";
+            echo "Dieser Benutzername ist bereits vergeben!";
         }
     }
 }
@@ -187,22 +187,22 @@ if (isset($_POST["deleteuser"])) {
 ?>
 <!--footer-->
 <div class="footer2">
-    <p>Give us <a href="feedback.php">Feedback</a>! | If you have any questions, feel free to <a href="contact.php">contact</a>
-        us!
+    <p>Geben Sie uns <a href="feedback.php">Feedback</a>! | Falls Sie Fragen haben, fühlen Sie sich frei uns zu <a
+            href="kontakt.php">kontaktieren</a>!
         <br>
-        <a href="aboutUs.php">About us</a> | <a id="imprints" href="imprint.php">Imprint</a>
+        <a href="ueberUns.php">Über uns</a> | <a id="imprints" href="impressum.php">Impressum</a>
         <br>
         <span id="datetime"></span></p>
     <script>
-        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const day = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        const month = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+        const day = ["", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
         const dt = new Date();
         document.getElementById("datetime").innerHTML = day[dt.getDay()] + " " + (("0" + (dt.getDate())).slice(-2)) + "." + month[dt.getMonth()] + "." + (("0" + (dt.getFullYear())).slice(-4));
     </script>
     <script>
         function changeLanguage(lang) {
             location.hash = lang;
-            location.href = "./de/einstellungen.php";
+            location.href = "../settings.php";
         }
     </script>
 </div>

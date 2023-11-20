@@ -1,92 +1,35 @@
+<?php
+session_start();
+include("db.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Help</title>
     <link href="css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/images/1176favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./images/1176favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
 </head>
 <body>
-<div id="profile">
-    <a id="profilepic" href="profile.html"><img
-            src="https://pyxis.nymag.com/v1/imgs/5d4/f6e/c6aeaba039ba41d69a9dbce8c3523ec471-11-gollum.rsquare.w700.jpg"
-            alt="Gollum" style="width: 75px; height: 75px"></a>
-</div>
-<div class="dm">
-    <button id="darkmode" class="button" onclick="darkMode()">
-            <span class="material-symbols-outlined">
-                radio_button_partial
-            </span>
-    </button>
-    <script>
-        function darkMode() {
-            let element = document.body;
-            element.classList.toggle("dark-mode");
-        }
-    </script>
-</div>
+<?php
+include("profile.php");
+?>
 <!--heading-->
 <h1>
     Help
 </h1>
-<!--navigation-->
-<div class="navbar">
-    <div class="burger">
-        <button class="dropbtn">
-            <span class="material-symbols-outlined">menu</span>
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="burger-content">
-            <a href="index.html">Home</a>
-            <a href="location.html">Location</a>
-            <a href="team.html">Team</a>
-            <div class="tools">
-                <button class="dropdwn">Tools
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="tools-content">
-                    <a href="shop.html">Tools</a>
-                </div>
-            </div>
-            <div class="help">
-                <button class="dropdwn">Help
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="help-content">
-                    <a href="help.html">Help</a>
-                    <a href="imprint.html">Imprint</a>
-                    <a href="feedback.html">Feedback</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="account">
-        <button type="submit" class="navbutton" name="SignUp">Sign Up</button>
-        <button type="submit" class="navbutton" name="LogIn">Log In</button>
-    </div>
-</div>
-<div class="lang">
-    <button id="language" class="dropbtn">
-        <span class="material-symbols-outlined">
-            language
-        </span>
-        <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="lang-content">
-        <a onclick="changeLanguage('en')">English</a>
-        <a onclick="changeLanguage('de')">German</a>
-    </div>
-</div>
+<?php
+include("nav.php");
+?>
 <br>
 <!--main part of subsite-->
 <div class="main">
     <p>
         This is an easy-to-use website. You don't need any help.
-        Click <a href="index.html"><q>here</q></a> to go back to the homepage.
+        Click <a href="index.php"><q>here</q></a> to go back to the homepage.
     </p>
     <p>“Get well soon because that cough is fucking disgusting.”
         <br>
@@ -180,10 +123,10 @@
 </div>
 <!--footer-->
 <div class="footer">
-    <p>Give us <a href="feedback.html">Feedback</a>! | If you have any questions, feel free to <a href="contact.html">contact</a>
+    <p>Give us <a href="feedback.php">Feedback</a>! | If you have any questions, feel free to <a href="contact.php">contact</a>
         us!
         <br>
-        <a href="aboutUs.html">About us</a> | <a id="imprints" href="imprint.html">Imprint</a>
+        <a href="aboutUs.php">About us</a> | <a id="imprints" href="imprint.php">Imprint</a>
         <br>
         <span id="datetime"></span></p>
     <script>
@@ -195,7 +138,7 @@
     <script>
         function changeLanguage(lang) {
             location.hash = lang;
-            location.href = "/./de/hilfe.html";
+            location.href = "./de/hilfe.php";
         }
     </script>
 </div>
