@@ -29,14 +29,21 @@ include("db.php");
         if (is_file("$row[avatarpath]/$username.jpg") || is_file("$row[avatarpath]/$username.jpeg") || is_file("$row[avatarpath]/$username.png")) {
             ?>
             <a id="profilepic"><img
-                        src="./images/marco.png"
-                        alt="Gollum" style="width: 75px; height: 75px"></a>
+                        src="./images/users/<?php
+                        if (file_exists("./images/users/$username.png")) {
+                            echo "$username.png";
+                        } elseif (file_exists("./images/users/$username.jpg")) {
+                            echo "$username.jpg";
+                        } elseif (file_exists("./images/users/$username.jpeg")) {
+                            echo "$username.jpeg";
+                        } ?>"
+                        alt="profile pic" style="width: 75px; height: 75px"></a>
             <?php
         } else {
             ?>
             <a id="profilepic"><img
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
-                        alt="Gollum" style="width: 75px; height: 75px"></a>
+                        alt="default" style="width: 75px; height: 75px"></a>
             <?php
         }
     } else {
