@@ -107,12 +107,15 @@ if (isset($_POST["submitprofilepicture"])){
         if (in_array($file_type, $allowed_ext))
         {
             // Check whether file exists before uploading it
-            if (file_exists("upload/" . $_FILES["fileToUpload"]["name"])) {
+            if (file_exists("$row[avatarpath]" . "/" . $_FILES["fileToUpload"]["name"])) {
                 echo $_FILES["fileToUpload"]["name"]." already exists.";
             }
             else {
+                $tmp = explode(".", $_FILES["fileToUpload"]["name"]);
+                $newfilename = $username . '.' . end($tmp);
+                $new_target_file = $row["avatarpath"] . "/" . $newfilename;
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],
-                    $target_file)) {
+                    $new_target_file)) {
                     echo "The file ".  $_FILES["fileToUpload"]["name"].
                         " has been uploaded.";
                 }
