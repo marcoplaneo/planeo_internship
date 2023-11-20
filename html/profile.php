@@ -73,7 +73,7 @@ $username = $_SESSION["username"];
     <input type="submit" name="deleteuser" value="Delete user">
 </form>
 <?php
-if (isset($_POST["submitprofilepicture"])){
+if (isset($_POST["submitprofilepicture"])) {
     $sql = "SELECT avatarpath FROM user WHERE username = '$username'";
     $avatarpath = mysqli_query($con, $sql);
     if (mysqli_num_rows($avatarpath) > 0) {
@@ -104,31 +104,30 @@ if (isset($_POST["submitprofilepicture"])){
         }
 
         // Verify MYME type of the file
-        if (in_array($file_type, $allowed_ext))
-        {
+        if (in_array($file_type, $allowed_ext)) {
             // Check whether file exists before uploading it
             if (file_exists("$row[avatarpath]" . "/" . $_FILES["fileToUpload"]["name"])) {
-                echo $_FILES["fileToUpload"]["name"]." already exists.";
-            }
-            else {
+                echo $_FILES["fileToUpload"]["name"] . " already exists.";
+            } else {
                 $tmp = explode(".", $_FILES["fileToUpload"]["name"]);
                 $newfilename = $username . '.' . end($tmp);
                 $new_target_file = $row["avatarpath"] . "/" . $newfilename;
+                if (file_exists("./images/users/$username.png")) unlink("./images/users/$username.png");
+                if (file_exists("./images/users/$username.jpg")) unlink("./images/users/$username.jpg");
+                if (file_exists("./images/users/$username.jpeg")) unlink("./images/users/$username.jpeg");
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],
                     $new_target_file)) {
-                    echo "The file ".  $_FILES["fileToUpload"]["name"].
+                    echo "The file " . $_FILES["fileToUpload"]["name"] .
                         " has been uploaded.";
-                }
-                else {
+                } else {
                     echo "Sorry, there was an error uploading your file.";
                 }
             }
-        }
-        else {
+        } else {
             echo "Error: Please try again.";
         }
     } else {
-        echo"Error: " . $_FILES["fileToUpload"]["error"];
+        echo "Error: " . $_FILES["fileToUpload"]["error"];
     }
 }
 
