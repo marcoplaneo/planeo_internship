@@ -32,7 +32,7 @@
         ?>
         <a id="profilepic"><img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png"
-                alt="Gollum" style="width: 75px; height: 75px"></a>
+                alt="default" style="width: 75px; height: 75px"></a>
         <?php
     }
     if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
