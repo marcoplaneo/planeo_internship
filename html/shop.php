@@ -1,6 +1,15 @@
 <?php
 session_start();
 include("db.php");
+if (empty($_SESSION)){
+    redirect('index.php');
+}
+function redirect($location = NULL){
+    if ($location != NULL){
+        header("Location: {$location}");
+        exit;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

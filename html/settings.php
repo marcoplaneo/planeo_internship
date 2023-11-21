@@ -1,6 +1,9 @@
 <?php
 session_start();
 include("db.php");
+if (empty($_SESSION)){
+    redirect('index.php');
+}
 $username = $_SESSION["username"];
 function redirect($location = NULL){
     if ($location != NULL){
