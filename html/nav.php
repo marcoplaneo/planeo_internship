@@ -9,6 +9,10 @@
             <a href="index.php">Home</a>
             <a href="location.php">Location</a>
             <a href="team.php">Team</a>
+            <?php
+            if (!empty($_SESSION["status"])) {
+                if ($_SESSION["status"] == "started") {
+                    ?>
             <div class="tools">
                 <button class="dropdwn">Tools
                     <i class="fa fa-caret-down"></i>
@@ -17,6 +21,10 @@
                     <a href="shop.php">Tools</a>
                 </div>
             </div>
+            <?php
+                }
+            }
+            ?>
             <div class="help">
                 <button class="dropdwn">Help
                     <i class="fa fa-caret-down"></i>

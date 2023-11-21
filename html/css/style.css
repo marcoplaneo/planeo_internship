@@ -280,7 +280,7 @@ div.sticky {
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
-    width: 21%;
+    width: 26.7%;
     margin-top: -46px;
     margin-left: 100%;
 }
@@ -666,7 +666,7 @@ a:hover {
         visibility: visible;
         margin-left: -15%;
         box-shadow: none;
-        width: 50%;
+        width: 40%;
         background-color: darkslategrey;
     }
 
