@@ -2,6 +2,20 @@
 session_start();
 include("db.php");
 $username = $_SESSION["username"];
+function redirect($location = NULL){
+    if ($location != NULL){
+        header("Location: {$location}");
+        exit;
+    }
+}
+if (isset($_POST["deleteuser"])) {
+    $sql = "DELETE FROM user WHERE username = '$username'";
+
+    mysqli_query($con, $sql);
+    $_SESSION["status"] = "stopped";
+    $_SESSION["message"] = "Success";
+    redirect('index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -174,18 +188,6 @@ if (isset($_POST["applychanges"])) {
             echo "That username is already taken!";
         }
     }
-}
-if (isset($_POST["deleteuser"])) {
-    $sql = "DELETE FROM user WHERE username = '$username'";
-
-    mysqli_query($con, $sql);
-    $_SESSION["status"] = "stopped";
-    session_destroy();
-    ?>
-    <script type="text/javascript">
-        window.location.href = 'index.php';
-    </script>
-    <?php
 }
 ?>
 <!--footer-->
