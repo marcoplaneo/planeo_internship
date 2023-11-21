@@ -1,6 +1,6 @@
 <div id="profile">
     <?php
-    if (!empty($_SESSION["status"])) {
+    if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
         $username = $_SESSION["username"];
         $sql = "SELECT avatarpath FROM user WHERE username = '$username'";
         $avatarpath = mysqli_query($con, $sql);
