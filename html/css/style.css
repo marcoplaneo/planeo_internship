@@ -121,6 +121,11 @@ p {
     margin-right: 50px;
 }
 
+.success {
+    color: teal;
+    font-size: 30px;
+}
+
 /*image format*/
 img {
     border-radius: 50%;

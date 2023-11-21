@@ -24,6 +24,20 @@ include("profile.php");
 <?php
 include("nav.php");
 ?>
+<?php
+if (!empty($_SESSION["status"])) {
+    if ($_SESSION["status"] == "started") {
+        $user = $_SESSION["username"];
+        ?><p class="success"><strong><?php echo "Hello {$user}"; ?></strong></p><?php
+    }
+    if (!empty($_SESSION["message"]) && $_SESSION["message"] == "Success"){
+        ?>
+        <p class='success'><b>User deleted successfully</b></p>
+        <?php
+        $_SESSION["message"] = "";
+    }
+}
+?>
 <!--right side of the website-->
 <div class="opening">
     <table>
@@ -68,16 +82,6 @@ include("nav.php");
 <div class="core">
     <h2 id="info">General information</h2>
     <br>
-    <p>
-        <?php
-        if (!empty($_SESSION["status"])) {
-            if ($_SESSION["status"] == "started") {
-                $user = $_SESSION["username"];
-                ?><strong><?php echo "Hello {$user},"; ?></strong><?php
-            }
-        }
-        ?>
-    </p>
     <p id="mainpart">On this website you can shop what you like.</p>
     <p>There will be at least one time in our lives when we receive a present of someone does something that we are
         meant to be grateful for. (If no-one has ever given you a gift or done something nice for you then you must
