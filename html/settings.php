@@ -97,13 +97,7 @@ include("nav.php");
 </form>
 <?php
 if (isset($_POST["submitprofilepicture"])) {
-    $sql = "SELECT avatarpath FROM user WHERE username = '$username'";
-    $avatarpath = mysqli_query($con, $sql);
-    if (mysqli_num_rows($avatarpath) > 0) {
-        //assign variable objects to array
-        $row = mysqli_fetch_assoc($avatarpath);
-    }
-    $target_file = $row["avatarpath"] . "/" . basename($_FILES["fileToUpload"]["name"]);
+    $target_file = "./images/users/" . basename($_FILES["fileToUpload"]["name"]);
 
     // Check if file was uploaded without errors
     if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["error"] == 0) {
@@ -129,12 +123,12 @@ if (isset($_POST["submitprofilepicture"])) {
         // Verify MYME type of the file
         if (in_array($file_type, $allowed_ext)) {
             // Check whether file exists before uploading it
-            if (file_exists("$row[avatarpath]" . "/" . $_FILES["fileToUpload"]["name"])) {
+            if (file_exists(".images/users/" . $_FILES["fileToUpload"]["name"])) {
                 echo $_FILES["fileToUpload"]["name"] . " already exists.";
             } else {
                 $tmp = explode(".", $_FILES["fileToUpload"]["name"]);
                 $newfilename = $username . '.' . end($tmp);
-                $new_target_file = $row["avatarpath"] . "/" . $newfilename;
+                $new_target_file = "./images/users/" . $newfilename;
                 if (file_exists("./images/users/$username.png")) unlink("./images/users/$username.png");
                 if (file_exists("./images/users/$username.jpg")) unlink("./images/users/$username.jpg");
                 if (file_exists("./images/users/$username.jpeg")) unlink("./images/users/$username.jpeg");
@@ -159,7 +153,7 @@ if (isset($_POST["applychanges"])) {
         //change firstname and username
         $newusername = $_POST["changeusername"];
         $newfirstname = $_POST["changefirstname"];
-        $sql = "UPDATE user SET username = '$newusername', firstname = '$newfirstname', avatarpath = './images/users' WHERE username = '$username'";
+        $sql = "UPDATE user SET username = '$newusername', firstname = '$newfirstname' WHERE username = '$username'";
         try {
             mysqli_query($con, $sql);
             $_SESSION["name"] = "$newfirstname";
@@ -182,7 +176,7 @@ if (isset($_POST["applychanges"])) {
     } elseif (!empty($_POST["changeusername"])) {
         //change username
         $newusername = $_POST["changeusername"];
-        $sql = "UPDATE user SET username = '$newusername', avatarpath = './images/users' WHERE username = '$username'";
+        $sql = "UPDATE user SET username = '$newusername' WHERE username = '$username'";
         try {
             mysqli_query($con, $sql);
             $_SESSION["username"] = "$newusername";

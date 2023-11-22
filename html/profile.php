@@ -2,13 +2,7 @@
     <?php
     if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
         $username = $_SESSION["username"];
-        $sql = "SELECT avatarpath FROM user WHERE username = '$username'";
-        $avatarpath = mysqli_query($con, $sql);
-        if (mysqli_num_rows($avatarpath) > 0) {
-            //assign variable objects to array
-            $row = mysqli_fetch_assoc($avatarpath);
-        }
-        if (is_file("$row[avatarpath]/$username.jpg") || is_file("$row[avatarpath]/$username.jpeg") || is_file("$row[avatarpath]/$username.png")) {
+        if (is_file("./images/users/$username.jpg") || is_file("./images/users/$username.jpeg") || is_file(".images/users/$username.png")) {
             ?>
             <a id="profilepic"><img
                     src="./images/users/<?php
