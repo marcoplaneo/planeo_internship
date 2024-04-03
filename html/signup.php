@@ -52,9 +52,11 @@ if (isset($_POST["SignUp"])) {
         try {
             mysqli_query($con, $sql);
             echo "Account created successfully";
+            $_ENV["signUpSuccess"] = "success";
         } //if it fails username is taken
         catch (mysqli_sql_exception $ex1) {
             echo "<br> That username is already taken";
+            $_ENV["signUpSuccess"] = "failed";
         }
     }
 }

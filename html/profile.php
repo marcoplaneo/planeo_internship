@@ -2,7 +2,7 @@
     <?php
     if (!empty($_SESSION["status"]) && $_SESSION["status"] == "started") {
         $username = $_SESSION["username"];
-        if (is_file("./images/users/$username.jpg") || is_file("./images/users/$username.jpeg") || is_file(".images/users/$username.png")) {
+        if (is_file("./images/users/$username.jpg") || is_file("./images/users/$username.jpeg") || is_file("./images/users/$username.png")) {
             ?>
             <a id="profilepic"><img
                     src="./images/users/<?php

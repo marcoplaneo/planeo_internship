@@ -126,6 +126,11 @@ p {
     font-size: 30px;
 }
 
+.failed {
+    color: red;
+    font-size: 30px;
+}
+
 /*image format*/
 img {
     border-radius: 50%;
