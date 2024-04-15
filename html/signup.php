@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!--website heading-->
     <h5>Sign Up</h5>
     <div class="main">
-        <form method="post">
+        <form id="fupForm" method="post">
             <br><br>
             <label>First Name: <br><input type="text" id="firstname" name="firstname"></label>
             <br><br>
@@ -35,14 +35,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <br><br>
             <label>Password: <br><input type="password" id="password" name="password" required></label>
             <br><br>
-            <button type="submit" class="button" name="SignUp">Sign Up</button>
+            <button type="button" class="button" id="signup" name="SignUp">Sign Up</button>
+            <ul id="orders"></ul>
         </form>
     </div>
     </body>
     </html>
+    <script src="./jquery/jquery.js"></script>
+    <script>
+        $(function () {
+            $('#signup').on('click', function () {
+                var firstname = $('#firstname').val();
+                var username = $('#username').val();
+                var password = $('#password').val();
+
+                $.ajax({
+                    type: 'POST',
+                    data: {
+                        firstname: firstname,
+                        username: username,
+                        password: password,
+                    },
+                    success: function (data) {
+                        var dataResult = JSON.parse(data);
+                        if(dataResult.statusCode==200){
+                            alert("How to send?");
+                        }
+                        else if(dataResult.statusCode==201){
+                            alert("Error!");
+                        }
+                    },
+                    error: function () {
+                        alert('error');
+                    }
+                });
+            });
+        });
+    </script>
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+$hash = hash('sha256', $password);
+$sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
+if (mysqli_query($con, $sql)) {
+    echo json_encode(array("statusCode" => 200));
+}
+else {
+    echo json_encode(array("statusCode" => 201));
+}}
 //if Sign Up button is pressed
-if (isset($_POST["SignUp"])) {
+/*if (isset($_POST["SignUp"])) {
     //if necessary fields are filled
     if (!empty($username) && !empty($password)) {
         //hash the password
@@ -59,6 +100,6 @@ if (isset($_POST["SignUp"])) {
             $_ENV["signUpSuccess"] = "failed";
         }
     }
-}
+}*/
 mysqli_close($con);
 ?>
