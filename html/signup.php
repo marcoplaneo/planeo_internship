@@ -35,8 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <br><br>
             <label>Password: <br><input type="password" id="password" name="password" required></label>
             <br><br>
-            <button type="button" class="button" id="signup" name="SignUp">Sign Up</button>
-            <ul id="orders"></ul>
+            <button type="button" class="button" id="signupbutton" name="SignUp">Sign Up</button>
+            <p class="msg"></p>
         </form>
     </div>
     </body>
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="./jquery/jquery.js"></script>
     <script>
         $(function () {
-            $('#signup').on('click', function () {
+            $('#signupbutton').on('click', function () {
                 var firstname = $('#firstname').val();
                 var username = $('#username').val();
                 var password = $('#password').val();
@@ -56,17 +56,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         username: username,
                         password: password,
                     },
-                    success: function (data) {
-                        var dataResult = JSON.parse(data);
+                    success: function () {
+                        /*var dataResult = JSON.parse(data);
                         if(dataResult.statusCode==200){
                             alert("How to send?");
                         }
                         else if(dataResult.statusCode==201){
                             alert("Error!");
-                        }
+                        }*/
+
+                        //Here has to be checked if the user already exists. If yes, throw error message. If no, show success message after adding the user.
+                        //It is possible to add an 'empty' user. This has to be removed.
+
+                        $(".msg").html("Success");
+                        setTimeout(function(){
+                            $("#signupmodal").hide()
+                        }, 3000);
                     },
                     error: function () {
-                        alert('error');
+                        $(".msg").html("Something went wrong!");
                     }
                 });
             });
