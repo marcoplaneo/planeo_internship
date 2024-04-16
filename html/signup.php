@@ -51,12 +51,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 $.ajax({
                     type: 'POST',
+                    url: './check.php',
                     data: {
                         firstname: firstname,
                         username: username,
                         password: password,
+                        form: 'signup',
                     },
-                    success: function () {
+                    success: function (data) {
                         /*var dataResult = JSON.parse(data);
                         if(dataResult.statusCode==200){
                             alert("How to send?");
@@ -68,10 +70,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         //Here has to be checked if the user already exists. If yes, throw error message. If no, show success message after adding the user.
                         //It is possible to add an 'empty' user. This has to be removed.
 
-                        $(".msg").html("Success");
-                        setTimeout(function(){
-                            $("#signupmodal").hide()
-                        }, 3000);
+                        //Maybe create file in which the logic is done
+                        //in this file return echo
+                        //print the echo in this file
+                        //and check what is returned. Based on that decide if modal should be closed.
+
+                        if(data==="exists") {
+                            $(".msg").html("User already exists");
+                        }
+                        else if(data==="not exists"){
+                            $(".msg").html("Success");
+                            setTimeout(function () {
+                                $("#signupmodal").hide()
+                            }, 3000);
+                        }
                     },
                     error: function () {
                         $(".msg").html("Something went wrong!");
@@ -81,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         });
     </script>
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
+/*if ($_SERVER["REQUEST_METHOD"] == "POST"){
 $hash = hash('sha256', $password);
 $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
 if (mysqli_query($con, $sql)) {
@@ -89,7 +101,7 @@ if (mysqli_query($con, $sql)) {
 }
 else {
     echo json_encode(array("statusCode" => 201));
-}}
+}}*/
 //if Sign Up button is pressed
 /*if (isset($_POST["SignUp"])) {
     //if necessary fields are filled
