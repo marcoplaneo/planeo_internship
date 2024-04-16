@@ -37,15 +37,6 @@ if (!empty($_SESSION["status"])) {
         $_SESSION["message"] = "";
     }
 }
-if (!empty($_ENV["signUpSuccess"])){
-    if ($_ENV["signUpSuccess"] == "success") {
-        ?><p class="success"><?php echo "User created successfully.";
-    }
-    elseif ($_ENV["signUpSuccess"] == "failed"){
-        ?><p class="failed"><?php echo "User was not created. Username is already taken";
-    }
-    $_ENV["signUpSuccess"] = null;
-}
 ?>
 <!--right side of the website-->
 <div class="opening">

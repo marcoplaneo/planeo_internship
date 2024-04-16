@@ -31,12 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <br><br>
             <label>First Name: <br><input type="text" id="firstname" name="firstname"></label>
             <br><br>
-            <label>Username: <br><input type="text" id="username" name="username" required></label>
+            <label>Username: <br><input type="text" id="signupusername" name="username" required></label>
             <br><br>
-            <label>Password: <br><input type="password" id="password" name="password" required></label>
+            <label>Password: <br><input type="password" id="signuppassword" name="password" required></label>
             <br><br>
             <button type="button" class="button" id="signupbutton" name="SignUp">Sign Up</button>
-            <p class="msg"></p>
+            <p class="msgsu"></p>
         </form>
     </div>
     </body>
@@ -46,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $(function () {
             $('#signupbutton').on('click', function () {
                 var firstname = $('#firstname').val();
-                var username = $('#username').val();
-                var password = $('#password').val();
+                var username = $('#signupusername').val();
+                var password = $('#signuppassword').val();
 
                 $.ajax({
                     type: 'POST',
@@ -75,14 +75,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         //print the echo in this file
                         //and check what is returned. Based on that decide if modal should be closed.
 
-                        if(data==="exists") {
-                            $(".msg").html("User already exists");
-                        }
-                        else if(data==="not exists"){
-                            $(".msg").html("Success");
+                        if(data==="not exists"){
+                            $(".msgsu").html("Success");
                             setTimeout(function () {
-                                $("#signupmodal").hide()
+                                $("#signupmodal").hide();
                             }, 3000);
+                        }
+                        else {
+                            $(".msgsu").html("Username is already taken");
                         }
                     },
                     error: function () {
