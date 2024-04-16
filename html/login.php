@@ -27,18 +27,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="main">
         <form method="post">
             <br><br>
-            <label>Username: <br><input type="text" id="username" name="username" required></label>
+            <label>Username: <br><input type="text" id="loginusername" name="username" required></label>
             <br><br>
-            <label>Password: <br><input type="password" id="password" name="password" required></label>
+            <label>Password: <br><input type="password" id="loginpassword" name="password" required></label>
             <br><br>
-            <button type="submit" class="button" name="LogIn">Log In</button>
+            <button type="button" class="button" id="loginbutton" name="LogIn">Log In</button>
+            <p class="msgli"></p>
         </form>
     </div>
     </body>
     </html>
+    <script src="./jquery/jquery.js"></script>
+    <script>
+        $(function () {
+            $('#loginbutton').on('click', function () {
+                var username = $('#loginusername').val();
+                var password = $('#loginpassword').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: './check.php',
+                    data: {
+                        username: username,
+                        password: password,
+                        form: 'login',
+                    },
+                    success: function (data) {
+                        if(data==="not exists"){
+                            $(".msgli").html("This user does not exist");
+                        }
+                        else {
+                            if(data==="wrong password") {
+                                $(".msgli").html("Incorrect password");
+                            }
+                            else {
+                                $(".msgli").html("Success");
+                                setTimeout(function () {
+                                    window.location.href = 'index.php';
+                                }, 3000);
+                            }
+                        }
+                    },
+                    error: function () {
+                        $(".msgli").html("Something went wrong!");
+                    }
+                });
+            });
+        });
+    </script>
 <?php
 //if Log In button is pressed
-if (isset($_POST["LogIn"])) {
+/*if (isset($_POST["LogIn"])) {
     //give feedback if information is missing
     if (empty($username)) {
         echo "<br> Please enter a username";
@@ -74,6 +113,6 @@ if (isset($_POST["LogIn"])) {
             echo "<br> This user does not exist!";
         }
     }
-}
+}*/
 mysqli_close($con);
 ?>

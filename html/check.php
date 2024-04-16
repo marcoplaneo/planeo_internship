@@ -12,20 +12,33 @@ try {
 }
 
 if(!empty($_POST["username"])) {
-    $query = "SELECT * FROM user WHERE username ='" . $_POST["username"] . "'";
+    if(!empty($_POST["firstname"])) {
+        $firstname = $_POST["firstname"];
+    }
+    $username = $_POST["username"];
+    $hash = hash('sha256', $_POST["password"]);
+    $query = "SELECT * FROM user WHERE username ='$username'";
     $result = mysqli_query($con, $query);
     $count = mysqli_num_rows($result);
     if($count>0) {
-        echo "exists";
+        if($_POST["form"]=="login"){
+            $row = mysqli_fetch_assoc($result);
+            if($row["password"] != $hash){
+                echo "wrong password";
+            }
+            else {
+                session_start();
+                $_SESSION["username"] = "$username";
+                $_SESSION["password"] = "$hash";
+                $_SESSION["status"] = "started";
+            }
+        }
     }
     else{
-        echo "not exists";
         if($_POST["form"]=="signup"){
-            $firstname = $_POST["firstname"];
-            $username = $_POST["username"];
-            $hash = hash('sha256', $_POST["password"]);
             $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
             mysqli_query($con, $sql);
         }
+        echo "not exists";
     }
 }
