@@ -146,6 +146,20 @@
                             loginmodal.style.display = "none";
                         }
                     }
+
+                    document.addEventListener("keydown", function(event) {
+                        if(event.key === "Escape") {
+                            if(signupmodal && getComputedStyle(signupmodal).display !== "none") {
+                                if(spansignup) {
+                                    spansignup.click();
+                                }
+                            } else if(loginmodal && getComputedStyle(loginmodal).display !== "none") {
+                                if(spanlogin) {
+                                    spanlogin.click();
+                                }
+                            }
+                        }
+                    });
                 </script>
             <?php
             } elseif ($_SESSION["status"] == "started") {
