@@ -75,6 +75,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 });
             });
+            $(document).keypress(function(event) {
+                if(event.which == 13) {
+                    var username = $('#loginusername').val();
+                    var password = $('#loginpassword').val();
+
+                    $.ajax({
+                        type: 'POST',
+                        url: './check.php',
+                        data: {
+                            username: username,
+                            password: password,
+                            form: 'login',
+                        },
+                        success: function (data) {
+                            if (data === "not exists") {
+                                $(".msgli").html("This user does not exist");
+                            } else {
+                                if (data === "wrong password") {
+                                    $(".msgli").html("Incorrect password");
+                                } else if (data === "empty") {
+                                    $(".msgli").html("Username can not be empty");
+                                } else if (data === "emptyp\n") {
+                                    $(".msgli").html("Password can not be empty");
+                                } else {
+                                    $(".msgli").html("Success");
+                                    setTimeout(function () {
+                                        window.location.href = 'index.php';
+                                    }, 3000);
+                                }
+                            }
+                        },
+                        error: function () {
+                            $(".msgli").html("Something went wrong!");
+                        }
+                    });
+                }
+            });
         });
     </script>
 <?php
