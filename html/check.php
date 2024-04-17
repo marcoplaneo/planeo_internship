@@ -11,8 +11,8 @@ try {
     echo "Could not connect to database <br>";
 }
 
-if(!empty($_POST["username"])) {
-    if(!empty($_POST["firstname"])) {
+if (!empty($_POST["username"])) {
+    if (!empty($_POST["firstname"])) {
         $firstname = $_POST["firstname"];
     }
     $username = $_POST["username"];
@@ -20,9 +20,9 @@ if(!empty($_POST["username"])) {
     $query = "SELECT * FROM user WHERE username ='$username'";
     $result = mysqli_query($con, $query);
     $count = mysqli_num_rows($result);
-    if($count>0) {
-        if($_POST["form"]=="login"){
-            if(!empty($_POST["password"])) {
+    if ($count > 0) {
+        if ($_POST["form"] == "login") {
+            if (!empty($_POST["password"])) {
                 $row = mysqli_fetch_assoc($result);
                 if ($row["password"] != $hash) {
                     echo "wrong password";
@@ -32,25 +32,21 @@ if(!empty($_POST["username"])) {
                     $_SESSION["password"] = "$hash";
                     $_SESSION["status"] = "started";
                 }
-            }
-            else {
-                echo"emptyp";
+            } else {
+                echo "emptyp\n";
             }
         }
-    }
-    else{
-        if($_POST["form"]=="signup"){
-            if(!empty($_POST["password"])) {
+    } else {
+        if ($_POST["form"] == "signup") {
+            if (!empty($_POST["password"])) {
                 $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
                 mysqli_query($con, $sql);
-            }
-            else {
-                echo "emptyp";
+            } else {
+                echo "emptyp\n";
             }
         }
-        echo "\nnot exists";
+        echo "not exists";
     }
-}
-else {
+} else {
     echo "empty";
 }

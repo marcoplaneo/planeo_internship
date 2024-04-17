@@ -53,20 +53,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         form: 'login',
                     },
                     success: function (data) {
-                        if(data==="\nnot exists"){
+                        if (data === "not exists") {
                             $(".msgli").html("This user does not exist");
-                        }
-                        else {
-                            if(data==="wrong password") {
+                        } else {
+                            if (data === "wrong password") {
                                 $(".msgli").html("Incorrect password");
-                            }
-                            else if(data === "empty") {
+                            } else if (data === "empty") {
                                 $(".msgli").html("Username can not be empty");
-                            }
-                            else if(data === "emptyp") {
+                            } else if (data === "emptyp\n") {
                                 $(".msgli").html("Password can not be empty");
-                            }
-                            else {
+                            } else {
                                 $(".msgli").html("Success");
                                 setTimeout(function () {
                                     window.location.href = 'index.php';
