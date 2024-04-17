@@ -15,6 +15,9 @@ if (isset($_POST["deleteuser"])) {
     $sql = "DELETE FROM user WHERE username = '$username'";
 
     mysqli_query($con, $sql);
+    if (file_exists("./images/users/$username.png")) unlink("./images/users/$username.png");
+    if (file_exists("./images/users/$username.jpg")) unlink("./images/users/$username.jpg");
+    if (file_exists("./images/users/$username.jpeg")) unlink("./images/users/$username.jpeg");
     $_SESSION["status"] = "stopped";
     $_SESSION["message"] = "Success";
     redirect('index.php');
