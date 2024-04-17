@@ -22,23 +22,35 @@ if(!empty($_POST["username"])) {
     $count = mysqli_num_rows($result);
     if($count>0) {
         if($_POST["form"]=="login"){
-            $row = mysqli_fetch_assoc($result);
-            if($row["password"] != $hash){
-                echo "wrong password";
+            if(!empty($_POST["password"])) {
+                $row = mysqli_fetch_assoc($result);
+                if ($row["password"] != $hash) {
+                    echo "wrong password";
+                } else {
+                    session_start();
+                    $_SESSION["username"] = "$username";
+                    $_SESSION["password"] = "$hash";
+                    $_SESSION["status"] = "started";
+                }
             }
             else {
-                session_start();
-                $_SESSION["username"] = "$username";
-                $_SESSION["password"] = "$hash";
-                $_SESSION["status"] = "started";
+                echo"emptyp";
             }
         }
     }
     else{
         if($_POST["form"]=="signup"){
-            $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
-            mysqli_query($con, $sql);
+            if(!empty($_POST["password"])) {
+                $sql = "INSERT INTO user (firstname, username, password) VALUES ('$firstname', '$username', '$hash')";
+                mysqli_query($con, $sql);
+            }
+            else {
+                echo "emptyp";
+            }
         }
-        echo "not exists";
+        echo "\nnot exists";
     }
+}
+else {
+    echo "empty";
 }

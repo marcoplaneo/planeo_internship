@@ -53,12 +53,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         form: 'login',
                     },
                     success: function (data) {
-                        if(data==="not exists"){
+                        if(data==="\nnot exists"){
                             $(".msgli").html("This user does not exist");
                         }
                         else {
                             if(data==="wrong password") {
                                 $(".msgli").html("Incorrect password");
+                            }
+                            else if(data === "empty") {
+                                $(".msgli").html("Username can not be empty");
+                            }
+                            else if(data === "emptyp") {
+                                $(".msgli").html("Password can not be empty");
                             }
                             else {
                                 $(".msgli").html("Success");

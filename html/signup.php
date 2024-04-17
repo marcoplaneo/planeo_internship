@@ -75,11 +75,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         //print the echo in this file
                         //and check what is returned. Based on that decide if modal should be closed.
 
-                        if(data==="not exists"){
+                        if(data==="\nnot exists"){
                             $(".msgsu").html("Success");
                             setTimeout(function () {
                                 $("#signupmodal").hide();
                             }, 3000);
+                        }
+                        else if(data === "empty") {
+                            $(".msgsu").html("Username can not be empty");
+                        }
+                        else if(data === "emptyp\nnot exists") {
+                            $(".msgsu").html("Password can not be empty");
                         }
                         else {
                             $(".msgsu").html("Username is already taken");
