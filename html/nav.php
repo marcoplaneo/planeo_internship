@@ -13,15 +13,15 @@
             if (!empty($_SESSION["status"])) {
                 if ($_SESSION["status"] == "started") {
                     ?>
-            <div class="tools">
-                <button class="dropdwn">Tools
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="tools-content">
-                    <a href="shop.php">Tools</a>
-                </div>
-            </div>
-            <?php
+                    <div class="tools">
+                        <button class="dropdwn">Tools
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="tools-content">
+                            <a href="shop.php">Tools</a>
+                        </div>
+                    </div>
+                    <?php
                 }
             }
             ?>
@@ -147,14 +147,15 @@
                         }
                     }
 
-                    document.addEventListener("keydown", function(event) {
-                        if(event.key === "Escape") {
-                            if(signupmodal && getComputedStyle(signupmodal).display !== "none") {
-                                if(spansignup) {
+                    //When the user presses the escape key, close the modal
+                    document.addEventListener("keydown", function (event) {
+                        if (event.key === "Escape") {
+                            if (signupmodal && getComputedStyle(signupmodal).display !== "none") {
+                                if (spansignup) {
                                     spansignup.click();
                                 }
-                            } else if(loginmodal && getComputedStyle(loginmodal).display !== "none") {
-                                if(spanlogin) {
+                            } else if (loginmodal && getComputedStyle(loginmodal).display !== "none") {
+                                if (spanlogin) {
                                     spanlogin.click();
                                 }
                             }

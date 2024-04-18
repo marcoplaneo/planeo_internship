@@ -16,12 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Sign Up</title>
         <link href="css/style.css" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="/images/1176favicon.ico">
+        <link rel="icon" type="image/x-icon" href="./images/1176favicon.ico">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
     <!--website heading-->
@@ -41,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     </body>
     </html>
-    <script src="./jquery/jquery.js"></script>
     <script>
         var signuplogic = function () {
             var firstname = $('#firstname').val();
