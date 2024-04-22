@@ -7,8 +7,8 @@
         </button>
         <div class="burger-content">
             <a href="index.php">Home</a>
-            <a href="location.php">Location</a>
-            <a href="team.php">Team</a>
+            <a href="?page=location">Location</a>
+            <a href="?page=team">Team</a>
             <?php
             if (!empty($_SESSION["status"])) {
                 if ($_SESSION["status"] == "started") {
@@ -30,10 +30,10 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="help-content">
-                    <a href="help.php">Help</a>
-                    <a href="imprint.php">Imprint</a>
-                    <a href="feedback.php">Feedback</a>
-                    <a href="contact.php">Contact</a>
+                    <a href="?page=help">Help</a>
+                    <a href="?page=imprint">Imprint</a>
+                    <a href="?page=feedback">Feedback</a>
+                    <a href="?page=contact">Contact</a>
                 </div>
             </div>
             <?php
@@ -89,8 +89,6 @@
                     <div class="modal-content">
                         <span class="closesignup">&times;</span>
                         <?php
-                        //include("signup.php");
-                        $_GET['page'] = 'signup';
                         ?>
                     </div>
 
