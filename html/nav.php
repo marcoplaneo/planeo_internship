@@ -89,8 +89,7 @@
                     <div class="modal-content">
                         <span class="closesignup">&times;</span>
                         <?php
-                        //include("signup.php");
-                        $_GET['page'] = 'signup';
+                        include("signup.php");
                         ?>
                     </div>
 
