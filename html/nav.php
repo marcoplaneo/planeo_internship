@@ -18,7 +18,7 @@
                             <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="tools-content">
-                            <a href="shop.php">Tools</a>
+                            <a href="?page=shop">Tools</a>
                         </div>
                     </div>
                     <?php

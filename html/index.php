@@ -56,10 +56,10 @@ if (!empty($_SESSION["status"])) {
 
 <!--footer-->
 <div class="footer">
-    <p>Give us <a href="feedback.html">Feedback</a>! | If you have any questions, feel free to <a href="contact.html">contact</a>
+    <p>Give us <a href="?page=feedback">Feedback</a>! | If you have any questions, feel free to <a href="?page=contact">contact</a>
         us!
         <br>
-        <a href="aboutUs.php">About us</a> | <a id="imprints" href="imprint.html">Imprint</a>
+        <a href="?page=aboutUs">About us</a> | <a id="imprints" href="?page=imprint">Imprint</a>
         <br>
         <span id="datetime"></span></p>
     <script>
