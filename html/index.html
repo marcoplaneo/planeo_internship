@@ -1,3 +1,17 @@
+<?php
+if (!empty($_SESSION["status"])) {
+    if ($_SESSION["status"] == "started") {
+        $user = $_SESSION["username"];
+        ?><p class="success"><strong><?php echo "Hello {$user}"; ?></strong></p><?php
+    }
+    if (!empty($_SESSION["message"]) && $_SESSION["message"] == "Success"){
+        ?>
+        <p class='success'><b>User deleted successfully</b></p>
+        <?php
+        $_SESSION["message"] = "";
+    }
+}
+?>
 <!--right side of the website-->
 <div class="opening">
     <table>

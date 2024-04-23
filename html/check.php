@@ -15,6 +15,9 @@ if (!empty($_POST["username"])) {
     if (!empty($_POST["firstname"])) {
         $firstname = $_POST["firstname"];
     }
+    else {
+        $firstname = "";
+    }
     $username = $_POST["username"];
     $hash = hash('sha256', $_POST["password"]);
     $query = "SELECT * FROM user WHERE username ='$username'";
@@ -35,6 +38,15 @@ if (!empty($_POST["username"])) {
             } else {
                 echo "emptyp\n";
             }
+        }
+        else if($_POST["form"] == "delete") {
+            $sql = "DELETE FROM user WHERE username = '$username'";
+
+            mysqli_query($con, $sql);
+            if (file_exists("./images/users/$username.png")) unlink("./images/users/$username.png");
+            if (file_exists("./images/users/$username.jpg")) unlink("./images/users/$username.jpg");
+            if (file_exists("./images/users/$username.jpeg")) unlink("./images/users/$username.jpeg");
+            echo "deleted";
         }
     } else {
         if ($_POST["form"] == "signup") {

@@ -39,21 +39,6 @@ if(isset($_GET['page']) === true){
    include('index.html');
 }
 ?>
-<?php
-if (!empty($_SESSION["status"])) {
-    if ($_SESSION["status"] == "started") {
-        $user = $_SESSION["username"];
-        ?><p class="success"><strong><?php echo "Hello {$user}"; ?></strong></p><?php
-    }
-    if (!empty($_SESSION["message"]) && $_SESSION["message"] == "Success"){
-        ?>
-        <p class='success'><b>User deleted successfully</b></p>
-        <?php
-        $_SESSION["message"] = "";
-    }
-}
-?>
-
 <!--footer-->
 <div class="footer">
     <p>Give us <a href="?page=feedback">Feedback</a>! | If you have any questions, feel free to <a href="?page=contact">contact</a>

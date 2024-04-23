@@ -40,7 +40,7 @@
             if (!empty($_SESSION["status"])) {
                 if ($_SESSION["status"] == "started") {
                     ?>
-                    <a href="settings.php">Settings</a>
+                    <a href="?page=settings">Settings</a>
                     <style>
                         .help-content {
                             width: 17.65%;
@@ -89,6 +89,7 @@
                     <div class="modal-content">
                         <span class="closesignup">&times;</span>
                         <?php
+                        include("signup.php");
                         ?>
                     </div>
 
