@@ -82,13 +82,9 @@ function redirect($location = NULL){
                 },
                 success: function (data) {
                     if(data === "deleted") {
-                        //The php part is always executed. When you switch to index.php it shows the "successfully deleted" message regardless of what the user did
-                        //=> But the user is not deleted when the user didn't click the delete button
-                        <?php
-                        $_SESSION["status"] = "stopped";
-                        $_SESSION["message"] = "Success";
-                        ?>
-                        //Here has to be a page redirect but I can't get it to work
+                        setTimeout(function () {
+                            window.location.href = 'index.php';
+                        }, 2000);
                     }
                 },
                 error: function () {

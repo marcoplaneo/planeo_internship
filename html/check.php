@@ -19,7 +19,12 @@ if (!empty($_POST["username"])) {
         $firstname = "";
     }
     $username = $_POST["username"];
-    $hash = hash('sha256', $_POST["password"]);
+    if (!empty($_POST["password"])) {
+        $hash = hash('sha256', $_POST["password"]);
+    }
+    else {
+        $hash = "";
+    }
     $query = "SELECT * FROM user WHERE username ='$username'";
     $result = mysqli_query($con, $query);
     $count = mysqli_num_rows($result);
@@ -46,6 +51,9 @@ if (!empty($_POST["username"])) {
             if (file_exists("./images/users/$username.png")) unlink("./images/users/$username.png");
             if (file_exists("./images/users/$username.jpg")) unlink("./images/users/$username.jpg");
             if (file_exists("./images/users/$username.jpeg")) unlink("./images/users/$username.jpeg");
+            session_start();
+            $_SESSION["status"] = "stopped";
+            $_SESSION["message"] = "Success";
             echo "deleted";
         }
     } else {
