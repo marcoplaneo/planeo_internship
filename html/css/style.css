@@ -454,7 +454,7 @@ div.sticky {
     text-align: center;
 }
 
-.footer2 {
+/*.footer2 {
     align-self: center;
     background-color: darkgray;
     padding: 3px 100px 3px;
@@ -462,7 +462,7 @@ div.sticky {
     position: absolute;
     bottom: -250px;
     width: 89.5%;
-}
+}*/
 
 .dm {
     margin-left: -80px;
@@ -743,18 +743,18 @@ a:hover {
     }
 }
 
-@media screen and (max-width: 600px) {
+/*@media screen and (max-width: 600px) {
     .footer2 {
         bottom: -500px;
         width: 58.8%;
     }
-}
+}*/
 
-@media screen and (max-height: 650px) {
+/*@media screen and (max-height: 650px) {
     .footer2 {
         bottom: -1100px;
     }
-}
+}*/
 
 /*Try to make the navbar responsive*/
 /*
