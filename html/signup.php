@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 },
                 error: function () {
-                    $(".msg").html("Something went wrong!");
+                    $(".msgsu").html("Something went wrong!");
                 }
             });
         }
