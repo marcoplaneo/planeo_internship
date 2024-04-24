@@ -148,6 +148,7 @@ if (isset($_POST["submitprofilepicture"])) {
 }
 
 if (isset($_POST["applychanges"])) {
+    $con = mysqli_connect("mysql", "root", "root", "internship");
     if (!empty($_POST["changefirstname"]) && !empty($_POST["changeusername"])) {
         //change firstname and username
         $newusername = $_POST["changeusername"];
