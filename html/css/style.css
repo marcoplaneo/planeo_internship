@@ -444,6 +444,16 @@ div.sticky {
     bottom: -250px;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.grid-item {
+    padding: 20px;
+    text-align: center;
+}
+
 .footer2 {
     align-self: center;
     background-color: darkgray;
@@ -583,7 +593,7 @@ a:hover {
     }
 
     #co-founderpic {
-        margin-top: 0;
+        margin-top: 150px;
     }
 
     .burger-content a:hover {
