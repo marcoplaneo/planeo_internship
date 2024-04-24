@@ -63,6 +63,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $(".msgsu").html("Success");
                         setTimeout(function () {
                             $("#signupmodal").hide();
+                            $('#firstname').val("");
+                            $('#signupusername').val("");
+                            $('#signuppassword').val("");
                         }, 2000);
                     } else if (data === "empty") {
                         $(".msgsu").html("Username can not be empty");
