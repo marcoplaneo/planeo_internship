@@ -24,9 +24,6 @@ include("profile.php");
 <h1>Shop</h1>
 <?php
 include("nav.php");
-
-echo '<pre>'; var_dump($_GET);
-
 if(isset($_GET['page']) === true){
    if(file_exists($_GET['page'] . '.html') === true) {
        include($_GET['page'] . '.html');
