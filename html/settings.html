@@ -65,6 +65,7 @@ function redirect($location = NULL){
     </script>
     <input type="hidden" id="username" name="username" value="<?php echo $username; ?>">
     <input type="button" id="deleteuser" name="deleteuser" value="Delete user">
+    <p class="msg"></p>
 </form>
 
 <script>
@@ -88,7 +89,7 @@ function redirect($location = NULL){
                     }
                 },
                 error: function () {
-                    $(document).html("Something went wrong!");
+                    $(".msg").html("Something went wrong!");
                 }
             });
         });
@@ -158,9 +159,9 @@ if (isset($_POST["applychanges"])) {
             mysqli_query($con, $sql);
             $_SESSION["name"] = "$newfirstname";
             $_SESSION["username"] = "$newusername";
-            echo "Data changed successfully";
+            echo "<p>Data changed successfully</p>";
         } catch (mysqli_sql_exception $ex1) {
-            echo "That username is already taken!";
+            echo "<p>That username is already taken!</p>";
         }
     } elseif (!empty($_POST["changefirstname"])) {
         //change firstname
@@ -169,9 +170,9 @@ if (isset($_POST["applychanges"])) {
         try {
             mysqli_query($con, $sql);
             $_SESSION["name"] = "$newfirstname";
-            echo "First name changed successfully";
+            echo "<p>First name changed successfully</p>";
         } catch (mysqli_sql_exception $ex2) {
-            echo "Oops, something went wrong!";
+            echo "<p>Oops, something went wrong!</p>";
         }
     } elseif (!empty($_POST["changeusername"])) {
         //change username
@@ -180,9 +181,9 @@ if (isset($_POST["applychanges"])) {
         try {
             mysqli_query($con, $sql);
             $_SESSION["username"] = "$newusername";
-            echo "Username changed successfully";
+            echo "<p>Username changed successfully</p>";
         } catch (mysqli_sql_exception $ex3) {
-            echo "That username is already taken!";
+            echo "<p>That username is already taken!</p>";
         }
     }
 }
