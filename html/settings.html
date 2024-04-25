@@ -1,6 +1,10 @@
 <?php
 if (empty($_SESSION)){
-    redirect('index.php');
+?>
+    <script>
+        window.location.href = "index.php";
+    </script>
+<?php
 }
 $username = $_SESSION["username"];
 function redirect($location = NULL){
