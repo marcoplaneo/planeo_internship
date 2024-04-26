@@ -6,41 +6,41 @@
 * package names must be unique that's why they consist of the package/repo name and the authors name
 
 ## Syntax
-```php
-//calling a command
+```shell
+#calling a command
 php composer.phar [command]
 
-//create composer.json
+#create composer.json
 php composer.phar init
 
-//install dependencies
+#install dependencies
 php composer.phar install
 
-//update dependencies
+#update dependencies
 php compose.phar update
 
-//specify required packages
+#specify required packages
 php composer.phar require
 
-//remove packages from composer.json file
+#remove packages from composer.json file
 php composer.phar remove user/package
 
-//increase the lower limit for package versions
+#increase the lower limit for package versions
 php composer.phar bump
 
-//reinstall packages
+#reinstall packages
 php composer.phar reinstall user/package
 
-//show all available packages
+#show all available packages
 php composer.phar show
 
-//update composer to the latest version
+#update composer to the latest version
 php composer.phar self-update
 
-//clone a project
+#clone a project
 php composer.phar create-project user/package this/is/a/path/
 
-//get more information about a command
+#get more information about a command
 php composer.phar help self-update
 ```
 
