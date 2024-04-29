@@ -77,7 +77,12 @@
             isbnarray = isbn.split("");
             if (isbnarray.length === 10) {
                 for (var i = 0; i < isbnarray.length; i++) {
-                    validisbn = (isbnarray[i] * (i + 1)) + validisbn;
+                    if(isbnarray[i] === 'x') {
+                        validisbn = (10 * (i + 1)) + validisbn;
+                    }
+                    else {
+                        validisbn = (isbnarray[i] * (i + 1)) + validisbn;
+                    }
                 }
                 if (validisbn % 11 === 0) {
                     $(".isbn").html("The ISBN is valid");
