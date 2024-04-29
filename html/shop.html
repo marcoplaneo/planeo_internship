@@ -17,7 +17,14 @@
         <label class="health"></label>
     </label>
     <br><br>
-    <label>ISBN Validator</label>
+    <label>ISBN Validator
+        <br>
+        ISBN: <input type="text" id="isbn" placeholder="e.g. 978-3-8668-0192-9">
+        <br>
+        <button type="button" id="validateISBN">Validate</button>
+        <br>
+        <label class="isbn"></label>
+    </label>
     <br><br>
     <label>Domain Checker</label>
 </div>
@@ -61,6 +68,32 @@
                 $(".bmi").html("Please enter positive numbers");
             }
         }
+
+        var isbnLogic = function () {
+            var isbn = $("#isbn").val();
+            var isbnarray;
+            var validisbn = 0;
+            isbn = isbn.replace(/-/g, "");
+            isbnarray = isbn.split("");
+            if(isbnarray.length === 10) {
+                for (var i = 0; i < isbnarray.length; i++) {
+                    validisbn = (isbnarray[i] * (i+1)) + validisbn;
+                }
+                if(validisbn%11 === 0) {
+                    $(".isbn").html("The ISBN is valid");
+                }
+                else {
+                    $(".isbn").html("The ISBN is not valid");
+                }
+            }
+            else if (isbnarray.length === 13) {
+                $(".isbn").html(isbnarray);
+            }
+            else {
+                $(".isbn").html("The ISBN is not valid");
+            }
+        }
+
         $("#calculateBMI").on("click", function () {
             bmiLogic();
         });
@@ -77,6 +110,15 @@
         $("#age").keypress(function (event) {
             if (event.which === 13) {
                 bmiLogic();
+            }
+        });
+
+        $("#validateISBN").on("click", function () {
+            isbnLogic();
+        });
+        $("#isbn").keypress(function (event) {
+            if (event.which === 13) {
+                isbnLogic();
             }
         });
     });
