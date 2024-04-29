@@ -75,21 +75,26 @@
             var validisbn = 0;
             isbn = isbn.replace(/-/g, "");
             isbnarray = isbn.split("");
-            if(isbnarray.length === 10) {
+            if (isbnarray.length === 10) {
                 for (var i = 0; i < isbnarray.length; i++) {
-                    validisbn = (isbnarray[i] * (i+1)) + validisbn;
+                    validisbn = (isbnarray[i] * (i + 1)) + validisbn;
                 }
-                if(validisbn%11 === 0) {
+                if (validisbn % 11 === 0) {
                     $(".isbn").html("The ISBN is valid");
-                }
-                else {
+                } else {
                     $(".isbn").html("The ISBN is not valid");
                 }
-            }
-            else if (isbnarray.length === 13) {
-                $(".isbn").html(isbnarray);
-            }
-            else {
+            } else if (isbnarray.length === 13) {
+                for (var j = 0; j < isbnarray.length; j++) {
+                    var exponent = (((j + 1) + 1) % 2);
+                    validisbn = (isbnarray[j] * Math.pow(3, exponent)) + validisbn;
+                }
+                if (validisbn % 10 === 0) {
+                    $(".isbn").html("The ISBN is valid");
+                } else {
+                    $(".isbn").html("The ISBN is not valid");
+                }
+            } else {
                 $(".isbn").html("The ISBN is not valid");
             }
         }
