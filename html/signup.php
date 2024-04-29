@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 signuplogic();
             });
             $(document).keypress(function(event) {
-                if(event.which == 13) {
+                if(event.which === 13) {
                     signuplogic();
                 }
             });

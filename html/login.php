@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 loginlogic();
             });
             $(document).keypress(function(event) {
-                if(event.which == 13) {
+                if(event.which === 13) {
                     loginlogic();
                 }
             });

@@ -23,7 +23,7 @@
 </div>
 <script>
     $(function () {
-        var bmiLogic = function() {
+        var bmiLogic = function () {
             var mass = $("#mass").val();
             var height = $("#height").val();
             var age = $("#age").val();
@@ -65,17 +65,17 @@
             bmiLogic();
         });
         $("#mass").keypress(function (event) {
-            if(event.which == 13) {
+            if (event.which === 13) {
                 bmiLogic();
             }
         });
         $("#height").keypress(function (event) {
-            if(event.which == 13) {
+            if (event.which === 13) {
                 bmiLogic();
             }
         });
         $("#age").keypress(function (event) {
-            if(event.which == 13) {
+            if (event.which === 13) {
                 bmiLogic();
             }
         });
