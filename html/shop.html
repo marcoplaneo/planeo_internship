@@ -23,7 +23,7 @@
 </div>
 <script>
     $(function () {
-        $("#calculateBMI").on("click", function () {
+        var bmiLogic = function() {
             var mass = $("#mass").val();
             var height = $("#height").val();
             var age = $("#age").val();
@@ -59,6 +59,24 @@
                 }
             } else {
                 $(".bmi").html("Please enter positive numbers");
+            }
+        }
+        $("#calculateBMI").on("click", function () {
+            bmiLogic();
+        });
+        $("#mass").keypress(function (event) {
+            if(event.which == 13) {
+                bmiLogic();
+            }
+        });
+        $("#height").keypress(function (event) {
+            if(event.which == 13) {
+                bmiLogic();
+            }
+        });
+        $("#age").keypress(function (event) {
+            if(event.which == 13) {
+                bmiLogic();
             }
         });
     });
