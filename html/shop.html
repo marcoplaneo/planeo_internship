@@ -74,6 +74,7 @@
             var isbnarray;
             var validisbn = 0;
             isbn = isbn.replace(/-/g, "");
+            isbn = isbn.replace(/ /g, "");
             isbnarray = isbn.split("");
             if (isbnarray.length === 10) {
                 for (var i = 0; i < isbnarray.length; i++) {
