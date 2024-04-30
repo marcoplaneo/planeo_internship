@@ -121,6 +121,10 @@ p {
     margin-right: 50px;
 }
 
+label {
+    cursor: auto;
+}
+
 .success {
     color: teal;
     font-size: 30px;
