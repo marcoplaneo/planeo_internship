@@ -1,3 +1,19 @@
+<?php
+
+use Iodev\Whois\Factory;
+
+require 'vendor/autoload.php';
+
+// Creating default configured client
+$whois = Factory::get()->createWhois();
+
+//print_r([
+//'Domain' => $info->domainName,
+//'Registrar' => $info->registrar,
+//'Domain created' => date("Y-m-d", $info->creationDate),
+//'Domain expires' => date("Y-m-d", $info->expirationDate),
+//]);
+?>
 <!-- main part of subsite-->
 <div class="main">
     <label>Contact Formular</label>
@@ -26,8 +42,52 @@
         <label class="isbn"></label>
     </label>
     <br><br>
-    <label>Domain Checker</label>
+    <form method="post">
+        <label>Domain Checker
+            <br>
+            <input type="text" id="domainInput" name="domainInput" placeholder="e.g. google.com">
+            <br>
+            <button type="submit" class="button" id="checkDomain" name="checkDomain">Check Domain</button>
+            <br>
+            <label class="output"></label>
+        </label>
+    </form>
 </div>
+<?php
+if(isset($_POST["checkDomain"])) {
+
+    $domain = $_POST["domainInput"];
+
+    if($domain != null) {
+            // Getting parsed domain info
+            if($whois->isDomainAvailable($domain)) {
+                echo "This domain does not exist or the information can not be read";
+            }
+            else {
+                $info = $whois->loadDomainInfo($domain);
+                if($info->creationDate != null) {
+                    $creationDate = date('Y-m-d', $info->creationDate);
+                }
+                else {
+                    $creationDate = "empty";
+                }
+                if($info->expirationDate != null) {
+                    $expirationDate = date('Y-m-d', $info->expirationDate);
+                }
+                else {
+                    $expirationDate = "empty";
+                }
+                echo "Domain Name: $info->domainName<br>
+                Registrar: $info->registrar<br>
+                Creation Date: $creationDate<br>
+                Expiration Date: $expirationDate";
+            }
+        }
+        else {
+            echo "Please enter a domain";
+        }
+}
+?>
 <script>
     $(function () {
         var bmiLogic = function () {
@@ -78,10 +138,9 @@
             isbnarray = isbn.split("");
             if (isbnarray.length === 10) {
                 for (var i = 0; i < isbnarray.length; i++) {
-                    if(isbnarray[i] === 'x') {
+                    if (isbnarray[i] === 'x') {
                         validisbn = (10 * (i + 1)) + validisbn;
-                    }
-                    else {
+                    } else {
                         validisbn = (isbnarray[i] * (i + 1)) + validisbn;
                     }
                 }
