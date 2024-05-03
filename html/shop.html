@@ -1,5 +1,13 @@
 <?php
 
+if (empty($_SESSION)){
+?>
+<script>
+    window.location.href = "index.php";
+</script>
+<?php
+}
+
 use Iodev\Whois\Factory;
 
 require 'vendor/autoload.php';
