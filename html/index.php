@@ -21,7 +21,17 @@ session_start();
 include("profile.php");
 ?>
 <!--website heading-->
-<h1>Shop</h1>
+<h1><?php
+    if(isset($_GET['page'])) {
+        $heading = str_split($_GET['page'], '1');
+        echo strtoupper($heading[0]);
+        for ($i = 1; $i < count($heading); $i++) {
+            echo $heading[$i];
+        }
+    } else {
+        echo 'Shop';
+    }
+?></h1>
 <?php
 include("nav.php");
 if(isset($_GET['page']) === true){
