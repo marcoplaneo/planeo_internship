@@ -70,13 +70,13 @@ $whois = Factory::get()->createWhois();
             $mail->Body = $_POST["contactInput"];
             $mail->AltBody = strip_tags($_POST["contactInput"]);
             if($mail->send()) {
-                echo "Message has been sent";
+                echo "Message has been sent!";
             }
             else {
-                echo "There was an error sending your message";
+                echo "There was an error sending your message!";
             }
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: ";
+            echo "Message could not be sent. Mailer Error: ".$e->getMessage();
         }
     }
     ?>
