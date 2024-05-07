@@ -9,8 +9,14 @@ if (empty($_SESSION)){
 }
 
 use Iodev\Whois\Factory;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
+
+// activate/deactivate exceptions per variable
+$debug = false;
 
 // Creating default configured client
 $whois = Factory::get()->createWhois();
@@ -24,7 +30,51 @@ $whois = Factory::get()->createWhois();
 ?>
 <!-- main part of subsite-->
 <div class="main">
-    <label>Contact Formular</label>
+    <form method="post">
+        <label>Contact Formular
+            <br>
+            Subject: <input type="text" id="subject" name="subject">
+            <br><br>
+            Message:
+            <br>
+            <textarea  id="contactInput" name="contactInput" rows="10" cols="50"></textarea>
+            <br>
+            <button type="submit" class="button" id="send" name="send">Send</button>
+            <br>
+        </label>
+    </form>
+    <?php
+    if(isset($_POST["send"])) {
+        try {
+            // create instance PHPMailer-class
+            $mail = new PHPMailer($debug);
+            if ($debug) {
+                // print log
+                $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        }
+            // authentication via SMTP
+            $mail->isSMTP();
+            $mail->SMTPAuth = true;
+            // login
+            $mail->Host = "smtp.example.com";
+            $mail->Port = 587;
+            $mail->Username = "name.surname@example.com";
+            $mail->Password = "Password1";
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->setFrom('name.surname@example.com', 'Name');
+            $mail->addAddress('name.surname@example.com');
+            $mail->CharSet = 'UTF-8';
+            $mail->Encoding = 'base64';
+            $mail->isHTML(true);
+            $mail->Subject = $_POST["subject"];
+            $mail->Body = $_POST["contactInput"];
+            $mail->AltBody = strip_tags($_POST["contactInput"]);
+            $mail->send();
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: ";
+        }
+    }
+    ?>
     <br><br>
     <label>BMI Calculator
         <br>
@@ -57,7 +107,6 @@ $whois = Factory::get()->createWhois();
             <br>
             <button type="submit" class="button" id="checkDomain" name="checkDomain">Check Domain</button>
             <br>
-            <label class="output"></label>
         </label>
     </form>
 </div>
