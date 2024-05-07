@@ -51,7 +51,7 @@ $whois = Factory::get()->createWhois();
             if ($debug) {
                 // print log
                 $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-        }
+            }
             // authentication via SMTP
             $mail->isSMTP();
             $mail->SMTPAuth = true;
@@ -73,7 +73,7 @@ $whois = Factory::get()->createWhois();
                 echo "Message has been sent!";
             }
             else {
-                echo "There was an error sending your message!";
+                echo "There was an error sending your message! Please check if the message is not empty.";
             }
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: ".$e->getMessage();
