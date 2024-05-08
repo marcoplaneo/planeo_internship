@@ -144,6 +144,11 @@ if(isset($_POST["checkDomain"])) {
                 Registrar: $info->registrar<br>
                 Creation Date: $creationDate<br>
                 Expiration Date: $expirationDate";
+                ?>
+                <script>
+                    window.location.href = "index.php?page=shop#domainInput";
+                </script>
+                <?php
             }
         }
         else {
