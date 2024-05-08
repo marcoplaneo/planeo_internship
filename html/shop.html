@@ -31,8 +31,9 @@ $whois = Factory::get()->createWhois();
 <!-- main part of subsite-->
 <div class="main">
     <form method="post">
-        <label>Contact Formular
-            <br>
+        <br>
+        <label><strong>Contact Formular</strong>
+            <br><br>
             Subject: <input type="text" id="subject" name="subject">
             <br><br>
             Message:
@@ -80,9 +81,9 @@ $whois = Factory::get()->createWhois();
         }
     }
     ?>
-    <br><br>
-    <label>BMI Calculator
-        <br>
+    <br><br><br>
+    <label><strong>BMI Calculator</strong>
+        <br><br>
         Mass: <input type="text" id="mass" placeholder="e.g. 81.5"> kg
         <br>
         Height: <input type="text" id="height" placeholder="e.g. 1.75"> m
@@ -95,19 +96,19 @@ $whois = Factory::get()->createWhois();
         <br>
         <label class="health"></label>
     </label>
-    <br><br>
-    <label>ISBN Validator
-        <br>
+    <br><br><br>
+    <label><strong>ISBN Validator</strong>
+        <br><br>
         ISBN: <input type="text" id="isbn" placeholder="e.g. 978-3-8668-0192-9">
         <br>
         <button type="button" class="button" id="validateISBN">Validate</button>
         <br>
         <label class="isbn"></label>
     </label>
-    <br><br>
+    <br><br><br>
     <form method="post">
-        <label>Domain Checker
-            <br>
+        <label><strong>Domain Checker</strong>
+            <br><br>
             <input type="text" id="domainInput" name="domainInput" placeholder="e.g. google.com">
             <br>
             <button type="submit" class="button" id="checkDomain" name="checkDomain">Check Domain</button>
