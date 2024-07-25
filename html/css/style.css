@@ -10,19 +10,7 @@ body, html {
     background-color: black;
     color: white;
 
-    #feedback {
-        background-color: black;
-        border-color: white;
-        color: white;
-    }
-
-    #name {
-        background-color: black;
-        border-color: white;
-        color: white;
-    }
-
-    #mail {
+    #feedback, #name, #mail, #subject, #contactInput, #mass, #height, #age, #isbn, #domainInput {
         background-color: black;
         border-color: white;
         color: white;
