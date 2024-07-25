@@ -1,8 +1,6 @@
 body, html {
     margin: 0;
     padding: 0;
-    background-color: white;
-    color: black;
     font-size: 25px;
     max-height: 160%;
     font-family: 'Inter', sans-serif;
